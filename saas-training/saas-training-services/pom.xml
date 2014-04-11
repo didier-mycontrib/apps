@@ -1,0 +1,176 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.mycontrib.apps</groupId>
+    <artifactId>saas-training</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>saas-training-services</artifactId>
+  
+  <properties>
+   		  <org.springframework.version>3.1.2.RELEASE</org.springframework.version>
+   		 <org.hibernate.version>3.5.1-Final</org.hibernate.version>  <!-- ou bien 4.1.7.Final -->	   		  		
+	</properties>
+  
+  <dependencies>
+  
+  <dependency>
+		<artifactId>saas-training-itf</artifactId>
+    <groupId>org.mycontrib.apps</groupId>
+    <version>0.1-SNAPSHOT</version>
+	</dependency>
+	
+  
+	<dependency>
+		<groupId>org.mycontrib.generic</groupId>
+ 		<artifactId>generic-jee-back-test-common</artifactId>
+  		<version>1.0</version>
+  		<scope>test</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.mycontrib.generic</groupId>
+ 		<artifactId>generic-jee-back-test-spring-impl</artifactId>
+  		<version>1.0</version>
+  		<scope>test</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.mycontrib.generic</groupId>
+ 		<artifactId>generic-monitor-utils</artifactId>
+  		<version>1.0</version>
+  		<scope>compile</scope>
+	</dependency>
+		 
+	 <dependency>
+			<groupId>org.mycontrib.generic</groupId>
+  			<!-- <artifactId>generic-jee-back-utils-abstract</artifactId> -->
+  			<artifactId>generic-jee-back-utils-spring-impl</artifactId>
+  			<version>1.0</version>
+  			<scope>compile</scope>
+		</dependency>
+				
+      
+	 	 <dependency>
+    	<groupId>org.dbunit</groupId>
+    	<artifactId>dbunit</artifactId>
+    	<version>2.4.8</version>
+	</dependency>
+	 
+  
+		
+    	<dependency>
+    		<groupId>net.sf.dozer</groupId>
+   			 <artifactId>dozer</artifactId>
+   			 <version>5.3.1</version>
+   			 <scope>compile</scope>
+		</dependency>
+		
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${org.hibernate.version}</version> 
+			<scope>compile</scope>			
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${org.hibernate.version}</version> 
+		</dependency>
+		
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+		
+		<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>   
+            <version>1.0.0.GA</version>
+             <scope>compile</scope>                     
+        </dependency>
+		
+		<dependency>
+     		<groupId>org.hibernate</groupId>
+     		<artifactId>hibernate-validator</artifactId>
+     		<version>4.2.0.Final</version>  <!--  3.0.0.ga , 4.0.2.GA ,4.2.0.Final -->
+	   </dependency>
+
+      <!--  <artifactId>spring-core</artifactId>
+         et <artifactId>spring-beans</artifactId>
+         et <artifactId>spring-aop</artifactId>
+          sont indirectement lies a spring-context -->
+
+	
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		
+		
+		<dependency>  
+             <groupId>javax.inject</groupId>  
+             <artifactId>javax.inject</artifactId>  
+             <version>1</version>  
+        </dependency>
+		
+		<dependency>
+           <groupId>org.aspectj</groupId>
+           <artifactId>aspectjrt</artifactId>
+           <version>1.6.8</version>
+           <scope>runtime</scope>
+       </dependency> 
+       
+        <dependency>
+           <groupId>org.aspectj</groupId>
+           <artifactId>aspectjweaver</artifactId> <!--  pour annotations @Before , @Around , .... -->
+           <version>1.6.8</version>
+           <scope>runtime</scope>
+       </dependency>
+       
+		
+		<!-- <artifactId>spring-tx</artifactId> et 
+		     <artifactId>spring-jdbc</artifactId> sont indirectement lies a spring-orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+			
+	</dependencies>
+	
+  
+</project>

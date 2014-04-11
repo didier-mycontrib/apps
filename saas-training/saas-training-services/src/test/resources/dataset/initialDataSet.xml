@@ -1,0 +1,59 @@
+   <dataset>  
+     <!--  <TableName column1Name="value1_ofRow1" column2Name="value2_ofRow1""/>  -->
+     <!--  <TableName column1Name="value1_ofRow2" column2Name="value2_ofRow2""/>  -->
+     <!-- <Table eventuellement sans pkColumn="..." if auto_increment /> -->
+
+      
+<SaasRoleAccount idAccount="1" saasRole="ADMIN_OF_ORG" email="admin@org1.com" userName="adminOf_org1" password="pwdAdminOf_org1" generic="true"/>  
+<SaasRoleAccount idAccount="2" saasRole="ADMIN_OF_ORG" email="admin@org2.com" userName="adminOf_org2" password="pwdAdminOf_org2" generic="true"/>   
+<SaasRoleAccount idAccount="3" saasRole="USER_OF_ORG"  email="somebody@org1.com" userName="userOf_org1" password="pwdUserOf_org1" generic="true" />   
+<SaasRoleAccount idAccount="4" saasRole="USER_OF_ORG" email="somebody@org2.com" userName="userOf_org2" password="pwdUserOf_org2" generic="true" />
+<SaasRoleAccount idAccount="5" saasRole="AUTHOR_OF_ORG" email="author@org1.com" userName="authorOf_org1" password="pwdAuthorOf_org1" generic="true"/>  
+<SaasRoleAccount idAccount="6" saasRole="AUTHOR_OF_ORG" email="author@org2.com" userName="authorOf_org2" password="pwdAuthorOf_org2" generic="true"/> 
+<SaasRoleAccount idAccount="7" saasRole="ADMIN_OF_SAAS" email="admin@saas.com" userName="adminOfSaas" password="pwdAdminOfSaas" generic="true"/>    
+<SaasRoleAccount idAccount="8" saasRole="USER_OF_ORG"  email="alain.therieur@org1.com" userName="alain-therieur" password="pwd" generic="false" />
+<SaasRoleAccount idAccount="9" saasRole="USER_OF_ORG"  email="alex.therieur@org1.com" userName="alex-therieur" password="pwd" generic="false" />      
+
+<SaasOrg idOrg="1" name="org1" info="info1" ref_genericUserOfOrgAccount="3" ref_genericAdminOfOrgAccount="1" ref_genericAuthorOfOrgAccount="5"/>   
+<SaasOrg idOrg="2" name="org2" info="info2" ref_genericUserOfOrgAccount="4" ref_genericAdminOfOrgAccount="2" ref_genericAuthorOfOrgAccount="6"/> 
+
+
+<SaasGroup idGroup="1" name="group1_of_org1" info="info1" ref_org="1" />   
+<SaasGroup idGroup="2" name="group2_of_org1" info="info2" ref_org="1" />   
+<SaasGroup idGroup="3" name="group1_of_org2" info="info3" ref_org="2" />   
+<SaasGroup idGroup="4" name="group2_of_org2" info="info4" ref_org="2" />   
+
+<SaasUser userId="1" firstName="alain" lastName="therieur" info="info1" ref_saasAccount="8" ref_group="1" />   
+<SaasUser userId="2" firstName="alex" lastName="therieur" info="info2" ref_saasAccount="9" ref_group="1" />         
+     
+     
+<McqSubject subjectId="1" title='sujet_1' shared="false" ownerOrgId="1" />
+<Mcq id="1" title="qcm1" nbQuestions="2" shared="true" ownerOrgId="1" keyWords="java;jee" />
+<Mcq id="2" title="qcm2" nbQuestions="1" shared="false" ownerOrgId="1"  keyWords="xml" />
+<McqSubjectMcq ref_subject="1"   ref_mcq="1"/>
+<McqSubjectMcq ref_subject="1"   ref_mcq="2"/>
+
+<QuestionMcq idQuestion="1" text="java est ..." exclusiveResponse="true" questionNumber="1" ref_mcq="1" />            
+<ResponseMcq idQuestion="1" responseNum="A" text="un langage purement interprete" ok="false" />  
+<ResponseMcq idQuestion="1" responseNum="B" text="un langage purement compile" ok="false" />
+<ResponseMcq idQuestion="1" responseNum="C" text="un langage semi compile et semi interpete" ok="true" />
+
+<QuestionMcq idQuestion="2" text="tomcat est ..." exclusiveResponse="true" questionNumber="2" ref_mcq="1" />       
+<ResponseMcq idQuestion="2" responseNum="A" text="un gros chat" ok="false" />    
+<ResponseMcq idQuestion="2" responseNum="B" text="un conteneur web" ok="true" />   
+<ResponseMcq idQuestion="2" responseNum="C" text="un mot clef du langage java" ok="false" />             
+     
+<QuestionMcq idQuestion="3" text="xml est ..." exclusiveResponse="true" questionNumber="1" ref_mcq="2" />     
+<ResponseMcq idQuestion="3" responseNum="A" text="un meta langage pour document" ok="true" />      
+<ResponseMcq idQuestion="3" responseNum="B" text="un SGBDR" ok="false" />  
+<ResponseMcq idQuestion="3" responseNum="C" text="un protocole réseau" ok="false" />              
+
+<McqOfficialSession idSession="1" startDateTime="null" duration="20" ref_mcq="1" ref_saasOrg="1" ref_assignedGroup="1" />   
+<McqUserSession mcqUserSessionId="1" nbGoodResponses="3" pctGoodResponses="66" submitDateTime="null" ref_mcq="1" ref_user="1" ref_officialSession="1" />   
+<QuestionResponseChoice mcqUserSessionId="1" questionNumber="1" choiceString="B" />   
+<QuestionResponseChoice mcqUserSessionId="1" questionNumber="2" choiceString="C" />   
+<QuestionResponseChoice mcqUserSessionId="1" questionNumber="3" choiceString="B" />   
+<QuestionResponseChoice mcqUserSessionId="1" questionNumber="4" choiceString="A" />   
+<QuestionResponseChoice mcqUserSessionId="1" questionNumber="5" choiceString="A" />        
+     
+   </dataset>  

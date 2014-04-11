@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageTitle">mcqOptions</ui:define>
+<ui:define name="pageHeader">options du qcm</ui:define>
+<ui:define name="body">
+       <h:messages/>     
+	<h:form id="mcqOptions" >
+	   <h:panelGrid columns="2">
+	   <h:outputLabel for="outputTextmcqId" value="id qcm:"/><h:outputText id="outputTextmcqId" value="#{mcqBuild.mcqId}"/>
+	   <h:outputLabel for="inputTextTitle" value="titre qcm:"/><h:inputText id="inputTextTitle" value="#{mcqBuild.mcq.title}"/>
+	   <h:outputLabel for="inputTextKeyWords" value="mots clefs:"/><h:inputText id="inputTextKeyWords" value="#{mcqBuild.mcq.keyWords}"/>
+	   <h:outputLabel for="selectBooleanShared" value="partagé / public:"/><h:selectBooleanCheckbox id="selectBooleanShared" value="#{mcqBuild.mcq.shared}"/>  
+	    <h:outputLabel for="outputTextNbQuestions" value="nombre total de questions:"/><h:outputText id="outputTextNbQuestions" value="#{mcqBuild.mcq.nbQuestions} (actuellement)"/> 
+	   <h:outputLabel for="inputTextQuestionRandomSubListSize" value="nombre de questions à poser(*):"/>
+	      <h:inputText id="inputTextQuestionRandomSubListSize" value="#{mcqBuild.mcq.questionRandomSubListSize}"/>  
+        <h:commandButton value="mettre à jour options" action="#{mcqBuild.updateMcqOptions}"/>
+           <h:commandButton value="mettre à jour questions" action="#{mcqBuild.updateMcqQuestions}"/>
+           
+        <p>(enregistrer la cible du lien sous ...)</p>
+            <h:outputLink id="exportMcqLink" value="../exportMcq?mcqId=#{mcqBuild.mcqId}">export xml</h:outputLink>
+        
+	    </h:panelGrid>
+	    
+	</h:form>
+	<p>(*)exemple: sur un qcm de 50 questions en tout , on tire aléatoirement une sous liste de 10 questions.
+	ceci permet à une personne d'effectuer plusieurs fois le même qcm pour s'entraîner.
+	Cette valeur n'est significative que si elle est inférieure au nombre total de questions et sera ignorée dans le cas contraire</p>
+	
+</ui:define>
+</ui:composition>
+</html>

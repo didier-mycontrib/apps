@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageTitle">editMcq</ui:define>
+<ui:define name="pageHeader">
+Question <h:outputText value="#{mcqBuild.currentQuestionIndex + 1}" /> / <h:outputText value="#{mcqBuild.nbQuestions}" />
+</ui:define>
+<ui:define name="body">  
+    <script>
+    function setUpdated(){
+    	document.getElementById("mcq:inputHiddenQuestionUpdated").value="true";//as string
+    	document.getElementById("mcq:previousUpdateBtn").value="&lt;&lt; update and previous";
+    	document.getElementById("mcq:nextUpdateBtn").value="update and next/new &gt;&gt;";
+    	document.getElementById("mcq:updateBtn").disabled=false; //as boolean
+    }
+    function switchExclusiveMode(){
+    	if(document.getElementById("mcq:checkboxEclusiveMode").checked==true)
+    		{//alert("exclusive");
+    		document.getElementById("mcq:dataTableResponses:0:selectOneRadioExclusive").style.display="block";
+    		document.getElementById("mcq:dataTableResponses:0:selectOneRadioExclusive").class="responseNumber";
+    		document.getElementById("mcq:dataTableResponses:0:dataTableNonEclusive").style.display="none";
+    		}
+    	else{//alert("non_exclusive");
+    		document.getElementById("mcq:dataTableResponses:0:selectOneRadioExclusive").style.display="none";
+    		document.getElementById("mcq:dataTableResponses:0:dataTableNonEclusive").style.display="block";
+    	}	
+    }
+    </script>   
+	<h:form id="mcq" >
+	    <h:inputHidden id="inputHiddenQuestionUpdated" value="#{mcqBuild.questionUpdated}" />
+	    <b>Question: </b>  <h:inputText value="#{mcqBuild.currentQuestion.text}" size="48"  onkeypress="setUpdated()" />
+	    <hr/>
+	    <u>Réponses:</u>  (en mode : exclusif <h:selectBooleanCheckbox value="#{mcqBuild.currentQuestion.exclusiveResponse}"
+	    id="checkboxEclusiveMode" onchange="setUpdated();switchExclusiveMode()">
+	         
+	    </h:selectBooleanCheckbox> ) <br/>
+	    
+	    <h:dataTable id="dataTableResponses" 
+	    value="#{mcqBuild.oneLineSpeudoList}" var="l"  >
+		    <h:column >
+			    <h:selectOneRadio id="selectOneRadioExclusive" styleClass="#{mcqBuild.exclusiveCssClass}" layout="pageDirection"
+			            value="#{mcqBuild.exclusiseResponseNum}"  onchange="setUpdated()" >	               
+			         <f:selectItems value="#{mcqBuild.exclusiveResponseNumList}" 
+			         var="rn" itemLabel="#{rn}" itemValue="#{rn}"/>
+			    </h:selectOneRadio>
+			    <!-- or if non exlusive -->
+			    <h:dataTable  id="dataTableNonEclusive" styleClass="#{mcqBuild.nonExclusiveCssClass}" 
+	    						value="#{mcqBuild.currentQuestion.responseList}" var="r" >
+			         <h:column>
+			              <h:outputText value="#{r.responseNum}" />
+			         </h:column> 
+			         <h:column>
+			              <h:selectBooleanCheckbox id="selectOK" value="#{r.ok}" onchange="setUpdated()"  />
+			         </h:column>	         
+	    		</h:dataTable> 
+		   </h:column>
+		    <h:column>
+			    <h:dataTable id="dataTableResponsesExclusive"  
+			    value="#{mcqBuild.currentQuestion.responseList}" var="r" >
+			          <h:column>
+			              <h:inputText value="#{r.text}" size="56" onkeypress="setUpdated()"/>
+			         </h:column>	         
+			    </h:dataTable>
+		    </h:column>
+	  </h:dataTable>
+	   
+	    <h:commandButton value="&lt;&lt; previous"   action="#{mcqBuild.updateQuestionAndPreviousIfAny}" 
+	       disabled="#{mcqBuild.currentQuestionIndex==0}" id="previousUpdateBtn"/> 
+	     <h:commandButton id="updateBtn" value="update" action="#{mcqBuild.updateQuestion}"
+	       disabled="#{!mcqBuild.questionUpdated}"  />
+	    <h:commandButton value="#{mcqBuild.nextOrNewLabel} &gt;&gt;" id="nextUpdateBtn"
+	    action="#{mcqBuild.updateQuestionAndNextOrNew}" /> <br/>
+	    <h:outputLabel for="confirmDeleteCheckbox" value="confirm"  rendered="#{mcqBuild.isLastQuestion and mcqBuild.currentQuestionIndex!=0}" />  
+	    <h:selectBooleanCheckbox id="confirmDeleteCheckbox"  value="#{mcqBuild.confirmDelete}"  rendered="#{mcqBuild.isLastQuestion and mcqBuild.currentQuestionIndex!=0}" />
+	    <h:commandButton value="remove this question" action="#{mcqBuild.removeThisQuestion}"
+	       rendered="#{mcqBuild.isLastQuestion and mcqBuild.currentQuestionIndex!=0}" />
+	   
+	</h:form>
+	<h:messages/>
+</ui:define>
+</ui:composition>
+</html>

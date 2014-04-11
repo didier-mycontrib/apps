@@ -1,0 +1,127 @@
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.DefaultTableIterator - getTable() - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=info) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=info) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=info) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=lastName) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=lastName) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=lastName) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=firstName) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=firstName) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=firstName) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=userId) - start
+2014-04-11 17:18:22,058 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-04-11 17:18:22,059 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-04-11 17:18:22,059 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=userId) - start
+2014-04-11 17:18:22,059 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=userId) - start
+2014-04-11 17:18:22,059 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=saasAccount) - start
+2014-04-11 17:18:22,059 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-04-11 17:18:22,059 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-04-11 17:18:22,059 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=saasAccount) - start
+2014-04-11 17:18:22,059 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=saasAccount) - start
+2014-04-11 17:18:22,059 INFO main org.mycontrib.generic.test.GenericDaoTest - 	 nouvelle valeur de l'entite (modifiee): SaasUser(info=info def,lastName=Nom,firstName=prenom,userId=4)
+2014-04-11 17:18:22,059 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
+2014-04-11 17:18:22,059 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.deleteEntity]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2014-04-11 17:18:22,059 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 13972295020
+2014-04-11 17:18:22,059 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@18b619b] for JPA transaction
+2014-04-11 17:18:22,059 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
+2014-04-11 17:18:22,059 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
+2014-04-11 17:18:22,059 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
+2014-04-11 17:18:22,062 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
+2014-04-11 17:18:22,062 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
+2014-04-11 17:18:22,062 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@18b619b] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@19ca1ae] does not support JDBC Connection retrieval
+2014-04-11 17:18:22,063 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-04-11 17:18:22,063 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-04-11 17:18:22,063 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_1_, saasuser0_.firstName as firstName6_1_, saasuser0_.info as info6_1_, saasuser0_.lastName as lastName6_1_, saasuser0_.ref_saasAccount as ref5_6_1_, saasrolea1_.idAccount as idAccount5_0_, saasrolea1_.email as email5_0_, saasrolea1_.generic as generic5_0_, saasrolea1_.password as password5_0_, saasrolea1_.saasRole as saasRole5_0_, saasrolea1_.userName as userName5_0_ from SaasUser saasuser0_ left outer join SaasRoleAccount saasrolea1_ on saasuser0_.ref_saasAccount=saasrolea1_.idAccount where saasuser0_.userId=?
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.loader.Loader - result row: null, EntityKey[org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.engine.TwoPhaseLoad - resolving associations for [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.engine.TwoPhaseLoad - done materializing entity [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.loader.Loader - done entity load
+2014-04-11 17:18:22,064 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2014-04-11 17:18:22,064 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@18b619b]
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - processing flush-time cascades
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - dirty checking collections
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 1 deletions to 1 objects
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.pretty.Printer - listing entities:
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.pretty.Printer - org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser{lastName=Nom, saasAccount=null, userId=4, firstName=prenom, info=info def}
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.SQL - delete from SaasUser where userId=?
+2014-04-11 17:18:22,064 DEBUG main org.hibernate.jdbc.AbstractBatcher - Executing batch size: 1
+2014-04-11 17:18:22,065 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-04-11 17:18:22,067 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
+2014-04-11 17:18:22,067 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
+2014-04-11 17:18:22,067 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
+2014-04-11 17:18:22,067 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
+2014-04-11 17:18:22,067 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@18b619b] after transaction
+2014-04-11 17:18:22,067 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2014-04-11 17:18:22,067 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
+2014-04-11 17:18:22,067 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.getEntityById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2014-04-11 17:18:22,067 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 13972295020
+2014-04-11 17:18:22,067 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@12a2ab8] for JPA transaction
+2014-04-11 17:18:22,067 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
+2014-04-11 17:18:22,067 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
+2014-04-11 17:18:22,067 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
+2014-04-11 17:18:22,070 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
+2014-04-11 17:18:22,070 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
+2014-04-11 17:18:22,070 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@12a2ab8] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@19ca1ae] does not support JDBC Connection retrieval
+2014-04-11 17:18:22,070 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_1_, saasuser0_.firstName as firstName6_1_, saasuser0_.info as info6_1_, saasuser0_.lastName as lastName6_1_, saasuser0_.ref_saasAccount as ref5_6_1_, saasrolea1_.idAccount as idAccount5_0_, saasrolea1_.email as email5_0_, saasrolea1_.generic as generic5_0_, saasrolea1_.password as password5_0_, saasrolea1_.saasRole as saasRole5_0_, saasrolea1_.userName as userName5_0_ from SaasUser saasuser0_ left outer join SaasRoleAccount saasrolea1_ on saasuser0_.ref_saasAccount=saasrolea1_.idAccount where saasuser0_.userId=?
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.loader.Loader - done entity load
+2014-04-11 17:18:22,071 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2014-04-11 17:18:22,071 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@12a2ab8]
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
+2014-04-11 17:18:22,071 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
+2014-04-11 17:18:22,071 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@12a2ab8] after transaction
+2014-04-11 17:18:22,071 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2014-04-11 17:18:22,071 INFO main org.mycontrib.generic.test.GenericDaoTest - 	 entite bien supprimee
+2014-04-11 17:18:22,072 INFO main org.mycontrib.generic.test.GenericDaoTest - ****** end of CRUD test avec plusieurs petites transactions *****
+
+2014-04-11 17:18:22,072 DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test method: context [[TestContext@1d9c141 testClass = TestDaoSaasUserWithGenericAndDbUnit, testInstance = org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasUserWithGenericAndDbUnit@1888b2, testMethod = testGenericDao_CRUD@GenericDaoTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1ef41c8 testClass = TestDaoSaasUserWithGenericAndDbUnit, locations = '{classpath:/serviceSpringConf.xml, classpath:/dataSourceForTestSpringConf.xml}', classes = '{}', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader']]], class dirties context [false], class mode [null], method dirties context [false].
+2014-04-11 17:18:22,072 DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test class: context [[TestContext@1d9c141 testClass = TestDaoSaasUserWithGenericAndDbUnit, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1ef41c8 testClass = TestDaoSaasUserWithGenericAndDbUnit, locations = '{classpath:/serviceSpringConf.xml, classpath:/dataSourceForTestSpringConf.xml}', classes = '{}', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader']]], dirtiesContext [false].
+2014-04-11 17:18:22,073 INFO Thread-2 org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@ed6f0d: startup date [Fri Apr 11 17:18:13 CEST 2014]; root of context hierarchy
+2014-04-11 17:18:22,076 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'lifecycleProcessor'
+2014-04-11 17:18:22,076 INFO Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@189136d: defining beans [org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor#0,myEmf,txManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,beanConverter,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,mcqUserSessionManagerImpl,daoMcqOfficialSessionJpa,daoMcqUserSessionJpa,mcqChooserImpl,questionMcqManagerImpl,mcqManagerImpl,daoMcqSubjectJpa,daoQuestionMcqJpa,daoMcqJpa,saasUserGroupManagerImpl,saasOrgManagerImpl,daoSaasUserJpa,daoSaasRoleAccountJpa,daoSaasOrgJpa,daoSaasGroupJpa,myDataSource,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2014-04-11 17:18:22,076 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'saasOrgManagerImpl': [org.mycontrib.apps.training.saasOrg.impl.domain.service.test.TestServiceSaasOrgManager]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'saasUserGroupManagerImpl': [org.mycontrib.apps.training.saasOrg.impl.domain.service.test.TestServiceSaasUserGroupManager]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasRoleAccountJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasRoleAccountWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasUserJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasUserWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasGroupJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasGroupWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasOrgJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasOrgWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqManagerImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceMcqManager]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'questionMcqManagerImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceQuestionMcqManager]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoQuestionMcqJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoQuestionMcqWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqChooserImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceMcqChooser]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqSubjectJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoMcqSubjectWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqOfficialSessionJpa': [org.mycontrib.apps.training.session.impl.persistence.dao.test.TestDaoMcqOfficialSessionWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqUserSessionManagerImpl': [org.mycontrib.apps.training.session.impl.domain.service.test.TestServiceMcqUserSessionManager]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoMcqWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqUserSessionJpa': [org.mycontrib.apps.training.session.impl.persistence.dao.test.TestDaoMcqUserSessionWithGenericAndDbUnit]
+2014-04-11 17:18:22,077 DEBUG Thread-2 org.springframework.beans.factory.support.DisposableBeanAdapter - Invoking destroy() on bean with name 'myEmf'
+2014-04-11 17:18:22,077 INFO Thread-2 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'myPersistenceUnit'
+2014-04-11 17:18:22,077 INFO Thread-2 org.hibernate.impl.SessionFactoryImpl - closing

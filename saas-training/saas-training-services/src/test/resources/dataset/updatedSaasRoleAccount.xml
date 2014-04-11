@@ -1,0 +1,7 @@
+   <dataset>  
+
+   <SaasRoleAccount  saasRole="ADMIN_OF_ORG" email="adminBis@org1.com" userName="adminBisOfOrg1"
+   generic="true" password="pwdAdminBisOfOrg1" />   
+    
+    
+   </dataset>  

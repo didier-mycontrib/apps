@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageMetaData">
+<f:metadata>
+<f:viewParam name="orgId" value="#{adminOrgMBean.orgId}"/>
+<f:event type="preRenderView"  listener="#{adminOrgMBean.initSaasBeanWithOneOrg}"/>
+</f:metadata>
+</ui:define>
+<ui:define name="pageTitle">SaasAdmin</ui:define>
+<ui:define name="pageHeader">Config of Current Saas Organisation</ui:define>
+<ui:define name="body">
+<script>
+</script>   
+	<h:form id="adminOrg" >
+	<h:panelGrid columns="2">
+	
+	    <h:outputLabel for="inputTextSaasOrgName" value="organisation (name):"/>
+	    <h:outputText id="inputTextSaasOrgName" value="#{adminOrgMBean.saasOrg.name}" />
+	   	 
+	         
+	    <h:outputLabel for="inputTextSaasOrgInfo" value="informations (org):"/>
+	    <h:inputText id="inputTextSaasOrgInfo" value="#{adminOrgMBean.saasOrg.info}" />	 
+	 
+	    
+	    <h:outputLabel for="inputTextPasswordGenAdmin" value="password of generic administrator"/>
+	    <h:inputText id="inputTextPasswordGenAdmin" value="#{adminOrgMBean.saasOrg.genericAdminOfOrgAccount.password}" />
+	   
+	    
+	    <h:outputLabel for="inputTextEmailGenAdmin" value="email of generic administrator"/>
+	    <h:inputText id="inputTextEmailGenAdmin" value="#{adminOrgMBean.saasOrg.genericAdminOfOrgAccount.email}" />
+	 
+	    
+	    <h:outputLabel for="inputTextPasswordGenUser" value="password of generic user"/>
+	    <h:inputText id="inputTextPasswordGenUser" value="#{adminOrgMBean.saasOrg.genericUserOfOrgAccount.password}" />
+	
+	    
+	    <h:outputLabel for="inputTextPasswordGenAuth" value="password of generic author"/>
+	    <h:inputText id="inputTextPasswordGenAuth" value="#{adminOrgMBean.saasOrg.genericAuthorOfOrgAccount.password}" />
+	  
+	    
+	    <h:outputLabel for="commandButtonUpdateOrg" value="mettre à jour"/>
+	    <h:commandButton id="commandButtonUpdateOrg" value="update" action="#{adminOrgMBean.updateOrg}" />
+	 </h:panelGrid>
+	</h:form>
+	<h:messages/>
+</ui:define>
+</ui:composition>
+</html>

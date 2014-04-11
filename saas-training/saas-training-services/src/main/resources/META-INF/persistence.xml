@@ -1,0 +1,26 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+	<persistence-unit name="myPersistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
+<!-- with JNDI lookup inside JBoss App Serv -->
+<!-- <jta-data-source>java:/DefaultDS</jta-data-source> -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>org.mycontrib.apps.training.mcq.impl.persistence.entity._Mcq</class>  
+		<class>org.mycontrib.apps.training.mcq.impl.persistence.entity._McqSubject</class>
+		<class>org.mycontrib.apps.training.mcq.impl.persistence.entity._QuestionMcq</class>  
+		<class>org.mycontrib.apps.training.mcq.impl.persistence.entity._ResponseMcq</class>
+		<class>org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasGroup</class>
+		<class>org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasOrg</class>
+		<class>org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasRoleAccount</class>
+		<class>org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser</class>
+		<class>org.mycontrib.apps.training.session.impl.persistence.entity._McqUserSession</class>
+		<class>org.mycontrib.apps.training.session.impl.persistence.entity._McqOfficialSession</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+		<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
+		</properties>
+	</persistence-unit>
+</persistence>

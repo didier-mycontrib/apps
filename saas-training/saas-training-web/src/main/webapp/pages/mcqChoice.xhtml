@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageMetaData">
+<f:metadata>
+<f:event type="preRenderView" listener="#{mcqChooseMBean.initSujectList}"/>
+</f:metadata>
+</ui:define>
+<ui:define name="pageTitle">mcqChoice</ui:define>
+<ui:define name="pageHeader">choix de qcm</ui:define>
+<ui:define name="body">     
+	<h:form id="mcqChoice" >
+	   <h:panelGrid columns="2">
+	    <h:outputLabel for="selectOneMenuSubject" value="sujet:"/>
+	    <h:selectOneMenu id="selectOneMenuSubject" value="#{mcqChooseMBean.subjectId}" valueChangeListener="#{mcqChooseMBean.onSubjectChange}" > 
+	       <f:ajax event="change" render="selectOneMenuQcm commandButtonPerformMcq" />
+	       <f:selectItem itemLabel="???" itemValue="0" />
+	       <f:selectItems value="#{mcqChooseMBean.subjectList}" var="s" itemLabel="#{s.title}" itemValue="#{s.subjectId}"/>
+	    </h:selectOneMenu>
+	     <h:outputLabel for="selectOneMenuQcm" value="qcm:"/>
+	    <h:selectOneMenu id="selectOneMenuQcm" value="#{mcqChooseMBean.mcqId}"
+	         disabled="#{empty mcqChooseMBean.mcqList}"> 
+	       <f:selectItems value="#{mcqChooseMBean.mcqList}" var="mcq" itemLabel="#{mcq.title}" itemValue="#{mcq.id}"/>
+	    </h:selectOneMenu>
+	    <h:outputLabel for="commandButtonPerformMcq" value="action:"/>
+	    <h:commandButton  value="effectuer le qcm choisi" id="commandButtonPerformMcq" action="#{mcqTraining.performMcq}" 
+	    disabled="#{empty mcqChooseMBean.mcqList}"> 
+	       <f:setPropertyActionListener value="#{mcqChooseMBean.mcqId}"
+                     target="#{mcqTraining.mcqId}" />
+	    </h:commandButton>
+	    </h:panelGrid>
+	</h:form>
+	<h:messages/>
+</ui:define>
+</ui:composition>
+</html>

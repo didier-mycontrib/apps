@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageTitle">completeMcq</ui:define>
+<ui:define name="pageHeader">finalisation QCM</ui:define>
+<ui:define name="body">     
+	<h:form id="mcq" >
+	   <h:panelGroup rendered="#{mcqTraining.mcqUserSession.nbGoodResponses!=null}" >
+	    <b><h:outputLabel  value="score="/><h:outputText value="#{mcqTraining.mcqUserSession.nbGoodResponses}"/> /
+	    <h:outputText value="#{mcqTraining.nbQuestions}"/> (<h:outputText value="#{mcqTraining.mcqUserSession.pctGoodResponses}"/>)
+        </b><br/><br/>
+	    <h:dataTable border="1" var="rd"   value="#{mcqTraining.listeResponseDetails}">
+	        <h:column>
+	              <f:facet name="header"><f:verbatim>questions</f:verbatim></f:facet>
+	             <h:outputText value="#{rd.questionText}"/>
+	        </h:column>
+	        <h:column>
+	              <f:facet name="header"><f:verbatim>bonnes reponses</f:verbatim></f:facet>
+	             <h:outputText value="#{rd.goodResponseChoice} : #{rd.goodResponseText}"/>
+	        </h:column>
+	        <h:column>
+	              <f:facet name="header"><f:verbatim>choix</f:verbatim></f:facet>
+	             <h:outputText value="#{rd.responseChoice}" style="color:green" rendered="#{rd.good}" />
+	             <h:outputText value="#{rd.responseChoice}" style="color:red" rendered="#{!rd.good}" />
+	        </h:column>
+	    </h:dataTable>
+	   </h:panelGroup>
+	    <h:panelGroup rendered="#{mcqTraining.mcqUserSession.nbGoodResponses==null}">
+	    <h:commandButton value="return to previous question"   action="#{mcqTraining.moveToPreviousQuestion}" />
+	    <h:commandButton value="submit all qcm responses .." action="#{mcqTraining.completeMcq}" />
+	    </h:panelGroup>
+	</h:form>
+	<h:messages/>
+</ui:define>
+</ui:composition>
+</html>
