@@ -14,7 +14,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/training_db" />
-		<property name="username" value="root" />
-		<property name="password" value="formation" />
+		<property name="username" value="trainingdbuser" />
+		<property name="password" value="trainingdbpwd" />
 	</bean>
 </beans>

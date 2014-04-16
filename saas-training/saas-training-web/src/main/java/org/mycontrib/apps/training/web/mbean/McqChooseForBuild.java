@@ -28,13 +28,20 @@ public class McqChooseForBuild  extends McqChooseCommon{
 	
 	private boolean confirmDelete=false;
 	
+	
 
 	public void onSubjectChange(ValueChangeEvent event){
 		this.subjectId=(Long)event.getNewValue();
 		System.out.println("onSubjectChange , new subjectId="+subjectId);
+		this.currentSubject=null;
 		if(subjectId!=null){
 			if(subjectId>0){
 				this.mcqList = serviceMcqChooser.getMcqListBySubject(subjectId);
+				for(McqSubject s : this.subjectList){
+					if(s.getSubjectId().equals(subjectId)){
+						this.currentSubject=s;break;
+					}
+				}
 			}
 			else{
 				this.mcqList=null;
@@ -43,7 +50,9 @@ public class McqChooseForBuild  extends McqChooseCommon{
 		}
 	}
 	
-	
+	public void onUpdateSubject(ActionEvent event){
+		serviceMcqChooser.updateSubject(currentSubject);		
+	}
 		
 	public void onAddSubject(ActionEvent event){
 		System.out.println("adding newSubject:" + this.newSubjectTitle);
@@ -52,11 +61,13 @@ public class McqChooseForBuild  extends McqChooseCommon{
 			newSubject.setTitle(this.newSubjectTitle);
 			//+ ajout en base
 			Long ownerOrgId =  getSaasMBean().getSaasOrg().getIdOrg();
+			newSubject.setOwnerOrgId(ownerOrgId);
 			Boolean shared=false;
 			Long newSubjectId=serviceMcqChooser.addSubject(newSubject.getTitle(),ownerOrgId, shared);
 			newSubject.setSubjectId(newSubjectId);
 			subjectList.add(newSubject);
 			this.subjectId=newSubject.getSubjectId();
+			this.currentSubject=newSubject;
 			this.mcqList =null;
 			this.mcqId=null;
 		}
@@ -128,10 +139,11 @@ public class McqChooseForBuild  extends McqChooseCommon{
 	}
 
 
-
 	public void setConfirmDelete(boolean confirmDelete) {
 		this.confirmDelete = confirmDelete;
 	}
+
+	
 	
 	/*
 	//NB: cette ancienne méthode est maintenant remplacé par le servlet "McqExportServlet" déclenché par un lien hypertexte 

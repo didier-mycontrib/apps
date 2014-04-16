@@ -17,6 +17,7 @@ public abstract class McqChooseCommon  {
 	
 	protected List<Mcq> mcqList;
 	protected Long mcqId; //to choose/select
+	protected McqSubject currentSubject=null;
 	
 	public abstract McqChooser getServiceMcqChooser() ;
 	
@@ -37,6 +38,7 @@ public abstract class McqChooseCommon  {
 			this.mcqList=null;//reset 
 			this.subjectId=null;
 			this.mcqId=null;
+			this.currentSubject=null;
 		}
 	}
 	
@@ -76,7 +78,16 @@ public abstract class McqChooseCommon  {
 		this.subjectList = subjectList;
 	}
 	
-	
+
+	public McqSubject getCurrentSubject() {
+		return currentSubject;
+	}
+
+
+	public void setCurrentSubject(McqSubject currentSubject) {
+		this.currentSubject = currentSubject;
+	}
+
 	
 
 }

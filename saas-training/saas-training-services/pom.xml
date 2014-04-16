@@ -34,14 +34,14 @@
   		<version>1.0</version>
   		<scope>test</scope>
 	</dependency>
-	
+	<!--
 	<dependency>
 		<groupId>org.mycontrib.generic</groupId>
  		<artifactId>generic-monitor-utils</artifactId>
   		<version>1.0</version>
   		<scope>compile</scope>
 	</dependency>
-		 
+	-->	 
 	 <dependency>
 			<groupId>org.mycontrib.generic</groupId>
   			<!-- <artifactId>generic-jee-back-utils-abstract</artifactId> -->

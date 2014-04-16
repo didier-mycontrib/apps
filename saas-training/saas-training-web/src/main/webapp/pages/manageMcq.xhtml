@@ -48,25 +48,42 @@
 	<h:panelGrid columns="3">
 	    <h:outputLabel for="selectOneMenuSubject" value="sujet:"/>
 	    <h:selectOneMenu id="selectOneMenuSubject" value="#{mcqChooseForBuild.subjectId}" valueChangeListener="#{mcqChooseForBuild.onSubjectChange}" > 
-	       <f:ajax event="change" render="selectOneMenuQcm commandButtonAddSubject inputTextNewSubjectTitle commandButtonUpdateMcq btnDelete confirmDeleteCheckbox" />
+	       <f:ajax event="change" render="selectOneMenuQcm commandButtonAddSubject inputTextNewSubjectTitle commandButtonUpdateMcq btnDelete confirmDeleteCheckbox inputTextCurrentSubjectTitle selectBooleanCurrentSubjectShared" />
 	       <f:selectItem itemLabel="???" itemValue="0" />
 	       <f:selectItems value="#{mcqChooseForBuild.subjectList}" var="s" itemLabel="#{s.title}" itemValue="#{s.subjectId}"/>
 	    </h:selectOneMenu>
 	    <input type="button" id="mcqChoice:commandButtonNewSubject" value="nouveau"  onclick="onNewOrCancelSubject()"   />
 	    
+	   
 	    <h:outputLabel id="outputLabelNewSubjectTitle" value="nouveau sujet:"  style="visibility:hidden"/>
 	    <h:inputText id="inputTextNewSubjectTitle" value="#{mcqChooseForBuild.newSubjectTitle}" style="visibility:hidden" />
 	    <h:commandButton id="commandButtonAddSubject" value="add and select"  style="visibility:hidden" onclick="resetNewModeForSuject()"
 	        actionListener="#{mcqChooseForBuild.onAddSubject}" >
-	           <f:ajax event="click" execute="@form" render="outputLabelNewSubjectTitle selectOneMenuSubject commandButtonAddSubject inputTextNewSubjectTitle  selectOneMenuQcm commandButtonUpdateMcq btnDelete confirmDeleteCheckbox"></f:ajax>
+	           <f:ajax event="click" execute="@form" render="outputLabelNewSubjectTitle selectOneMenuSubject commandButtonAddSubject inputTextNewSubjectTitle  selectOneMenuQcm commandButtonUpdateMcq btnDelete confirmDeleteCheckbox inputTextCurrentSubjectTitle selectBooleanCurrentSubjectShared"></f:ajax>
 	    </h:commandButton>
+	   
+	   
+	   
+	    <h:outputText id="outputLabelCurrentSubjectTitle" value="sujet selectionne:"  />
+	    <h:inputText id="inputTextCurrentSubjectTitle" value="#{mcqChooseForBuild.currentSubject.title}"  />  
+	    <p>(title)</p>
+	    
+	    <h:outputText id="outputLabelCurrentSubjectShared" value="shared (public):" />
+	    <h:selectBooleanCheckbox id="selectBooleanCurrentSubjectShared" value="#{mcqChooseForBuild.currentSubject.shared}"  />
+	    <h:commandButton id="commandButtonUpdateSubject" value="update subject" 
+	        actionListener="#{mcqChooseForBuild.onUpdateSubject}" > 
+	           <f:ajax event="click" execute="@form" render="selectOneMenuSubject"></f:ajax>
+	    </h:commandButton>
+	    
+	    
 	   
 	    <h:outputLabel for="selectOneMenuQcm" value="qcm:"/>
 	    <h:selectOneMenu id="selectOneMenuQcm" value="#{mcqChooseForBuild.mcqId}" disabled="#{empty mcqChooseForBuild.mcqList}"> 
 	       <f:selectItems value="#{mcqChooseForBuild.mcqList}" var="mcq" itemLabel="#{mcq.title}" itemValue="#{mcq.id}"/>
 	    </h:selectOneMenu>
 	    <input type="button" id="mcqChoice:commandButtonNewMcq" value="nouveau"  onclick="onNewOrCancelMcq()"   />
-	        
+	   
+	    
 	    
 	    <h:outputLabel id="outputLabelNewMcq" value="nouveau qcm:"  style="visibility:hidden"/>
 	    <h:inputText id="inputTextNewMcqTitle" value="#{mcqChooseForBuild.newMcqTitle}" style="visibility:hidden"/>
