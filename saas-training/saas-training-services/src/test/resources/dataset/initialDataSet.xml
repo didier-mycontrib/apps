@@ -4,13 +4,13 @@
      <!-- <Table eventuellement sans pkColumn="..." if auto_increment /> -->
 
       
-<SaasRoleAccount idAccount="1" saasRole="ADMIN_OF_ORG" email="admin@org1.com" userName="adminOf_org1" password="pwdAdminOf_org1" generic="true"/>  
-<SaasRoleAccount idAccount="2" saasRole="ADMIN_OF_ORG" email="admin@org2.com" userName="adminOf_org2" password="pwdAdminOf_org2" generic="true"/>   
-<SaasRoleAccount idAccount="3" saasRole="USER_OF_ORG"  email="somebody@org1.com" userName="userOf_org1" password="pwdUserOf_org1" generic="true" />   
-<SaasRoleAccount idAccount="4" saasRole="USER_OF_ORG" email="somebody@org2.com" userName="userOf_org2" password="pwdUserOf_org2" generic="true" />
-<SaasRoleAccount idAccount="5" saasRole="AUTHOR_OF_ORG" email="author@org1.com" userName="authorOf_org1" password="pwdAuthorOf_org1" generic="true"/>  
-<SaasRoleAccount idAccount="6" saasRole="AUTHOR_OF_ORG" email="author@org2.com" userName="authorOf_org2" password="pwdAuthorOf_org2" generic="true"/> 
-<SaasRoleAccount idAccount="7" saasRole="ADMIN_OF_SAAS" email="admin@saas.com" userName="adminOfSaas" password="pwdAdminOfSaas" generic="true"/>    
+<SaasRoleAccount idAccount="1" saasRole="ADMIN_OF_ORG" email="admin@org1.com" userName="adminOf_org1" password="adm1" generic="true"/>  
+<SaasRoleAccount idAccount="2" saasRole="ADMIN_OF_ORG" email="admin@org2.com" userName="adminOf_org2" password="adm2" generic="true"/>   
+<SaasRoleAccount idAccount="3" saasRole="USER_OF_ORG"  email="somebody@org1.com" userName="userOf_org1" password="u1" generic="true" />   
+<SaasRoleAccount idAccount="4" saasRole="USER_OF_ORG" email="somebody@org2.com" userName="userOf_org2" password="u2" generic="true" />
+<SaasRoleAccount idAccount="5" saasRole="AUTHOR_OF_ORG" email="author@org1.com" userName="authorOf_org1" password="a1" generic="true"/>  
+<SaasRoleAccount idAccount="6" saasRole="AUTHOR_OF_ORG" email="author@org2.com" userName="authorOf_org2" password="a2" generic="true"/> 
+<SaasRoleAccount idAccount="7" saasRole="ADMIN_OF_SAAS" email="admin@saas.com" userName="adminOfSaas" password="saas" generic="true"/>    
 <SaasRoleAccount idAccount="8" saasRole="USER_OF_ORG"  email="alain.therieur@org1.com" userName="alain-therieur" password="pwd" generic="false" />
 <SaasRoleAccount idAccount="9" saasRole="USER_OF_ORG"  email="alex.therieur@org1.com" userName="alex-therieur" password="pwd" generic="false" />      
 

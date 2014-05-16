@@ -1,7 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/templates/common.xhtml">
 <ui:define name="pageMetaData">
@@ -13,77 +14,74 @@
 <ui:define name="pageTitle">SaasAdmin</ui:define>
 <ui:define name="pageHeader">Admin/Config of Saas Organisation</ui:define>
 <ui:define name="body">
-<script>
-function resetNewModeForOrg(){
-    	setHidden("adminOrg:outputLabelNewOrgTitle");setHidden("adminOrg:inputTextNewOrgTitle");
-    	setHidden("adminOrg:commandButtonAddOrg"); setElementValue("adminOrg:commandButtonNewOrg","nouveau");
-    }
-    function setCancelModeForOrg(){
-    	setVisible("adminOrg:outputLabelNewOrgTitle");	setVisible("adminOrg:inputTextNewOrgTitle");
-    	setVisible("adminOrg:commandButtonAddOrg"); setElementValue("adminOrg:commandButtonNewOrg","cancel");
-    }
-    function onNewOrCancelOrg(){
-    	if(getElementValue("adminOrg:commandButtonNewOrg")!="cancel"){
-    		setCancelModeForOrg();
-    	}
-    	else{ resetNewModeForOrg();
-    	}
-    } 
-</script>   
+  
 	<h:form id="adminOrg" >
-	<h:panelGrid columns="3">
+	<h:panelGrid id="mainFormPanelGrid" columns="2">
 	
 	<h:outputLabel   for="selectOneMenuOrg" value="organisation:"/>
-	    <h:selectOneMenu id="selectOneMenuOrg" value="#{adminOrgMBean.orgId}" valueChangeListener="#{adminOrgMBean.onOrgChange}" > 
-	       <f:ajax event="change" render="commandButtonAddOrg inputTextNewOrgTitle inputTextSaasOrgName inputTextSaasOrgInfo inputTextPasswordGenAdmin inputTextEmailGenAdmin inputTextPasswordGenUser inputTextPasswordGenAuth" />
+	    <p:selectOneMenu id="selectOneMenuOrg" value="#{adminOrgMBean.orgId}" valueChangeListener="#{adminOrgMBean.onOrgChange}" > 
+	       <f:ajax event="change" render="inputTextNewOrgTitle inputTextSaasOrgName inputTextSaasOrgInfo inputTextPasswordGenAdmin inputTextEmailGenAdmin inputTextPasswordGenUser inputTextPasswordGenAuth commandButtonUpdateOrg btnDelete" />
 	       <f:selectItem itemLabel="???" itemValue="0" />
 	       <f:selectItems value="#{adminOrgMBean.orgList}" var="o" itemLabel="#{o.name}" itemValue="#{o.idOrg}"/>
-	    </h:selectOneMenu>
-	    <input type="button"  id="adminOrg:commandButtonNewOrg" value="nouveau"  onclick="onNewOrCancelOrg()"   />
-	
-	    <h:outputLabel id="outputLabelNewOrgTitle" for="inputTextNewOrgTitle" value="nouvelle org:"  style="visibility:hidden"/>
-	    <h:inputText id="inputTextNewOrgTitle" value="#{adminOrgMBean.newOrgName}" style="visibility:hidden" />
-	    <h:commandButton id="commandButtonAddOrg" value="add and select"  style="visibility:hidden"
-	               actionListener="#{adminOrgMBean.onAddOrg}" onclick="resetNewModeForOrg()" >
-	           <f:ajax event="click" execute="@form" render="outputLabelNewOrgTitle selectOneMenuOrg inputTextNewOrgTitle inputTextSaasOrgName inputTextSaasOrgInfo inputTextPasswordGenAdmin inputTextEmailGenAdmin inputTextPasswordGenUser inputTextPasswordGenAuth"></f:ajax>
-	    </h:commandButton>
+	    </p:selectOneMenu>
 	    
-	    <hr/><h:outputText value=" details / configuration " /><hr/>
+	    <p:commandButton type="button"  id="commandButtonNewOrg" value="nouvelle organisation"  onclick="dlgNewOrg.show();" />
+	    <p:commandButton id="btnDelete" value="supprimer organisation"  actionListener="#{adminOrgMBean.onDeleteOrg}" 
+	                          disabled="#{adminOrgMBean.saasOrg==null}"
+		                      update="selectOneMenuOrg inputTextSaasOrgName inputTextSaasOrgInfo inputTextPasswordGenAdmin inputTextEmailGenAdmin inputTextPasswordGenUser inputTextPasswordGenAuth  commandButtonUpdateOrg btnDelete" >
+		           <p:confirm header="confirmation" message="êtes vous certain de vouloir supprimer cette organisation ?"  icon="ui-icon-alert"  />
+		   </p:commandButton> 
+	   <h:outputText value="--------- details / configuration " /> <hr/>
 	
 	    <h:outputLabel for="inputTextSaasOrgName" value="organisation (name):"/>
-	    <h:outputText id="inputTextSaasOrgName" value="#{adminOrgMBean.saasOrg.name}" /> 
-	    <p>...</p>	 
+	    <h:inputText id="inputTextSaasOrgName" value="#{adminOrgMBean.saasOrg.name}" /> 
+	  
 	         
 	    <h:outputLabel for="inputTextSaasOrgInfo" value="informations (org):"/>
 	    <h:inputText id="inputTextSaasOrgInfo" value="#{adminOrgMBean.saasOrg.info}" />	 
-	    <p>...</p>
+	   
 	    
 	    <h:outputLabel for="inputTextPasswordGenAdmin" value="password of generic administrator"/>
 	    <h:inputText id="inputTextPasswordGenAdmin" value="#{adminOrgMBean.saasOrg.genericAdminOfOrgAccount.password}" />
-	    <p>...</p>
+	 
 	    
 	    <h:outputLabel for="inputTextEmailGenAdmin" value="email of generic administrator"/>
 	    <h:inputText id="inputTextEmailGenAdmin" value="#{adminOrgMBean.saasOrg.genericAdminOfOrgAccount.email}" />
-	    <p>...</p>
+	
 	    
 	    <h:outputLabel for="inputTextPasswordGenUser" value="password of generic user"/>
 	    <h:inputText id="inputTextPasswordGenUser" value="#{adminOrgMBean.saasOrg.genericUserOfOrgAccount.password}" />
-	    <p>...</p>
 	    
 	    <h:outputLabel for="inputTextPasswordGenAuth" value="password of generic author"/>
 	    <h:inputText id="inputTextPasswordGenAuth" value="#{adminOrgMBean.saasOrg.genericAuthorOfOrgAccount.password}" />
-	    <p>...</p>
+	
 	    
-	    <h:outputLabel for="commandButtonUpdateOrg" value="mettre à jour"/>
-	    <h:commandButton id="commandButtonUpdateOrg" value="update" action="#{adminOrgMBean.updateOrg}" />
-	    <p>...</p>
-	    
-	    <h:selectBooleanCheckbox id="confirmDeleteCheckbox"   value="#{adminOrgMBean.confirmDelete}"  />
-           <h:commandButton id="btnDelete"  value="supprimer org" actionListener="#{adminOrgMBean.onDeleteOrg}" >
-               <f:ajax event="click" execute="@form" render="selectOneMenuOrg confirmDeleteCheckbox inputTextSaasOrgName inputTextSaasOrgInfo inputTextPasswordGenAdmin inputTextEmailGenAdmin inputTextPasswordGenUser inputTextPasswordGenAuth"></f:ajax>
-           </h:commandButton>
-           <h:outputLabel for="confirmDeleteCheckbox" value="(si confirmation)"/>
+	    <hr/>
+	    <p:commandButton id="commandButtonUpdateOrg" value="mettre à jour organisation" action="#{adminOrgMBean.updateOrg}"
+	       disabled="#{adminOrgMBean.saasOrg==null}" />
+            
+          
 	   </h:panelGrid>
+	    
+	   
+	    <p:dialog id="newOrgDialog" header="new org" widgetVar="dlgNewOrg"  height="120"> 
+	         <h:panelGrid columns="2" id="newOrgDialogPanelGrid"> 
+				<h:outputLabel id="outputLabelNewOrgTitle" for="inputTextNewOrgTitle" value="nouvelle org:"  />
+	            <h:inputText id="inputTextNewOrgTitle" value="#{adminOrgMBean.newOrgName}" />
+	            <p:commandButton id="commandButtonAddOrg" value="OK (add)" actionListener="#{adminOrgMBean.onAddOrg}" 
+			           update="mainFormPanelGrid" 
+			           oncomplete="dlgNewOrg.hide()">		<!-- need of  execute="@form" ? -->        
+			    </p:commandButton>	
+			    <p:commandButton id="commandButtonCancelAddMcq" value="Cancel" 
+			           oncomplete="dlgNewOrg.hide()">		        
+			    </p:commandButton>
+		    </h:panelGrid>	     
+		</p:dialog>  
+	   
+	     <p:confirmDialog global="true" showEffect="fade" hideEffect="fold">  
+          <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+          <p:commandButton value="Cancel" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+        </p:confirmDialog> 
 	</h:form>
 	<h:messages/>
 </ui:define>

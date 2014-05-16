@@ -1,8 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="/templates/common.xhtml">
 <ui:define name="pageTitle">editMcq</ui:define>
@@ -32,7 +31,7 @@ Question <h:outputText value="#{mcqBuild.currentQuestionIndex + 1}" /> / <h:outp
     </script>   
 	<h:form id="mcq" >
 	    <h:inputHidden id="inputHiddenQuestionUpdated" value="#{mcqBuild.questionUpdated}" />
-	    <b>Question: </b>  <h:inputText value="#{mcqBuild.currentQuestion.text}" size="64"  onkeypress="setUpdated()" />
+	    <b>Question: </b>  <h:inputText value="#{mcqBuild.currentQuestion.text}" size="48"  onkeypress="setUpdated()" />
 	    <hr/>
 	    <u>Réponses:</u>  (en mode : exclusif <h:selectBooleanCheckbox value="#{mcqBuild.currentQuestion.exclusiveResponse}"
 	    id="checkboxEclusiveMode" onchange="setUpdated();switchExclusiveMode()">
@@ -62,7 +61,7 @@ Question <h:outputText value="#{mcqBuild.currentQuestionIndex + 1}" /> / <h:outp
 			    <h:dataTable id="dataTableResponsesExclusive"  
 			    value="#{mcqBuild.currentQuestion.responseList}" var="r" >
 			          <h:column>
-			              <h:inputText value="#{r.text}" size="72" onkeypress="setUpdated()"/>
+			              <h:inputText value="#{r.text}" size="56" onkeypress="setUpdated()"/>
 			         </h:column>	         
 			    </h:dataTable>
 		    </h:column>
@@ -73,20 +72,11 @@ Question <h:outputText value="#{mcqBuild.currentQuestionIndex + 1}" /> / <h:outp
 	     <h:commandButton id="updateBtn" value="update" action="#{mcqBuild.updateQuestion}"
 	       disabled="#{!mcqBuild.questionUpdated}"  />
 	    <h:commandButton value="#{mcqBuild.nextOrNewLabel} &gt;&gt;" id="nextUpdateBtn"
-	    action="#{mcqBuild.updateQuestionAndNextOrNew}" /> 
-	     <h:commandButton id="lastBtn" value="last" action="#{mcqBuild.lastQuestion}"
-	       disabled="#{mcqBuild.isLastQuestion}"  /><br/>
-	    <p:commandButton value="remove (or cancel) last question" actionListener="#{mcqBuild.onRemoveThisQuestion}" update="@all"
-	       rendered="#{mcqBuild.isLastQuestion and mcqBuild.currentQuestionIndex!=0}" >
-	        <p:confirm header="confirmation" message="êtes vous certain de vouloir supprimer cette question et toutes ses réponses ?"  icon="ui-icon-alert"  />
-	    </p:commandButton>    <br/>
-	    
-	    <h:commandLink  value="retour vers options du qcm" action="#{mcqBuild.returnToMcqOptions}" /> 
-	    
-	    <p:confirmDialog global="true" showEffect="fade" hideEffect="fold">  
-          <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
-          <p:commandButton value="Cancel" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
-        </p:confirmDialog> 
+	    action="#{mcqBuild.updateQuestionAndNextOrNew}" /> <br/>
+	    <h:outputLabel for="confirmDeleteCheckbox" value="confirm"  rendered="#{mcqBuild.isLastQuestion and mcqBuild.currentQuestionIndex!=0}" />  
+	    <h:selectBooleanCheckbox id="confirmDeleteCheckbox"  value="#{mcqBuild.confirmDelete}"  rendered="#{mcqBuild.isLastQuestion and mcqBuild.currentQuestionIndex!=0}" />
+	    <h:commandButton value="remove this question" action="#{mcqBuild.removeThisQuestion}"
+	       rendered="#{mcqBuild.isLastQuestion and mcqBuild.currentQuestionIndex!=0}" />
 	   
 	</h:form>
 	<h:messages/>

@@ -2,13 +2,13 @@ USE training_db;
 
 #########################  INSERT INTO   #####################################
 
-INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(1,'ADMIN_OF_ORG','admin@org1.com','adminOf_org1','pwdAdminOf_org1',true);
-INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(2,'ADMIN_OF_ORG','admin@org2.com','adminOf_org2','pwdAdminOf_org2',true);
-INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(3,'USER_OF_ORG','user@org1.com','userOf_org1','pwdUserOf_org1',true);
-INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(4,'USER_OF_ORG','user@org2.com','userOf_org2','pwdUserOf_org2',true);
-INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(5,'AUTHOR_OF_ORG','author@org1.com','authorOf_org1','pwdAuthorOf_org1',true);
-INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(6,'AUTHOR_OF_ORG','author@org2.com','authorOf_org2','pwdAuthorOf_org2',true);
-INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(7,'ADMIN_OF_SAAS','admin@saas.com','adminOfSaas','pwdAdminOfSaas',true);
+INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(1,'ADMIN_OF_ORG','admin@org1.com','adminOf_org1','adm1',true);
+INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(2,'ADMIN_OF_ORG','admin@org2.com','adminOf_org2','adm2',true);
+INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(3,'USER_OF_ORG','user@org1.com','userOf_org1','u1',true);
+INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(4,'USER_OF_ORG','user@org2.com','userOf_org2','u2',true);
+INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(5,'AUTHOR_OF_ORG','author@org1.com','authorOf_org1','a1',true);
+INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(6,'AUTHOR_OF_ORG','author@org2.com','authorOf_org2','a2',true);
+INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) VALUES(7,'ADMIN_OF_SAAS','admin@saas.com','adminOfSaas','saas',true);
 INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) 
 VALUES(8,'USER_OF_ORG','alain.therieur@org1.com','alain-therieur','pwd',false);
 INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) 
@@ -30,7 +30,7 @@ INSERT INTO SaasUser(userId,firstName,lastName,info,ref_saasAccount,ref_group)
 
 INSERT INTO McqSubject (subjectId,title,shared,ownerOrgId)  VALUES (1,'sujet_1',true,1);
 INSERT INTO McqSubject (subjectId,title,shared,ownerOrgId)  VALUES (2,'sujet_2',false,1);
-INSERT INTO McqSubject (subjectId,title,shared,ownerOrgId)  VALUES (3,'sujet_3',false,2);
+INSERT INTO McqSubject (subjectId,title,shared,ownerOrgId)  VALUES (3,'sujet_3',true,2);
 
 INSERT INTO Mcq (id,title,nbQuestions,keyWords,shared,ownerOrgId) VALUES (1,'qcm1',2,'java;jee',true,1);
 INSERT INTO Mcq (id,title,nbQuestions,keyWords,shared,ownerOrgId) VALUES (2,'qcm2',1,'xml',true,1);

@@ -30,7 +30,6 @@ public class AdminOrgMBean {
 	
 	private String newOrgName;
 	
-	private boolean confirmDelete=false;
 	
 	public String getNewOrgName() {
 		return newOrgName;
@@ -114,7 +113,6 @@ public class AdminOrgMBean {
 	}
 	
 	public void onDeleteOrg(ActionEvent event){
-		if(this.confirmDelete){
 			if(orgId!=null){
 			   //suppression	
 			   serviceSaasOrgManager.deleteSaasOrg(this.orgId);
@@ -123,8 +121,6 @@ public class AdminOrgMBean {
 			   this.orgId=null;
 			   this.saasOrg=null;
 			}
-			this.confirmDelete =false; //for next deletion
-		}
 	}
 	
 	public String updateOrg(){
@@ -146,14 +142,7 @@ public class AdminOrgMBean {
 	public void setOrgId(Long orgId) {
 		this.orgId = orgId;
 	}
-	public boolean isConfirmDelete() {
-		return confirmDelete;
-	}
-	public void setConfirmDelete(boolean confirmDelete) {
-		this.confirmDelete = confirmDelete;
-	}
-	
-	
+
 	
 	
 

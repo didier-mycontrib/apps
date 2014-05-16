@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageMetaData">
+<f:metadata>
+<f:event type="preRenderView" listener="#{mcqChooseForBuild.initSujectList}"/>
+</f:metadata>
+</ui:define>
+<ui:define name="pageTitle">createOrUpdateMcq</ui:define>
+<ui:define name="pageHeader">specifications d'un qcm a creer ou modifier</ui:define>
+<ui:define name="body">    
+<script>
+    function resetNewModeForSuject(){
+    	setHidden("mcqChoice:outputLabelNewSubjectTitle");setHidden("mcqChoice:inputTextNewSubjectTitle");
+    	setHidden("mcqChoice:commandButtonAddSubject"); setElementValue("mcqChoice:commandButtonNewSubject","nouveau");
+    }
+    function setCancelModeForSuject(){
+    	setVisible("mcqChoice:outputLabelNewSubjectTitle");	setVisible("mcqChoice:inputTextNewSubjectTitle");
+    	setVisible("mcqChoice:commandButtonAddSubject"); setElementValue("mcqChoice:commandButtonNewSubject","cancel");
+    }
+    function onNewOrCancelSubject(){
+    	if(getElementValue("mcqChoice:commandButtonNewSubject")!="cancel"){
+    		setCancelModeForSuject();
+    	}
+    	else{ resetNewModeForSuject();
+    	}
+    }
+    function resetNewModeForMcq(){
+    	setHidden("mcqChoice:outputLabelNewMcq");   setHidden("mcqChoice:inputTextNewMcqTitle");
+    	setHidden("mcqChoice:commandButtonAddMcq"); setElementValue("mcqChoice:commandButtonNewMcq","nouveau");
+    }
+    function setCancelModeForMcq(){
+    	setVisible("mcqChoice:outputLabelNewMcq"); 	setVisible("mcqChoice:inputTextNewMcqTitle");
+    	setVisible("mcqChoice:commandButtonAddMcq");	setElementValue("mcqChoice:commandButtonNewMcq","cancel");
+    }
+    function onNewOrCancelMcq(){
+    	if(getElementValue("mcqChoice:commandButtonNewMcq")!="cancel"){
+    		setCancelModeForMcq();
+    	}
+    	else{ resetNewModeForMcq();
+    	}
+    }
+ </script>
+	<h:form id="mcqChoice" >
+	<h:panelGrid columns="3">
+	    <h:outputLabel for="selectOneMenuSubject" value="sujet:"/>
+	    <h:selectOneMenu id="selectOneMenuSubject" value="#{mcqChooseForBuild.subjectId}" valueChangeListener="#{mcqChooseForBuild.onSubjectChange}" > 
+	       <f:ajax event="change" render="selectOneMenuQcm commandButtonAddSubject inputTextNewSubjectTitle commandButtonUpdateMcq btnDelete confirmDeleteCheckbox inputTextCurrentSubjectTitle selectBooleanCurrentSubjectShared" />
+	       <f:selectItem itemLabel="???" itemValue="0" />
+	       <f:selectItems value="#{mcqChooseForBuild.subjectList}" var="s" itemLabel="#{s.title}" itemValue="#{s.subjectId}"/>
+	    </h:selectOneMenu>
+	    <input type="button" id="mcqChoice:commandButtonNewSubject" value="nouveau"  onclick="onNewOrCancelSubject()"   />
+	    
+	   
+	    <h:outputLabel id="outputLabelNewSubjectTitle" value="nouveau sujet:"  style="visibility:hidden"/>
+	    <h:inputText id="inputTextNewSubjectTitle" value="#{mcqChooseForBuild.newSubjectTitle}" style="visibility:hidden" />
+	    <h:commandButton id="commandButtonAddSubject" value="add and select"  style="visibility:hidden" onclick="resetNewModeForSuject()"
+	        actionListener="#{mcqChooseForBuild.onAddSubject}" >
+	           <f:ajax event="click" execute="@form" render="outputLabelNewSubjectTitle selectOneMenuSubject commandButtonAddSubject inputTextNewSubjectTitle  selectOneMenuQcm commandButtonUpdateMcq btnDelete confirmDeleteCheckbox inputTextCurrentSubjectTitle selectBooleanCurrentSubjectShared"></f:ajax>
+	    </h:commandButton>
+	   
+	   
+	   
+	    <h:outputText id="outputLabelCurrentSubjectTitle" value="sujet selectionne:"  />
+	    <h:inputText id="inputTextCurrentSubjectTitle" value="#{mcqChooseForBuild.currentSubject.title}"  />  
+	    <p>(title)</p>
+	    
+	    <h:outputText id="outputLabelCurrentSubjectShared" value="shared (public):" />
+	    <h:selectBooleanCheckbox id="selectBooleanCurrentSubjectShared" value="#{mcqChooseForBuild.currentSubject.shared}"  />
+	    <h:commandButton id="commandButtonUpdateSubject" value="update subject" 
+	        actionListener="#{mcqChooseForBuild.onUpdateSubject}" > 
+	           <f:ajax event="click" execute="@form" render="selectOneMenuSubject"></f:ajax>
+	    </h:commandButton>
+	    
+	    
+	   
+	    <h:outputLabel for="selectOneMenuQcm" value="qcm:"/>
+	    <h:selectOneMenu id="selectOneMenuQcm" value="#{mcqChooseForBuild.mcqId}" disabled="#{empty mcqChooseForBuild.mcqList}"> 
+	       <f:selectItems value="#{mcqChooseForBuild.mcqList}" var="mcq" itemLabel="#{mcq.title}" itemValue="#{mcq.id}"/>
+	    </h:selectOneMenu>
+	    <input type="button" id="mcqChoice:commandButtonNewMcq" value="nouveau"  onclick="onNewOrCancelMcq()"   />
+	   
+	    
+	    
+	    <h:outputLabel id="outputLabelNewMcq" value="nouveau qcm:"  style="visibility:hidden"/>
+	    <h:inputText id="inputTextNewMcqTitle" value="#{mcqChooseForBuild.newMcqTitle}" style="visibility:hidden"/>
+	    <h:commandButton id="commandButtonAddMcq" value="add and select" style="visibility:hidden"
+	    actionListener="#{mcqChooseForBuild.onAddMcq}" onclick="resetNewModeForMcq()">
+	     <f:ajax event="click" execute="@form" render="outputLabelNewMcq commandButtonAddMcq inputTextNewMcqTitle selectOneMenuQcm commandButtonUpdateMcq btnDelete confirmDeleteCheckbox"></f:ajax>
+	    </h:commandButton>
+	    
+	    <h:outputLabel for="commandButtonUpdateMcq" value="action:"/>
+	    <h:commandButton  id="commandButtonUpdateMcq" value="editer le qcm choisi" action="#{mcqBuild.updateMcq}" 
+	                     disabled="#{empty mcqChooseForBuild.mcqList}">
+	            <f:setPropertyActionListener value="#{mcqChooseForBuild.mcqId}"
+                     target="#{mcqBuild.mcqId}" />
+	     </h:commandButton>
+	     <p>...</p>
+	     
+	     
+	     <h:selectBooleanCheckbox id="confirmDeleteCheckbox"  value="#{mcqChooseForBuild.confirmDelete}"  
+	     disabled="#{empty mcqChooseForBuild.mcqList}" />
+           <h:commandButton id="btnDelete" value="supprimer ce qcm" actionListener="#{mcqChooseForBuild.onDeleteMcq}"
+                disabled="#{empty mcqChooseForBuild.mcqList}">
+               <f:ajax event="click" execute="@form" render="selectOneMenuQcm commandButtonUpdateMcq confirmDeleteCheckbox btnDelete"></f:ajax>
+           </h:commandButton>
+           <h:outputLabel for="confirmDeleteCheckbox" value="(si confirmation)"/>
+           
+	    </h:panelGrid>
+	</h:form>
+	<h:messages/>
+</ui:define>
+</ui:composition>
+</html>

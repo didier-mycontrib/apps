@@ -56,7 +56,13 @@ public  class McqChooserImpl implements McqChooser {
 	@Override
 	public void deleteSubject(Long subjectId) throws GenericException {
 		try {
-			subjectDao.deleteEntity(subjectId);
+			_McqSubject s = subjectDao.getEntityById(subjectId);
+			//v1 : suppression en cascade des qcm (sans alternative : copies , sauvegardes , ...):
+			for(_Mcq mcq : s.getMcqList()){
+				mcqDao.removeEntity(mcq);
+			}
+			subjectDao.removeEntity(s);
+			
 		} catch (Exception e) {
 			throw new GenericException("echec deleteSubject",e);
 		}
@@ -110,7 +116,13 @@ public  class McqChooserImpl implements McqChooser {
 	public List<McqSubject> getSubjectList(Long ownerOrgId) throws GenericException {
 		 List<McqSubject> listSubject = null;
 		 try {
-			listSubject=beanConverter.convertList(subjectDao.findAllMcqSubject(ownerOrgId),McqSubject.class);
+			if(ownerOrgId!=null){
+			    listSubject=beanConverter.convertList(subjectDao.findAllMcqSubject(ownerOrgId),McqSubject.class);
+			}
+			else {
+				//si ownerOrgId , retourner tous les sujets publics (shared=true):
+				listSubject=beanConverter.convertList(subjectDao.findAllMcqSubject(null),McqSubject.class);
+			}
 		} catch (Exception e) {
 			throw new GenericException("echec getSubjectList",e);
 		}
@@ -123,9 +135,18 @@ public  class McqChooserImpl implements McqChooser {
 	public void addMcqInSubject(Long subjectId, Long mcqId)
 			throws GenericException {
 		 try {
-		_McqSubject persistentSubject = subjectDao.getEntityById(subjectId);
-		_Mcq persistentMcq =mcqDao.getEntityById(mcqId);
-		persistentSubject.getMcqList().add(persistentMcq);
+			 _McqSubject persistentSubject = subjectDao.getEntityById(subjectId);
+			boolean alreadyAttached=false;
+			
+			for(_Mcq mcq : persistentSubject.getMcqList()){
+					if(mcq.getId().equals(mcqId)){
+						alreadyAttached=true; break;
+					}
+			}
+			if(!alreadyAttached){
+			       _Mcq persistentMcq =mcqDao.getEntityById(mcqId);
+			       persistentSubject.getMcqList().add(persistentMcq);
+			}
 		//subjectDao.updateEntity(persistentSubject); automatic in @Transactional for persistent entity
 		 } catch (Exception e) {
 				throw new GenericException("echec addMcqInSubject",e);

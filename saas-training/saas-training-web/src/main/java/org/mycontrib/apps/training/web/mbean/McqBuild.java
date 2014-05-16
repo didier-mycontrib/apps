@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
 import org.mycontrib.apps.training.mcq.itf.domain.dto.QuestionMcq;
@@ -33,21 +34,27 @@ public class McqBuild extends McqAbstractMBean{
 	
     private boolean exclusiveMode=true;
     
-    private boolean confirmDelete=false;
-    
+       
     private boolean questionUpdated=false;
 	
 	private String nonExclusiveCssClass="nodisplay";
 	private String exclusiveCssClass="responseNumber";//"display";
 
 	
+	
+	
 	private void prepareNewQuestion(){
 		this.currentQuestion=new QuestionMcq();
+		currentQuestion.setText("derniere question ???");
 		currentQuestion.setResponseList(new ArrayList<ResponseMcq>());
-		currentQuestion.getResponseList().add(new ResponseMcq("A",null));
-		currentQuestion.getResponseList().add(new ResponseMcq("B",null));
-		currentQuestion.getResponseList().add(new ResponseMcq("C",null));
-		currentQuestion.getResponseList().add(new ResponseMcq("D",null));
+		currentQuestion.getResponseList().add(new ResponseMcq("A","a ???"));
+		currentQuestion.getResponseList().add(new ResponseMcq("B","b ???"));
+		currentQuestion.getResponseList().add(new ResponseMcq("C","c ???"));
+		currentQuestion.getResponseList().add(new ResponseMcq("D","d ???"));
+		
+		int randomIndex = (int)(Math.random() * 4);
+		currentQuestion.getResponseList().get(randomIndex).setOk(true);
+		
 		currentQuestion.setExclusiveResponse(true);//par defaut
 		currentQuestion.setQuestionNumber(nbQuestions+1);
 		Long newQuestionId= this.serviceQuestionMcqManager.createQuestion(currentQuestion);
@@ -62,7 +69,6 @@ public class McqBuild extends McqAbstractMBean{
 	}
 	
 	private void prepareQuestion(){
-		confirmDelete=false;
 		questionUpdated=false;
 		exclusiveMode = currentQuestion.getExclusiveResponse() == null ? false : currentQuestion.getExclusiveResponse().booleanValue();
 		if(exclusiveMode){
@@ -78,7 +84,7 @@ public class McqBuild extends McqAbstractMBean{
 	
 	public String updateMcq(){
 		String suite=null;
-		this.confirmDelete=false;
+		//System.out.println("vers mcqOptions");
 		suite="mcqOptions";
 		return suite;
 	}
@@ -93,6 +99,14 @@ public class McqBuild extends McqAbstractMBean{
 			e.printStackTrace();
 		}
 		suite=updateMcq();
+		return suite;
+	}
+	
+	public String returnToMcqOptions(){
+		String suite="mcqOptions";
+		//rendre tout cohérent avant le retour à mcqOptions:
+		this.mcq.setQuestionList(this.questionList);
+		this.mcq.setNbQuestions(this.nbQuestions);
 		return suite;
 	}
 	
@@ -119,6 +133,15 @@ public class McqBuild extends McqAbstractMBean{
 			this.currentQuestionIndex=0;
 			suite = "editMcq";//.xhtml
 		}
+		prepareQuestion();
+		return suite;
+	}
+	
+	
+	public String lastQuestion(){
+		String suite=null;
+		currentQuestionIndex = nbQuestions-1;
+		this.currentQuestion=this.questionList.get(this.currentQuestionIndex);
 		prepareQuestion();
 		return suite;
 	}
@@ -161,25 +184,24 @@ public class McqBuild extends McqAbstractMBean{
 		return suite;
 	}
 	
-	public String removeThisQuestion(){
+	public void onRemoveThisQuestion(ActionEvent event){
 		//en v1 : remove only last question (disable on first questions)
-		String suite=null;
-		if(this.confirmDelete){
-			this.serviceQuestionMcqManager.deleteQuestion(this.currentQuestion.getIdQuestion());
-			this.nbQuestions--;
-			suite=moveToPreviousQuestion();
-		}
-		return suite;
+		this.serviceQuestionMcqManager.deleteQuestion(this.currentQuestion.getIdQuestion());
+		this.nbQuestions--;
+		moveToPreviousQuestion();
 	}
+	
 	
 	public String updateQuestion(){
 		String suite=null;//no move to previous or next
 		updateCurrentQuestionIfChanged();
+		prepareQuestion();
 		return suite;
 	}
 	
 	private void updateCurrentQuestionIfChanged(){
 	if(questionUpdated){
+		exclusiveMode = currentQuestion.getExclusiveResponse() == null ? false : currentQuestion.getExclusiveResponse().booleanValue();
 		if(this.exclusiveMode==true){
 			for(ResponseMcq r : currentQuestion.getResponseList()){
 				if(this.exclusiseResponseNum.equals(r.getResponseNum())){
@@ -292,14 +314,6 @@ public class McqBuild extends McqAbstractMBean{
 		this.questionUpdated = questionUpdated;
 	}
 
-
-	public boolean isConfirmDelete() {
-		return confirmDelete;
-	}
-
-	public void setConfirmDelete(boolean confirmDelete) {
-		this.confirmDelete = confirmDelete;
-	}
 	
 	public String getNextOrNewLabel(){
 		if(this.getIsLastQuestion())

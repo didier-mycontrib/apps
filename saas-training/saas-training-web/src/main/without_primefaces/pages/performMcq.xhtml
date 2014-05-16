@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageTitle">performMcq</ui:define>
+<ui:define name="pageHeader">
+Question <h:outputText value="#{mcqTraining.currentQuestionIndex + 1}" /> / <h:outputText value="#{mcqTraining.nbQuestions}" />
+</ui:define>
+<ui:define name="body">     
+	<h:form id="mcq" >
+	    <b><h:outputText value="#{mcqTraining.currentQuestion.text}"/></b> <br/>
+	    <h:selectOneRadio layout="pageDirection" value="#{mcqTraining.exclusiveResponseChoice}"
+	           rendered="#{mcqTraining.currentQuestion.exclusiveResponse == true}" > 
+	          <f:selectItems value="#{mcqTraining.currentQuestion.responseList}" var="r" itemLabel="#{r.responseNum} - #{r.text}" itemValue="#{r.responseNum}"  />
+	    </h:selectOneRadio>
+	    <h:selectManyCheckbox layout="pageDirection" value="#{mcqTraining.nonExclusiveResponseChoices}"
+	           rendered="#{mcqTraining.currentQuestion.exclusiveResponse != true}" > 
+	          <f:selectItems value="#{mcqTraining.currentQuestion.responseList}" var="r" itemLabel="#{r.responseNum} - #{r.text}" itemValue="#{r.responseNum}"  />
+	    </h:selectManyCheckbox>
+	    <br/>
+	   
+	    <h:commandButton value="submit and previous"   action="#{mcqTraining.submitAndPrevious}" 
+	       disabled="#{mcqTraining.currentQuestionIndex==0}"/>
+	    <h:commandButton value="submit and next" action="#{mcqTraining.submitAndNext}" />
+	</h:form>
+	<h:messages/>
+</ui:define>
+</ui:composition>
+</html>

@@ -21,7 +21,7 @@ public class DaoMcqSubjectJpa extends GenericDaoJpaSpring<_McqSubject,Long> impl
 		if(ownerOrgId!=null)
 		    return this.entityManager.createQuery("select s from _McqSubject s where s.ownerOrgId=:orgId",_McqSubject.class).setParameter("orgId", ownerOrgId).getResultList();
 		else
-			return this.entityManager.createQuery("select s from _McqSubject s where s.shared=true",_McqSubject.class).getResultList();
+			return this.entityManager.createQuery("select s from _McqSubject s where s.shared=TRUE",_McqSubject.class).getResultList();
 	}
 	//End of user code
 
@@ -33,4 +33,7 @@ public class DaoMcqSubjectJpa extends GenericDaoJpaSpring<_McqSubject,Long> impl
 				"select s from _McqSubject s inner join s.mcqList m where m.id=:mcqId",
 				_McqSubject.class).setParameter("mcqId", mcqId).getResultList();
 	}
+
+
+
 }

@@ -30,10 +30,15 @@ public class McqExportServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String mcqIdAsString=request.getParameter("mcqId");
+		if(mcqIdAsString==null || mcqIdAsString.isEmpty() || mcqIdAsString.equals("null")){
+			response.setContentType("text/plain");
+			response.getWriter().println("no qcmId , no qcm to export !");
+		}
 		ServletContext servletContext = getServletContext(); // vue comme objet application au sein d'une page JSP
 		WebApplicationContext springCtx =WebApplicationContextUtils.getWebApplicationContext(servletContext);
 		McqManager serviceMcqManager = (McqManager)springCtx.getBean("serviceMcqManager");
-		String mcqIdAsString=request.getParameter("mcqId");
+		
 		String format=request.getParameter("format");
 		Long mcqId=(mcqIdAsString==null)?0L:Long.parseLong(mcqIdAsString);
 		if(format==null)
@@ -43,6 +48,7 @@ public class McqExportServlet extends HttpServlet {
 			response.setContentType("text/xml");
 			PrintWriter out = response.getWriter();
 			out.println(mcqXmlString);
+			
 		}
 	}
 

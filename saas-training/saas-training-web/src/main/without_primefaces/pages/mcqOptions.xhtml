@@ -17,13 +17,12 @@
 	    <h:outputLabel for="outputTextNbQuestions" value="nombre total de questions:"/><h:outputText id="outputTextNbQuestions" value="#{mcqBuild.mcq.nbQuestions} (actuellement)"/> 
 	   <h:outputLabel for="inputTextQuestionRandomSubListSize" value="nombre de questions à poser(*):"/>
 	      <h:inputText id="inputTextQuestionRandomSubListSize" value="#{mcqBuild.mcq.questionRandomSubListSize}"/>  
-        <h:commandButton value="mettre à jour ces options" action="#{mcqBuild.updateMcqOptions}"/>
-           <h:commandButton value="mettre à jour les questions ..." action="#{mcqBuild.updateMcqQuestions}"/>
+        <h:commandButton value="mettre à jour options" action="#{mcqBuild.updateMcqOptions}"/>
+           <h:commandButton value="mettre à jour questions" action="#{mcqBuild.updateMcqQuestions}"/>
            
-        <p>(enregistrer cible lien sous ...)</p>
+        <p>(enregistrer la cible du lien sous ...)</p>
             <h:outputLink id="exportMcqLink" value="../exportMcq?mcqId=#{mcqBuild.mcqId}">export xml</h:outputLink>
         
-        <a href="manageMcq.jsf?noReset=true" >retour vers liste QCM</a>
 	    </h:panelGrid>
 	    
 	</h:form>

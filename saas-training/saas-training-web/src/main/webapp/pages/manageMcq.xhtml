@@ -1,116 +1,141 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/templates/common.xhtml">
 <ui:define name="pageMetaData">
 <f:metadata>
-<f:event type="preRenderView" listener="#{mcqChooseForBuild.initSujectList}"/>
+  <f:viewParam name="noReset" value="#{mcqChooseForBuild.noReset}"/>
+  <f:event type="preRenderView" listener="#{mcqChooseForBuild.initSujectList}"/>
 </f:metadata>
 </ui:define>
 <ui:define name="pageTitle">createOrUpdateMcq</ui:define>
 <ui:define name="pageHeader">specifications d'un qcm a creer ou modifier</ui:define>
 <ui:define name="body">    
-<script>
-    function resetNewModeForSuject(){
-    	setHidden("mcqChoice:outputLabelNewSubjectTitle");setHidden("mcqChoice:inputTextNewSubjectTitle");
-    	setHidden("mcqChoice:commandButtonAddSubject"); setElementValue("mcqChoice:commandButtonNewSubject","nouveau");
-    }
-    function setCancelModeForSuject(){
-    	setVisible("mcqChoice:outputLabelNewSubjectTitle");	setVisible("mcqChoice:inputTextNewSubjectTitle");
-    	setVisible("mcqChoice:commandButtonAddSubject"); setElementValue("mcqChoice:commandButtonNewSubject","cancel");
-    }
-    function onNewOrCancelSubject(){
-    	if(getElementValue("mcqChoice:commandButtonNewSubject")!="cancel"){
-    		setCancelModeForSuject();
-    	}
-    	else{ resetNewModeForSuject();
-    	}
-    }
-    function resetNewModeForMcq(){
-    	setHidden("mcqChoice:outputLabelNewMcq");   setHidden("mcqChoice:inputTextNewMcqTitle");
-    	setHidden("mcqChoice:commandButtonAddMcq"); setElementValue("mcqChoice:commandButtonNewMcq","nouveau");
-    }
-    function setCancelModeForMcq(){
-    	setVisible("mcqChoice:outputLabelNewMcq"); 	setVisible("mcqChoice:inputTextNewMcqTitle");
-    	setVisible("mcqChoice:commandButtonAddMcq");	setElementValue("mcqChoice:commandButtonNewMcq","cancel");
-    }
-    function onNewOrCancelMcq(){
-    	if(getElementValue("mcqChoice:commandButtonNewMcq")!="cancel"){
-    		setCancelModeForMcq();
-    	}
-    	else{ resetNewModeForMcq();
-    	}
-    }
- </script>
-	<h:form id="mcqChoice" >
-	<h:panelGrid columns="3">
+	<h:form id="mcqChoice" enctype="multipart/form-data">
+	<h:panelGrid columns="2" id="mainFormPanelGrid">
+	    
 	    <h:outputLabel for="selectOneMenuSubject" value="sujet:"/>
-	    <h:selectOneMenu id="selectOneMenuSubject" value="#{mcqChooseForBuild.subjectId}" valueChangeListener="#{mcqChooseForBuild.onSubjectChange}" > 
-	       <f:ajax event="change" render="selectOneMenuQcm commandButtonAddSubject inputTextNewSubjectTitle commandButtonUpdateMcq btnDelete confirmDeleteCheckbox inputTextCurrentSubjectTitle selectBooleanCurrentSubjectShared" />
-	       <f:selectItem itemLabel="???" itemValue="0" />
+	    <p:selectOneMenu id="selectOneMenuSubject" value="#{mcqChooseForBuild.subjectId}" valueChangeListener="#{mcqChooseForBuild.onSubjectChange}" >  
+	       <p:ajax  event="change"  update="selectOneMenuQcm editSubjectDialogPanelGrid subjectButtonSubPanelGrid uploadFile mcqButtonSubPanelGrid exportMcqLink" />
 	       <f:selectItems value="#{mcqChooseForBuild.subjectList}" var="s" itemLabel="#{s.title}" itemValue="#{s.subjectId}"/>
-	    </h:selectOneMenu>
-	    <input type="button" id="mcqChoice:commandButtonNewSubject" value="nouveau"  onclick="onNewOrCancelSubject()"   />
+	    </p:selectOneMenu>
+	   
+	   <h:outputText  value="action sur sujet:"/>
+		  <h:panelGrid columns="3" id="subjectButtonSubPanelGrid">  
+		   <p:commandButton id="newSubjectDialogButton"  icon="ui-icon-plus"  title="nouveau sujet" onclick="dlgNewSubject.show();" type="button"/> 
+		   <p:commandButton id="editSubjectDialogButton" icon="ui-icon-pencil" title="editer sujet" onclick="dlgEditSubject.show();"
+			          disabled="#{mcqChooseForBuild.currentSubject.subjectId==0}" type="button"/> 
+		   <p:commandButton id="deleteSubjectDialogButton" title="supprimer sujet"  icon="ui-icon-circle-close" 
+		           disabled="#{mcqChooseForBuild.currentSubject.subjectId==0}" actionListener="#{mcqChooseForBuild.onDeleteSubject}"
+		           update=":globalGrowl selectOneMenuSubject subjectButtonSubPanelGrid selectOneMenuQcm editSubjectDialogPanelGrid subjectButtonSubPanelGrid mcqButtonSubPanelGrid" >
+		           <p:confirm header="confirmation de la suppression du sujet" message="êtes vous certain de vouloir supprimer ce sujet et tous ses qcm ?"  icon="ui-icon-alert"  />
+                   <!-- future version: proposer alternative a suppression = donner le sujet au domaine public (changer proprietaire) -->
+           </p:commandButton>		           		          
+		  </h:panelGrid>
 	    
-	   
-	    <h:outputLabel id="outputLabelNewSubjectTitle" value="nouveau sujet:"  style="visibility:hidden"/>
-	    <h:inputText id="inputTextNewSubjectTitle" value="#{mcqChooseForBuild.newSubjectTitle}" style="visibility:hidden" />
-	    <h:commandButton id="commandButtonAddSubject" value="add and select"  style="visibility:hidden" onclick="resetNewModeForSuject()"
-	        actionListener="#{mcqChooseForBuild.onAddSubject}" >
-	           <f:ajax event="click" execute="@form" render="outputLabelNewSubjectTitle selectOneMenuSubject commandButtonAddSubject inputTextNewSubjectTitle  selectOneMenuQcm commandButtonUpdateMcq btnDelete confirmDeleteCheckbox inputTextCurrentSubjectTitle selectBooleanCurrentSubjectShared"></f:ajax>
-	    </h:commandButton>
-	   
-	   
-	   
-	    <h:outputText id="outputLabelCurrentSubjectTitle" value="sujet selectionne:"  />
-	    <h:inputText id="inputTextCurrentSubjectTitle" value="#{mcqChooseForBuild.currentSubject.title}"  />  
-	    <p>(title)</p>
-	    
-	    <h:outputText id="outputLabelCurrentSubjectShared" value="shared (public):" />
-	    <h:selectBooleanCheckbox id="selectBooleanCurrentSubjectShared" value="#{mcqChooseForBuild.currentSubject.shared}"  />
-	    <h:commandButton id="commandButtonUpdateSubject" value="update subject" 
-	        actionListener="#{mcqChooseForBuild.onUpdateSubject}" > 
-	           <f:ajax event="click" execute="@form" render="selectOneMenuSubject"></f:ajax>
-	    </h:commandButton>
-	    
-	    
-	   
+	    <h:outputText value="--------------------" /><h:outputText value="-------------------------" />
+	  
 	    <h:outputLabel for="selectOneMenuQcm" value="qcm:"/>
-	    <h:selectOneMenu id="selectOneMenuQcm" value="#{mcqChooseForBuild.mcqId}" disabled="#{empty mcqChooseForBuild.mcqList}"> 
+	    <p:selectOneMenu id="selectOneMenuQcm" value="#{mcqChooseForBuild.mcqId}" disabled="#{empty mcqChooseForBuild.mcqList}"> 
 	       <f:selectItems value="#{mcqChooseForBuild.mcqList}" var="mcq" itemLabel="#{mcq.title}" itemValue="#{mcq.id}"/>
-	    </h:selectOneMenu>
-	    <input type="button" id="mcqChoice:commandButtonNewMcq" value="nouveau"  onclick="onNewOrCancelMcq()"   />
-	   
-	    
-	    
-	    <h:outputLabel id="outputLabelNewMcq" value="nouveau qcm:"  style="visibility:hidden"/>
-	    <h:inputText id="inputTextNewMcqTitle" value="#{mcqChooseForBuild.newMcqTitle}" style="visibility:hidden"/>
-	    <h:commandButton id="commandButtonAddMcq" value="add and select" style="visibility:hidden"
-	    actionListener="#{mcqChooseForBuild.onAddMcq}" onclick="resetNewModeForMcq()">
-	     <f:ajax event="click" execute="@form" render="outputLabelNewMcq commandButtonAddMcq inputTextNewMcqTitle selectOneMenuQcm commandButtonUpdateMcq btnDelete confirmDeleteCheckbox"></f:ajax>
-	    </h:commandButton>
-	    
-	    <h:outputLabel for="commandButtonUpdateMcq" value="action:"/>
-	    <h:commandButton  id="commandButtonUpdateMcq" value="editer le qcm choisi" action="#{mcqBuild.updateMcq}" 
+	        <p:ajax  event="change"  update="exportMcqLink" />
+	    </p:selectOneMenu>
+	    <h:outputText  value="action sur qcm:"/>
+	    <h:panelGrid columns="3" id="mcqButtonSubPanelGrid">  
+		   <p:commandButton id="newMcqDialogButton" icon="ui-icon-plus" title="nouveau qcm" onclick="dlgNewMcq.show();" type="button"
+		                  disabled="#{mcqChooseForBuild.currentSubject.subjectId==0}"/> 
+		   <p:commandButton  id="commandButtonUpdateMcq" icon="ui-icon-pencil" title="editer le qcm choisi" action="#{mcqBuild.updateMcq}" 
 	                     disabled="#{empty mcqChooseForBuild.mcqList}">
 	            <f:setPropertyActionListener value="#{mcqChooseForBuild.mcqId}"
                      target="#{mcqBuild.mcqId}" />
-	     </h:commandButton>
-	     <p>...</p>
-	     
-	     
-	     <h:selectBooleanCheckbox id="confirmDeleteCheckbox"  value="#{mcqChooseForBuild.confirmDelete}"  
-	     disabled="#{empty mcqChooseForBuild.mcqList}" />
-           <h:commandButton id="btnDelete" value="supprimer ce qcm" actionListener="#{mcqChooseForBuild.onDeleteMcq}"
-                disabled="#{empty mcqChooseForBuild.mcqList}">
-               <f:ajax event="click" execute="@form" render="selectOneMenuQcm commandButtonUpdateMcq confirmDeleteCheckbox btnDelete"></f:ajax>
-           </h:commandButton>
-           <h:outputLabel for="confirmDeleteCheckbox" value="(si confirmation)"/>
+	       </p:commandButton> 
+		   <p:commandButton id="deleteMcqDialogButton" title="supprimer qcm" icon="ui-icon-circle-close"  
+		                     disabled="#{empty mcqChooseForBuild.mcqList}" actionListener="#{mcqChooseForBuild.onDeleteMcq}" 
+		                      update="selectOneMenuQcm" >
+		                      <p:confirm header="confirmation de la suppression du qcm" message="êtes vous certain de vouloir supprimer ce qcm et toutes ses questions/reponses ?"  icon="ui-icon-alert"  />
+		    <!-- un qcm ne peut etre supprime que s'il n'est pas reference au niveau des sessions utilisateurs
+		     future version: proposer alternative = donner au domaine public (changer proprietaire) -->
+		   </p:commandButton> 		 
+            		        
+		  </h:panelGrid>
+		  
+	       <h:outputLink id="exportMcqLink" value="../exportMcq?mcqId=#{mcqChooseForBuild.mcqId}"
+	       disabled="#{mcqChooseForBuild.mcqId==null}">export qcm as xml file</h:outputLink>
+           <p>(enregistrer cible lien sous ... qcm_xy<b>.xml</b>)</p>
            
+           <h:outputText value="import from xml"/>
+           
+           <p:fileUpload id="uploadFile" disabled="#{mcqChooseForBuild.currentSubject.subjectId==0}" 
+                         fileUploadListener="#{mcqChooseForBuild.handleFileUpload}" 
+                                  mode="advanced" 
+                                  sizeLimit="999999" 
+                                  allowTypes="/(\.|\/)(xml)$/"
+                                  update=":globalGrowl exportMcqLink selectOneMenuQcm mcqButtonSubPanelGrid"  />        
+            
 	    </h:panelGrid>
+	    
+	    <p:dialog id="newSubjectDialog" header="new subject" widgetVar="dlgNewSubject"  height="120"> 
+	         <h:panelGrid columns="2" id="newSubjectDialogPanelGrid"> 
+				<h:outputLabel id="outputLabelNewSubjectTitle" value="nouveau sujet:"  />
+			    <h:inputText id="inputTextNewSubjectTitle" value="#{mcqChooseForBuild.newSubjectTitle}" />
+			    <h:outputText id="outputLabelNewSubjectShared" value="shared (public):" />
+		        <h:selectBooleanCheckbox id="selectBooleanNewSubjectShared" value="#{mcqChooseForBuild.newSubjectShared}"   />
+		    
+			    <p:commandButton id="commandButtonAddSubject" value="OK (add)" actionListener="#{mcqChooseForBuild.onAddSubject}" 
+			           update="mainFormPanelGrid editSubjectDialogPanelGrid"
+			           oncomplete="dlgNewSubject.hide()">		        
+			    </p:commandButton>	
+			    <p:commandButton id="commandButtonCancelAddSubject" value="Cancel" 
+			           oncomplete="dlgNewSubject.hide()">		        
+			    </p:commandButton>
+		    </h:panelGrid>	     
+		</p:dialog>  
+		
+		<p:dialog id="editSubjectDialog" header="edit/update subject" widgetVar="dlgEditSubject" modal="true" height="150"> 
+		   <h:panelGrid columns="2" id="editSubjectDialogPanelGrid">
+		    <h:outputText id="outputLabelCurrentSubjectTitle" value="titre du sujet:"  />
+	        <h:inputText id="inputTextCurrentSubjectTitle" value="#{mcqChooseForBuild.currentSubject.title}"  />  
+	    
+	        <h:outputText id="outputLabelCurrentSubjectShared" value="shared (public):" />
+		    <h:selectBooleanCheckbox id="selectBooleanCurrentSubjectShared" value="#{mcqChooseForBuild.currentSubject.shared}"  />
+		    <p:commandButton id="commandButtonOkUpdateSubject" value="OK (update)" 
+		        actionListener="#{mcqChooseForBuild.onUpdateSubject}" 
+		        update="mainFormPanelGrid"
+			    oncomplete="dlgEditSubject.hide()">
+		    </p:commandButton>
+		    <p:commandButton id="commandButtonCancelUpdateSubject" value="Cancel" 
+			           oncomplete="dlgEditSubject.hide()">		        
+			    </p:commandButton>
+	     </h:panelGrid>
+		</p:dialog>
+		
+		
+	    <p:dialog id="newMcqDialog" header="new mcq" widgetVar="dlgNewMcq"  height="120"> 
+	         <h:panelGrid columns="2" id="newMcqDialogPanelGrid"> 
+				<h:outputLabel id="outputLabelNewMcq" value="nouveau qcm:"  />
+	            <h:inputText id="inputTextNewMcqTitle" value="#{mcqChooseForBuild.newMcqTitle}" />
+	            <p:commandButton id="commandButtonAddMcq" value="OK (add)" actionListener="#{mcqChooseForBuild.onAddMcq}" 
+			           update="mainFormPanelGrid"
+			           oncomplete="dlgNewMcq.hide()">		        
+			    </p:commandButton>	
+			    <p:commandButton id="commandButtonCancelAddMcq" value="Cancel" 
+			           oncomplete="dlgNewMcq.hide()">		        
+			    </p:commandButton>
+		    </h:panelGrid>	     
+		</p:dialog>  
+		
+	     <p:confirmDialog global="true" showEffect="fade" hideEffect="fold">  
+          <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+          <p:commandButton value="Cancel" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+        </p:confirmDialog> 
+	
+	
 	</h:form>
+
+		
 	<h:messages/>
 </ui:define>
 </ui:composition>

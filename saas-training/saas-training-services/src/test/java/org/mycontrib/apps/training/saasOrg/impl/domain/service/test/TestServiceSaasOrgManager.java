@@ -19,10 +19,10 @@ public class TestServiceSaasOrgManager {
 		
 	 @Test
 	 public void testFindSaasRoleAccountByUserNameAndPassword(){
-		 SaasRoleAccount saasRoleAccount =service.findSaasRoleAccountByUsernameAndPassword(1L, "adminOf_org1", "pwdAdminOf_org1");
+		 SaasRoleAccount saasRoleAccount =service.findSaasRoleAccountByUsernameAndPassword(1L, "adminOf_org1", "adm1");
 		 Assert.assertNotNull(saasRoleAccount);
 		 System.out.println("saasRoleAccount:" + saasRoleAccount);
-		 SaasRoleAccount adminOfSaas =service.findSaasRoleAccountByUsernameAndPassword(null, "adminOfSaas", "pwdAdminOfSaas");
+		 SaasRoleAccount adminOfSaas =service.findSaasRoleAccountByUsernameAndPassword(null, "adminOfSaas", "saas");
 		 Assert.assertNotNull(adminOfSaas);
 		 System.out.println("adminOfSaas:" + adminOfSaas);
 	 }

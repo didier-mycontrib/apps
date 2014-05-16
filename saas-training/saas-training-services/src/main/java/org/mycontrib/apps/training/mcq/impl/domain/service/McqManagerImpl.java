@@ -13,6 +13,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.mycontrib.apps.training.mcq.impl.persistence.dao.DaoMcq;
 import org.mycontrib.apps.training.mcq.impl.persistence.dao.DaoMcqSubject;
 import org.mycontrib.apps.training.mcq.impl.persistence.dao.DaoQuestionMcq;
@@ -21,7 +22,9 @@ import org.mycontrib.apps.training.mcq.impl.persistence.entity._McqSubject;
 import org.mycontrib.apps.training.mcq.impl.persistence.entity._QuestionMcq;
 import org.mycontrib.apps.training.mcq.itf.domain.dto.Mcq;
 import org.mycontrib.apps.training.mcq.itf.domain.dto.QuestionMcq;
+import org.mycontrib.apps.training.mcq.itf.domain.dto.ResponseMcq;
 import org.mycontrib.apps.training.mcq.itf.domain.service.McqManager;
+import org.mycontrib.apps.training.mcq.itf.domain.service.QuestionMcqManager;
 import org.mycontrib.generic.converter.GenericBeanConverter;
 import org.mycontrib.generic.exception.GenericException;
 import org.mycontrib.generic.service.internal.GenericInternalService;
@@ -52,6 +55,9 @@ public  class McqManagerImpl implements McqManager {
 		
 		@Inject
 		private DaoMcqSubject subjectDao;
+		
+		@Inject
+		private QuestionMcqManager questionMcqManager;
 
 	@Inject
 	private GenericBeanConverter beanConverter;
@@ -155,6 +161,13 @@ public String getMcqAsXmlString(Long idMcq) throws GenericException {
 	try {
 		initJaxb();
 		Mcq mcq= genericInternalService.getDtoById(idMcq);
+		//escapeXml pour transformer "é,à,è,ù,..." en &...; 
+		for(QuestionMcq q : mcq.getQuestionList()){
+			q.setText(StringEscapeUtils.escapeXml(q.getText()));
+			for(ResponseMcq r : q.getResponseList()){
+				r.setText(StringEscapeUtils.escapeXml(r.getText()));
+			}
+		}
 		StringWriter sw=new StringWriter();
 		marshaller.marshal(mcq, sw);
 		mcqXmlString=sw.toString();
@@ -170,19 +183,35 @@ public Long storeOrUpdateMcqFromXmlString(String mcqXmlStr) {
 	try{
 		initJaxb();
 		Mcq mcq = (Mcq)unmarshaller.unmarshal(new StringReader(mcqXmlStr));
+		//unscapeXml pour transformer   &...  en "é,à,è,ù,..."; 
+			for(QuestionMcq q : mcq.getQuestionList()){
+				q.setText(StringEscapeUtils.unescapeXml(q.getText()));
+				for(ResponseMcq r : q.getResponseList()){
+					r.setText(StringEscapeUtils.unescapeXml(r.getText()));
+				}
+			}
+		//System.out.println("*** mcq to import: " + mcq);
 		Long mcqIdFromXml = mcq.getId();
 		if(mcqIdFromXml!=null){
 			//nb: on considere l'id provenant du xml comme significatif que si un qcm existant 
 			//possède à la fois le même id et le même titre
 			_Mcq existingMcq = mcqDao.getEntityById(mcqIdFromXml);
-			if(existingMcq.getTitle().equals(mcq.getTitle())){
+			if(existingMcq !=null && existingMcq.getTitle().equals(mcq.getTitle())){
 				genericInternalService.updateEntityFromDto(mcq);
 			}else{
 			  mcq.setId(null);mcqIdFromXml=null;
 			}
 		}
 		if(mcqIdFromXml==null){
-			mcqId=genericInternalService.persistIdNewEntityFromDto(mcq);
+			mcqId=genericInternalService.persistIdNewEntityFromDto(mcq);//ne rend persistant que le qcm
+			//rendre également persistante toutes les questions et réponses 
+			//(en réinitialisant préalablement les id non significatifs à null):
+			for(QuestionMcq q  : mcq.getQuestionList()){
+				q.setIdQuestion(null);
+				Long idQuestion = questionMcqManager.createQuestion(q);
+				this.attachQuestion(mcqId, idQuestion);
+			}
+			
 		}
 	} catch (Exception e) {
 		throw new GenericException("echec storeOrUpdateMcqFromXmlString",e);

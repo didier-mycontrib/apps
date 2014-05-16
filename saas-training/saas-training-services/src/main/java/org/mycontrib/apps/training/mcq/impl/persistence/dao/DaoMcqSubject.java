@@ -11,4 +11,5 @@ public interface DaoMcqSubject extends GenericDao<_McqSubject,Long> {
 	    public List<_McqSubject> findAllMcqSubject(Long ownerOrgId);//return all public/shared if ownerOrgId is null
 	    public List<_McqSubject> findSubjectListForMcq(Long mcqId);
 	//End of user code
+		
 }

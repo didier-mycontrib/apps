@@ -38,9 +38,14 @@ public class TestServiceMcqChooser {
    public void test_getSubjectList() {
    //Start of user code test_getSubjectList_implementation
      try{
-        System.out.println("test_getSubjectList");
+        System.out.println("test_getSubjectList of org1");
          for(McqSubject s : service.getSubjectList(1L)){
         	 System.out.println("suject:"+s);
+         }
+         
+         System.out.println("test_getSubjectList (public) of orgId=null");
+         for(McqSubject ps : service.getSubjectList(null)){
+        	 System.out.println("public suject:"+ps);
          }
         }catch(Exception /*ServiceException*/ ex){
       	   // System.err.println(ex.getMessage());

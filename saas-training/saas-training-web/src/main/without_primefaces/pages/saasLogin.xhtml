@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageMetaData">
+<f:metadata>
+<f:event type="preRenderView" listener="#{saasMBean.initSaasBean}"/>
+</f:metadata>
+</ui:define>
+<ui:define name="pageTitle">SaasLogin</ui:define>
+<ui:define name="pageHeader">Login as member of organisation</ui:define>
+<ui:define name="body">  
+<script>
+    function switchVisibilityOfUserName(){
+    	if(document.getElementById('saasLoginForm:inputTextUserName').style.visibility=="visible"){
+    		setHidden("saasLoginForm:inputTextUserName");
+    		setHidden("saasLoginForm:labelUserName");
+    	}
+    	else{
+    		setVisible("saasLoginForm:inputTextUserName"); 
+    		setVisible("saasLoginForm:labelUserName"); 
+    	}
+    	  
+    }
+</script>
+	<h:form id="saasLoginForm" >
+	<h:panelGrid columns="2">
+	    <h:outputLabel for="inputTextSaasOrgName" value="organisation:"/>
+	    <h:inputText id="inputTextSaasOrgName" value="#{saasMBean.saasOrgName}" />	      
+	    
+	    <h:commandButton value="chercher/verifier" action="#{saasMBean.doFindOrgName}" >
+	    </h:commandButton>	 
+	    <h:outputText id="outputLabelInfoOrg" value="#{saasMBean.saasOrg.info}"/>
+	    
+	    <h:outputLabel for="selectOneMenuRole" value="role:"/>
+	    <h:selectOneMenu id="selectOneMenuRole" value="#{saasMBean.saasRole}" >	           
+	       <f:selectItems value="#{saasMBean.roleList}" var="r" itemLabel="#{r}" itemValue="#{r}"/>
+	    </h:selectOneMenu>
+	    
+	    <h:outputLabel for="checkboxGeneric" value="generic account"/>
+	    <h:selectBooleanCheckbox id="checkboxGeneric" value="#{saasMBean.genericUserRoleAccount}"
+	            onclick="switchVisibilityOfUserName()" >	           
+	    </h:selectBooleanCheckbox>
+	    
+	    <h:outputLabel id="labelUserName" for="inputTextUserName" value="(specific) username:" style="#{saasMBean.userNameStyle}"/>
+	    <h:inputText id="inputTextUserName" value="#{saasMBean.username}" style="#{saasMBean.userNameStyle}" />
+	 
+	    <h:outputLabel for="inputTextPassword" value="password:"/>
+	    <h:inputSecret id="inputTextPassword" value="#{saasMBean.password}" />
+	  
+	    <h:outputLabel for="commandLogin" value="..."/>
+	    <h:commandButton id="commandLogin" value="login" action="#{saasMBean.doLogin}" />
+	   </h:panelGrid>
+	</h:form>
+	<h:messages/>
+</ui:define>
+</ui:composition>
+</html>

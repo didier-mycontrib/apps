@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageTitle">mainMenu</ui:define>
+<ui:define name="pageHeader">Training Main Menu</ui:define>
+<ui:define name="body">     
+	<h:form>
+	<table border="1"><tr>
+	<td><ul>
+	  <li>username: <h:outputText value="#{saasMBean.validSaasRoleAccount.userName}"/></li>
+	  <li>role: <h:outputText value="#{saasMBean.validSaasRoleAccount.saasRole}"/></li>
+	  <li>organisation: <h:outputText value="#{saasMBean.saasOrg.name}"/></li>
+	</ul></td>
+	<td><h:commandButton  value="deconnexion" action="#{saasMBean.disconnect}"/></td>
+	</tr>
+	<tr><td><h:outputLink  disabled="#{!saasMBean.hasUserOfOrgRole}" value="mcqChoice.jsf"> choisir/effectuer un qcm</h:outputLink> </td>
+	<td>for USER_OF_ORG</td></tr>
+	<tr><td><h:outputLink  disabled="#{!saasMBean.hasAuthorOfOrgRole}" value="manageMcq.jsf"> gerer un qcm (creer,modifier,supprimer)</h:outputLink></td>
+	<td>for AUTHOR_OF_ORG</td></tr>
+	<tr><td><h:outputLink  disabled="#{!saasMBean.hasAdminOfOrgRole}" value="saasUserGroup.jsf?orgId=#{saasMBean.saasOrg.idOrg}"> administration des groupes et utilisateurs</h:outputLink></td>
+	<td>for ADMIN_OF_ORG</td></tr>
+	<tr><td><h:outputLink  disabled="#{!saasMBean.hasAdminOfSaasRole}" value="saasAdminAllOrg.jsf"> administrer les organisations</h:outputLink></td>
+	<td>for ADMIN_OF_SAAS</td></tr>
+	</table>
+	</h:form>
+</ui:define>
+</ui:composition>
+</html>
