@@ -127,7 +127,7 @@ public class McqBuild extends McqAbstractMBean{
 		}
 		else{
 			//first new question (of new mcq)
-			System.out.println("first new question of new mcq with mcqId="+this.mcqId);
+			//System.out.println("first new question of new mcq with mcqId="+this.mcqId);
 			this.nbQuestions=0;
 			prepareNewQuestion();//with this.nbQuestions++; inside		
 			this.currentQuestionIndex=0;

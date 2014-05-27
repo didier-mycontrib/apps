@@ -2,7 +2,7 @@
 package org.mycontrib.apps.training.session.impl.domain.service;
 
 import java.text.DateFormat;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -14,10 +14,11 @@ import org.mycontrib.apps.training.mcq.impl.persistence.dao.DaoMcq;
 import org.mycontrib.apps.training.mcq.impl.persistence.entity._Mcq;
 import org.mycontrib.apps.training.mcq.impl.persistence.entity._QuestionMcq;
 import org.mycontrib.apps.training.mcq.impl.persistence.entity._ResponseMcq;
+import org.mycontrib.apps.training.saasOrg.impl.persistence.dao.DaoSaasUser;
+import org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser;
 import org.mycontrib.apps.training.session.impl.persistence.dao.DaoMcqUserSession;
 import org.mycontrib.apps.training.session.impl.persistence.entity._McqUserSession;
 import org.mycontrib.apps.training.session.itf.domain.dto.McqUserSession;
-import org.mycontrib.apps.training.session.itf.domain.dto.QuestionResponseChoice;
 import org.mycontrib.apps.training.session.itf.domain.service.McqUserSessionManager;
 import org.mycontrib.generic.converter.GenericBeanConverter;
 import org.mycontrib.generic.exception.GenericException;
@@ -44,6 +45,8 @@ public  class McqUserSessionManagerImpl implements McqUserSessionManager {
 		@Inject
 		private DaoMcqUserSession mcqUserSessionDao;
 		
+		@Inject
+		private DaoSaasUser daoSaasUser;
 		
 		@Inject
 		private DaoMcq mcqDao;
@@ -56,6 +59,27 @@ public  class McqUserSessionManagerImpl implements McqUserSessionManager {
 //End of user code
 	public McqUserSessionManagerImpl(){
 		super(); 
+	}
+	
+	@Override
+	public Long storeNewComputedMcqUserSession(McqUserSession computedMcqUserSession,Long mcqId,Long saasUserId) {
+		
+		//a faire dans future version: stocker en base les bonnes/mauvaises reponses donnees ????
+		//seulement dans le cas d'une session officielle:
+		// si generic_user : aucun stockage en base
+		// si specific_user et pas session officielle : stocker que le score + date
+		// si specific_user et session officielle : stocker tous les détails en base
+		
+		Long mcqUserSessionId=null;
+		try {
+			_McqUserSession persistentMcqUserSession = beanConverter.convert(computedMcqUserSession, _McqUserSession.class);			
+			persistentMcqUserSession.setMcq(mcqDao.getEntityById(mcqId));
+			persistentMcqUserSession.setUser(daoSaasUser.getEntityById(saasUserId));
+			mcqUserSessionId = mcqUserSessionDao.persistIdNewEntity(persistentMcqUserSession);			
+		} catch (Exception e) {
+			throw new GenericException("echec storeNewComputedMcqUserSession",e);
+		}
+		return mcqUserSessionId;
 	}
 
 	@Override
@@ -82,6 +106,7 @@ public  class McqUserSessionManagerImpl implements McqUserSessionManager {
 		}
 	}*/
 
+	//non persistant:
 	@Override
 	public McqUserSession computeMcqScore(Long mcqId,Map<Integer,String> mapNumQuestionChoice) {
 		McqUserSession computedMcqUserSession=new McqUserSession();
@@ -119,6 +144,15 @@ public  class McqUserSessionManagerImpl implements McqUserSessionManager {
 			throw new GenericException("echec computeMcqScore",e);
 		}
 		return computedMcqUserSession;
+	}
+
+	@Override
+	public List<McqUserSession> getMcqSessionsOfUser(Long saasUserId) {
+		try{
+		   return  beanConverter.convertList(mcqUserSessionDao.getMcqSessionsOfUser(saasUserId),McqUserSession.class);
+	   } catch (Exception e) {
+		   throw new GenericException("echec createNewMcqUserSession",e);
+	   }
 	}      
        
 

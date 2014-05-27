@@ -9,10 +9,14 @@ import java.util.StringTokenizer;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ComponentSystemEvent;
 
 import org.mycontrib.apps.training.mcq.itf.domain.dto.QuestionMcq;
 import org.mycontrib.apps.training.mcq.itf.domain.dto.ResponseMcq;
 import org.mycontrib.apps.training.mcq.itf.domain.service.McqManager;
+import org.mycontrib.apps.training.saasOrg.itf.domain.dto.SaasRoleAccount;
+import org.mycontrib.apps.training.saasOrg.itf.domain.service.SaasUserGroupManager;
 import org.mycontrib.apps.training.session.itf.domain.dto.McqUserSession;
 import org.mycontrib.apps.training.session.itf.domain.service.McqUserSessionManager;
 import org.mycontrib.apps.training.web.data.ResponseDetail;
@@ -34,9 +38,26 @@ public class McqTraining extends McqAbstractMBean {
 	@ManagedProperty(value="#{serviceMcqUserSessionManager}")
 	private McqUserSessionManager serviceMcqUserSessionManager;
 	
+
+	@ManagedProperty(value="#{serviceSaasUserGroupManager}")
+	private SaasUserGroupManager serviceSaasUserGroupManager;
+	
 	private Map<Integer,String> mapNumQuestionChoice; //String = "A", "B" , ... en mode exclusif ou "A,B" , "B,D" en mode non exclusif
 	
 	private List<ResponseDetail> listeResponseDetails;
+	
+	public void initMcqTrainingForAnonymousGuest(ComponentSystemEvent event){
+		if(!FacesContext.getCurrentInstance().isPostback()){
+				//verifier que qcmId est bien l'id d'un qcm public
+				if(serviceMcqManager.getMcqById(this.mcqId).getShared()){
+					//ok
+					performMcq();
+				}
+				else {
+					//not public mcq , anonymous access forbidden !!
+				}
+		}
+	}
 	
 	public String performMcq(){
 		String suite=null;
@@ -134,8 +155,17 @@ public class McqTraining extends McqAbstractMBean {
 	
 	public String completeMcq(){
 		String suite=null;
-		System.out.println("completeMcq");
+		//System.out.println("completeMcq");
 		this.mcqUserSession = serviceMcqUserSessionManager.computeMcqScore(mcqId, mapNumQuestionChoice);//version non persitante
+		if(this.getSaasMBean()!=null){
+			//no direct anonymous access to mcq , currentSaasRoleAccount exist
+			SaasRoleAccount currentSaasRoleAccount  = getSaasMBean().getValidSaasRoleAccount();
+			if(currentSaasRoleAccount!=null && !currentSaasRoleAccount.isGeneric()){	
+				//rendre persistant si user connecté avec un compte specific (non générique)
+				Long userId=serviceSaasUserGroupManager.findSaasUserBySpecificRoleAccountId(currentSaasRoleAccount.getIdAccount()).getUserId();
+				serviceMcqUserSessionManager.storeNewComputedMcqUserSession(mcqUserSession,mcqId,userId);
+			}
+		}
 		initListOfResponseDetails();
 		return suite;
 	}
@@ -223,8 +253,16 @@ public class McqTraining extends McqAbstractMBean {
 	public List<ResponseDetail> getListeResponseDetails() {
 		return listeResponseDetails;
 	}
-	
-	
+
+	public SaasUserGroupManager getServiceSaasUserGroupManager() {
+		return serviceSaasUserGroupManager;
+	}
+
+	public void setServiceSaasUserGroupManager(
+			SaasUserGroupManager serviceSaasUserGroupManager) {
+		this.serviceSaasUserGroupManager = serviceSaasUserGroupManager;
+	}
+
 	
 
 }

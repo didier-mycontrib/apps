@@ -6,6 +6,10 @@ import org.mycontrib.apps.training.mcq.itf.domain.dto.Mcq;
 import org.mycontrib.apps.training.saasOrg.itf.domain.dto.SaasGroup;
 import org.mycontrib.apps.training.saasOrg.itf.domain.dto.SaasOrg;
 
+/*
+ * McqOfficialSession (pour v2 ou v3)=
+ * session mcq officielle (dans une salle surveillée) avec début et durée fixés
+ */
 public  class McqOfficialSession  {
 	private SaasGroup assignedGroup;
 	private String startDateTime;
@@ -13,7 +17,7 @@ public  class McqOfficialSession  {
 	private String duration;
 	private Mcq mcq;
 	private SaasOrg saasOrg;
-	private List<McqUserSession> users;
+	private List<McqUserSession> users;//to rename userSessions !!!
 
 
 	public McqOfficialSession(){

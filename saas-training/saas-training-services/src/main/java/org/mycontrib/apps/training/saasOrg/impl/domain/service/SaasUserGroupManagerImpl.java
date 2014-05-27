@@ -52,7 +52,7 @@ public class SaasUserGroupManagerImpl implements SaasUserGroupManager {
 	private DaoSaasUser saasUserDao;
 	 
 	@Inject
-	private  DaoSaasRoleAccount saasRoleAccountDao;
+	private DaoSaasRoleAccount saasRoleAccountDao;
 		
 	@Inject
 	private GenericBeanConverter beanConverter;
@@ -145,5 +145,32 @@ public class SaasUserGroupManagerImpl implements SaasUserGroupManager {
 			throw new GenericException("echec updateSaasUser",e);
 		}
 	}
+
+	@Override
+	public SaasUser getSaasUserById(Long userId) throws GenericException {
+		SaasUser saasUser=null;
+		try {
+			saasUser = genericInternalServiceUser.getDtoById(userId);
+			return saasUser;
+		} catch (Exception e) {
+			throw new GenericException("echec getSaasUserById",e);
+		}
+	}
+
+	@Override
+	public SaasUser findSaasUserBySpecificRoleAccountId(Long saasRoleAccountId) {
+		SaasUser saasUser=null;
+		try {
+			_SaasUser persitentSaasUser = saasUserDao.getSaasUserBySpecificRoleAccountId(saasRoleAccountId);
+			if(persitentSaasUser!=null){
+				saasUser = beanConverter.convert(persitentSaasUser, SaasUser.class);
+			}
+			return saasUser;
+		} catch (Exception e) {
+			throw new GenericException("echec findSaasUserBySpecificRoleAccountId",e);
+		}
+	}
+	
+	
 
 }

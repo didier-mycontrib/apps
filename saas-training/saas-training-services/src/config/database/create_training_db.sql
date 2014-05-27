@@ -176,6 +176,10 @@ FOREIGN KEY (ref_officialSession) REFERENCES McqOfficialSession(idSession);
 ALTER TABLE QuestionResponseChoice ADD CONSTRAINT QuestionResponseChoice_avec_mcqUserSession_valide 
 FOREIGN KEY (mcqUserSessionId) REFERENCES McqUserSession(mcqUserSessionId);
 
+#### delta V2, V3, ...
+
+ALTER TABLE Mcq ADD COLUMN mcqType VARCHAR(24) default 'FREE'; # delta v2
+
 ##############
 show tables;
 

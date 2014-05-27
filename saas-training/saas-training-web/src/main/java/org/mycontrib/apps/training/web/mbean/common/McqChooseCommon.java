@@ -53,8 +53,8 @@ public abstract class McqChooseCommon  {
 	protected void initSubjectListSelonFiltrage(){
 		Long ownerSaasOrgId = getSaasMBean().getSaasOrg().getIdOrg();
 		subjectList=getServiceMcqChooser().getSubjectList(ownerSaasOrgId);
-		
-		if(this.filtrage.equals("private_and_public")){
+		boolean publicSpecialOrg = getSaasMBean().getSaasOrg().getName().equals("public");
+		if(this.filtrage.equals("private_and_public") || publicSpecialOrg){
 			//ajouter aussi les sujets publics des autres organisations:
 			List<McqSubject> allPublicSubjectList = getServiceMcqChooser().getSubjectList(null);
 			//System.out.println("allPublicSubject:" + allPublicSubjectList);

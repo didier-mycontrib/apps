@@ -4,12 +4,15 @@ package org.mycontrib.apps.training.mcq.impl.persistence.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.mycontrib.apps.training.mcq.itf.domain.enumeration.McqType;
 
 
 
@@ -30,6 +33,9 @@ public  class _Mcq  {
 	//ceci permet à une personne d'effectuer plusieurs fois le même qcm pour s'entraîner.
 
 	private String title;
+	
+	@Column(name="mcqType")
+	private McqType type;//FREE,VALID,CERTIFICATION
 
     //Start of user code relationship_mCQ_questionList
      @OneToMany(mappedBy="mcq",cascade=CascadeType.REMOVE) //1-n bidirectionnel
@@ -100,6 +106,12 @@ public  class _Mcq  {
 	}
 	public void setOwnerOrgId(Long ownerOrgId) {
 		this.ownerOrgId = ownerOrgId;
+	}
+	public McqType getType() {
+		return type;
+	}
+	public void setType(McqType type) {
+		this.type = type;
 	}
     
         

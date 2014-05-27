@@ -12,10 +12,12 @@
 <SaasRoleAccount idAccount="6" saasRole="AUTHOR_OF_ORG" email="author@org2.com" userName="authorOf_org2" password="a2" generic="true"/> 
 <SaasRoleAccount idAccount="7" saasRole="ADMIN_OF_SAAS" email="admin@saas.com" userName="adminOfSaas" password="saas" generic="true"/>    
 <SaasRoleAccount idAccount="8" saasRole="USER_OF_ORG"  email="alain.therieur@org1.com" userName="alain-therieur" password="pwd" generic="false" />
-<SaasRoleAccount idAccount="9" saasRole="USER_OF_ORG"  email="alex.therieur@org1.com" userName="alex-therieur" password="pwd" generic="false" />      
+<SaasRoleAccount idAccount="9" saasRole="USER_OF_ORG"  email="alex.therieur@org1.com" userName="alex-therieur" password="pwd" generic="false" />
+<SaasRoleAccount idAccount="10" saasRole="USER_OF_ORG"  email="anonymous@public" userName="anonymous" password="" generic="true" />            
 
 <SaasOrg idOrg="1" name="org1" info="info1" ref_genericUserOfOrgAccount="3" ref_genericAdminOfOrgAccount="1" ref_genericAuthorOfOrgAccount="5"/>   
-<SaasOrg idOrg="2" name="org2" info="info2" ref_genericUserOfOrgAccount="4" ref_genericAdminOfOrgAccount="2" ref_genericAuthorOfOrgAccount="6"/> 
+<SaasOrg idOrg="2" name="org2" info="info2" ref_genericUserOfOrgAccount="4" ref_genericAdminOfOrgAccount="2" ref_genericAuthorOfOrgAccount="6"/>
+<SaasOrg idOrg="3" name="public" info="public domain" ref_genericUserOfOrgAccount="10" />  
 
 
 <SaasGroup idGroup="1" name="group1_of_org1" info="info1" ref_org="1" />   

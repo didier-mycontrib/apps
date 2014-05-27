@@ -18,7 +18,7 @@ import org.mycontrib.apps.training.saasOrg.itf.domain.dto.SaasUser;
 import org.mycontrib.apps.training.saasOrg.itf.domain.enumeration.SaasRole;
 import org.mycontrib.apps.training.saasOrg.itf.domain.service.SaasOrgManager;
 import org.mycontrib.apps.training.saasOrg.itf.domain.service.SaasUserGroupManager;
-import org.mycontrib.generic.exception.GenericException;
+import org.springframework.beans.BeanUtils;
 
 //JSF ManagedBean for admin/config groups and users of SaasOrg
 @ManagedBean
@@ -37,10 +37,13 @@ public class UserGroupMBean {
 	
 	private Long groupId; //to select
 	private SaasGroup group; //current (selected) group
+	private SaasGroup speudoGroup = new SaasGroup();//????
+	private SaasUser speudoUser = new SaasUser();//????
 	
-	private List<SaasGroup> groupList;
+	private List<SaasGroup> groupList=new ArrayList<SaasGroup>();//always not null
 	
 	private String newGroupName;
+	private String newGroupInfo;
 	
 	private Long userId; //to select
 	private SaasUser user; //current (selected) user
@@ -48,9 +51,7 @@ public class UserGroupMBean {
 	
 	
 	
-	private List<SaasUser> userList;
-	
-	private boolean confirmDelete=false;
+	private List<SaasUser> userList = new ArrayList<SaasUser>();//always not null
 	
 	
 	private SaasOrg saasOrg; //current org to update/...
@@ -79,7 +80,7 @@ public class UserGroupMBean {
 	
 	public void onUserChange(ValueChangeEvent event){
 		this.userId=(Long)event.getNewValue();
-		System.out.println("onUserChange , new userId="+userId);
+		//System.out.println("onUserChange , new userId="+userId);
 		if(userId!=null){
 				for(SaasUser u : userList){
 					if(u.getUserId().equals(userId)){
@@ -104,23 +105,40 @@ public class UserGroupMBean {
 					if(g.getIdGroup().equals(groupId)){
 						this.group=g;
 						this.userList=serviceSaasUserGroupManager.findSaasUsersOfGroup(groupId);
-						if(userList.size()==0){
-							this.user=null;
-							this.userId=null;
+						userList.add(0, speudoUser);
+						if(userList.size()==1){
+							this.user=speudoUser;
+							this.userId=0L;
 						}
 						break;
 					}
 				}
 			}
 			else{
-				this.userList=null;
+				this.userList=new ArrayList<SaasUser>();
+				userList.add(0, speudoUser);
 				this.group=null;
-				this.user=null;
-				this.userId=null;
+				initSpeudoUser();
+				this.user=speudoUser;
+				this.userId=0L;
 			}
 		}
 	}
 	
+	private void initSpeudoUser(){
+		speudoUser.setUserId(0L);
+		speudoUser.setFirstName("?");
+		speudoUser.setLastName("new_user");
+		speudoUser.setInfo("?");
+		SaasRoleAccount newSaasRoleAccount = new SaasRoleAccount();
+		newSaasRoleAccount.setGeneric(false);
+		newSaasRoleAccount.setUserName("?");
+		newSaasRoleAccount.setPassword("?");
+		newSaasRoleAccount.setSaasOrg(saasOrg);
+		newSaasRoleAccount.setSaasRole(saasRole.USER_OF_ORG);
+		speudoUser.setSaasAccount(newSaasRoleAccount);
+        this.saasRole=newSaasRoleAccount.getSaasRole();
+	}
 	
 	
 	public void initSaasBean(ComponentSystemEvent event){
@@ -132,12 +150,25 @@ public class UserGroupMBean {
 		if(this.orgId!=null){
 			this.saasOrg = serviceSaasOrgManager.getSaasOrgById(orgId);
 			this.groupList=serviceSaasUserGroupManager.findSaasGroupsOfOrg(orgId);
+			
 		}
 		if(roleList==null){
 			roleList= new ArrayList<SaasRole>();
 			roleList.add(SaasRole.USER_OF_ORG);roleList.add(SaasRole.AUTHOR_OF_ORG);
 			roleList.add(SaasRole.ADMIN_OF_ORG);
 		}
+		speudoGroup.setIdGroup(0L);
+		speudoGroup.setUserList(new ArrayList<SaasUser>());
+		speudoGroup.setInfo("...");
+		speudoGroup.setName("???");
+		groupList.add(0, speudoGroup);
+		this.group=speudoGroup;
+		this.groupId=0L;
+		
+		initSpeudoUser();
+		userList.add(0, speudoUser);
+		this.user=speudoUser;
+		this.userId=0L;
 	}
 	}
 	
@@ -146,20 +177,25 @@ public class UserGroupMBean {
 	
 		if(newGroupName!=null && newGroupName.length()>0){
 			//+ ajout en base
-			Long newGroupId=serviceSaasUserGroupManager.addSaasGroup(orgId, newGroupName, "...");
+			Long newGroupId=serviceSaasUserGroupManager.addSaasGroup(orgId, newGroupName, newGroupInfo);
 			//ajout liste locale
 			SaasGroup newGroup= new SaasGroup();
-			newGroup.setIdGroup(newGroupId);newGroup.setName(newGroupName);newGroup.setInfo("...");
+			newGroup.setIdGroup(newGroupId);newGroup.setName(newGroupName);newGroup.setInfo(newGroupInfo);
 			groupList.add(newGroup);
 			//selection
 			this.groupId=newGroup.getIdGroup();
+			
+			this.userList=serviceSaasUserGroupManager.findSaasUsersOfGroup(newGroupId);
+			this.userList.add(speudoUser);
+			this.user=speudoUser;
+			this.userId=0L;
 			//for next adding:
 			this.newGroupName=null;
 		}
 	}
 	
 	public void onDeleteGroup(ActionEvent event){
-		if(this.confirmDelete){
+		
 			/*if(orgId!=null){
 			   //suppression	
 			   serviceSaasOrgManager.deleteSaasOrg(this.orgId);
@@ -167,49 +203,50 @@ public class UserGroupMBean {
 			   orgList = serviceSaasOrgManager.findAllSaasOrg();
 			}
 			this.confirmDelete =false; //for next deletion*/
-		}
+		
 	}
 	
 	public String updateUser(){
 		String suite=null;
-		if(this.user!=null ){
+		if(this.user!=null && this.user.getUserId() != 0L){
 			//update of user:
 			this.user.getSaasAccount().setSaasRole(this.saasRole);
 			serviceSaasUserGroupManager.updateSaasUser(this.user);
 			//reactualisation valeurs au sein de la liste:
 			if(this.groupId!=null){
 			    this.userList=serviceSaasUserGroupManager.findSaasUsersOfGroup(groupId);
+			    this.userList.add(0,speudoUser);
 			}
 		}
 		return suite;
 	}
 	
-	public void onEditNewUser(ActionEvent event){
-		System.out.println("onEditNewUser");
-		this.user = new SaasUser();
-		user.setFirstName("?");user.setLastName("?");
-		SaasRoleAccount newSaasRoleAccount = new SaasRoleAccount();
-		newSaasRoleAccount.setGeneric(false);
-		newSaasRoleAccount.setUserName("?");
-		newSaasRoleAccount.setPassword("?");
-		newSaasRoleAccount.setSaasOrg(saasOrg);
-		newSaasRoleAccount.setSaasRole(saasRole.USER_OF_ORG);
-        user.setSaasAccount(newSaasRoleAccount);
-        this.saasRole=newSaasRoleAccount.getSaasRole();
-		this.userId=null; //not yet added , not persistent
-	}
+	
 	
 	public void onAddNewUser(ActionEvent event){
-		System.out.println("onAddNewUser with user=" + user + " and userId= " + userId);
+		System.out.println("onAddNewUser with user=" + user);
 		try {
-			if(this.user!=null ){
-				//adding of new user:
-				this.user.getSaasAccount().setSaasRole(this.saasRole);
-				this.userId= serviceSaasUserGroupManager.addSaasUser(groupId, this.user);
-				System.out.println("in onAddNewUser : newUserId="+userId);
+			if(this.user!=null  && this.user.getUserId() == 0L){
+			   //adding of new user:
+				
+				//1.cloner d'abord (new) user=speudoUser ???
+				SaasUser newUser = this.user;/*new SaasUser();
+				SaasRoleAccount newSaasRoleAccount = new SaasRoleAccount();
+				newUser.setSaasAccount(newSaasRoleAccount);
+				BeanUtils.copyProperties(this.user, newUser);
+				BeanUtils.copyProperties(this.user.getSaasAccount(), newUser.getSaasAccount());*/
+				newUser.setUserId(null);//for new insertion / auto_incrementation
+				newUser.getSaasAccount().setSaasRole(this.saasRole);
+				
+				this.userId=serviceSaasUserGroupManager.addSaasUser(groupId, newUser);
+				this.user=serviceSaasUserGroupManager.getSaasUserById(userId);
+				
+				System.out.println("in onAddNewUser : newUserId="+this.userId);
+				initSpeudoUser();//reinit for next add
 				//reactualisation valeurs au sein de la liste:
 				if(this.groupId!=null){
 				    this.userList=serviceSaasUserGroupManager.findSaasUsersOfGroup(groupId);
+				    this.userList.add(0,speudoUser);				   
 				}
 			}
 		} catch (Exception e) {
@@ -217,16 +254,19 @@ public class UserGroupMBean {
 		}
 	}
 	
-	public String deleteUser(){
+	public String onDeleteUser(ActionEvent event){
 		String suite=null;
-		if(this.confirmDelete && this.user!=null ){
+		if(this.user!=null ){
 			//delete of user:
 			serviceSaasUserGroupManager.deleteSaasUser(this.user.getUserId());
 			//reactualisation valeurs au sein de la liste:
 			if(this.groupId!=null){
 			    this.userList=serviceSaasUserGroupManager.findSaasUsersOfGroup(groupId);
+			    initSpeudoUser();
+				userList.add(0, speudoUser);
+				this.user=speudoUser;
+				this.userId=0L;
 			}
-			this.confirmDelete=false; //for next delete
 		}
 		//NB: besoin de remonter un message d'erreur si suppression impossible (car contrainte d'intégrité en base !!!) 
 		return suite;
@@ -238,12 +278,7 @@ public class UserGroupMBean {
 	public void setOrgId(Long orgId) {
 		this.orgId = orgId;
 	}
-	public boolean isConfirmDelete() {
-		return confirmDelete;
-	}
-	public void setConfirmDelete(boolean confirmDelete) {
-		this.confirmDelete = confirmDelete;
-	}
+	
 	public Long getGroupId() {
 		return groupId;
 	}
@@ -298,6 +333,12 @@ public class UserGroupMBean {
 	}
 	public void setSaasRole(SaasRole saasRole) {
 		this.saasRole = saasRole;
+	}
+	public String getNewGroupInfo() {
+		return newGroupInfo;
+	}
+	public void setNewGroupInfo(String newGroupInfo) {
+		this.newGroupInfo = newGroupInfo;
 	}
 	
 	

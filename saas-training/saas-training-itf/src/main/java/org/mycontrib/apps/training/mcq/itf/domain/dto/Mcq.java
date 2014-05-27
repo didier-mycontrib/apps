@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.mycontrib.apps.training.mcq.itf.domain.enumeration.McqType;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public  class Mcq  {
@@ -19,6 +21,8 @@ public  class Mcq  {
 	private List<QuestionMcq> questionList;
 	@XmlAttribute
 	private Long id;
+	@XmlAttribute
+	private McqType type;//FREE,VALID,CERTIFICATION
 	@XmlAttribute
 	private Integer nbQuestions;
 	@XmlAttribute
@@ -89,6 +93,12 @@ public  class Mcq  {
 	}
 	public void setOwnerOrgId(Long ownerOrgId) {
 		this.ownerOrgId = ownerOrgId;
+	}
+	public McqType getType() {
+		return type;
+	}
+	public void setType(McqType type) {
+		this.type = type;
 	}
 	
     

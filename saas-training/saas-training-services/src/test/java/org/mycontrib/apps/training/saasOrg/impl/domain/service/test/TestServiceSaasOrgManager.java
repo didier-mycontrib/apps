@@ -25,5 +25,11 @@ public class TestServiceSaasOrgManager {
 		 SaasRoleAccount adminOfSaas =service.findSaasRoleAccountByUsernameAndPassword(null, "adminOfSaas", "saas");
 		 Assert.assertNotNull(adminOfSaas);
 		 System.out.println("adminOfSaas:" + adminOfSaas);
+		 SaasRoleAccount specifUserRA =service.findSaasRoleAccountByUsernameAndPassword(1L, "alain-therieur", "pwd");
+		 Assert.assertNotNull(specifUserRA);
+		 System.out.println("specif_user:" + specifUserRA);
+		 SaasRoleAccount anonymousUser =service.findSaasRoleAccountByUsernameAndPassword(3L, "anonymous", "");
+		 Assert.assertNotNull(anonymousUser);
+		 System.out.println("anonymous_user:" + anonymousUser);
 	 }
 }

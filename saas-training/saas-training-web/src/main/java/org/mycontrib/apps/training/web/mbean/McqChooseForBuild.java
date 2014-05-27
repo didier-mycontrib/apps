@@ -70,7 +70,7 @@ public class McqChooseForBuild  extends McqChooseCommon{
 
 	public void onSubjectChange(ValueChangeEvent event){
 		this.subjectId=(Long)event.getNewValue();
-		System.out.println("onSubjectChange , new subjectId="+subjectId);
+		//System.out.println("onSubjectChange , new subjectId="+subjectId);
 		this.currentSubject=null;
 		if(subjectId!=null){
 			if(subjectId>0){
@@ -117,7 +117,7 @@ public class McqChooseForBuild  extends McqChooseCommon{
 	}
 		
 	public void onAddSubject(ActionEvent event){
-		System.out.println("adding newSubject:" + this.newSubjectTitle);
+		//System.out.println("adding newSubject:" + this.newSubjectTitle);
 		if(newSubjectTitle!=null && newSubjectTitle.length()>0){
 			McqSubject newSubject = new McqSubject();
 			newSubject.setTitle(this.newSubjectTitle);
@@ -139,7 +139,7 @@ public class McqChooseForBuild  extends McqChooseCommon{
 	}
 	
 	public void onAddMcq(ActionEvent event){
-		System.out.println("adding newQcm:" + this.newMcqTitle);
+		//System.out.println("adding newQcm:" + this.newMcqTitle);
 		if(newMcqTitle!=null && newMcqTitle.length()>0){
 			Mcq newMcq = new Mcq();
 			newMcq.setTitle(this.newMcqTitle);
@@ -152,7 +152,7 @@ public class McqChooseForBuild  extends McqChooseCommon{
 			serviceMcqChooser.addMcqInSubject(this.subjectId, newMcqId);//rattachement en base
 			this.mcqList = serviceMcqChooser.getMcqListBySubject(subjectId);
 			this.mcqId=newMcq.getId();
-			System.out.println("new mcqId:" + this.mcqId);
+			//System.out.println("new mcqId:" + this.mcqId);
 		}
 	}
 	

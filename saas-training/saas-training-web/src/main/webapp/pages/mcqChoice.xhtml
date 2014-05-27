@@ -14,9 +14,9 @@
 <ui:define name="body">     
 	<h:form id="mcqChoice" >
 	   <h:panelGrid columns="2">
-	   <h:outputLabel for="selectOneFiltrage" value="filtrage:"/>  
+	   <h:outputLabel for="selectOneFiltrage" value="filtrage:" rendered="#{saasMBean.saasOrgName!='public'}"/>  
 		 <h:selectOneRadio id="selectOneFiltrage"  value="#{mcqChooseMBean.filtrage}" 
-		      valueChangeListener="#{mcqChooseMBean.onFiltrageChange}" > 
+		      valueChangeListener="#{mcqChooseMBean.onFiltrageChange}" rendered="#{saasMBean.saasOrgName!='public'}"> 
 		      <f:ajax event="change" render="selectOneMenuSubject selectOneMenuQcm commandButtonPerformMcq" />
 		     <f:selectItem   itemValue="private_only" itemLabel="#{saasMBean.saasOrgName}" />
 		     <f:selectItem   itemValue="private_and_public" itemLabel="#{saasMBean.saasOrgName} et autres" />

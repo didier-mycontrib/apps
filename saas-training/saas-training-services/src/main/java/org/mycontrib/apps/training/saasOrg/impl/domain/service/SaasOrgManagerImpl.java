@@ -6,9 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.jws.WebService;
+import javax.persistence.NoResultException;
 
-import org.mycontrib.apps.training.mcq.impl.persistence.entity._McqSubject;
-import org.mycontrib.apps.training.mcq.itf.domain.dto.McqSubject;
 import org.mycontrib.apps.training.saasOrg.impl.persistence.dao.DaoSaasOrg;
 import org.mycontrib.apps.training.saasOrg.impl.persistence.dao.DaoSaasRoleAccount;
 import org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasOrg;
@@ -79,7 +78,8 @@ public class SaasOrgManagerImpl implements SaasOrgManager {
 		try {
 		_SaasRoleAccount persistentSaasRoleAccount = saasRoleAccountDao.findSaasRoleAccountByUserNameAndPassword(saasOrgId,username,password);
 		saasRoleAccount= beanConverter.convert(persistentSaasRoleAccount,SaasRoleAccount.class);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			throw new GenericException("echec findSaasRoleAccountByUsernameAndPassword",e);
 		}
 		return saasRoleAccount;

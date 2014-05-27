@@ -4,6 +4,11 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="/templates/common.xhtml">
+<f:metadata>
+<f:viewParam name="anonymous" value="#{mcqTraining.anonymous}"/> 
+<f:viewParam name="mcqId" value="#{mcqTraining.mcqId}"/> 
+<f:event type="preRenderView"  listener="#{mcqTraining.initMcqTrainingForAnonymousGuest}"/>
+</f:metadata>
 <ui:define name="pageTitle">performMcq</ui:define>
 <ui:define name="pageHeader">
 Question <h:outputText value="#{mcqTraining.currentQuestionIndex + 1}" /> / <h:outputText value="#{mcqTraining.nbQuestions}" />

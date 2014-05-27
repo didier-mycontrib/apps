@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>McqUserGuide</title>
+</head>
+<body>
+	<table border="1"><tr><td><h2>SaasTraining / QCM / Guide Utilisateur</h2></td></tr></table>
+	
+	<h4><u>presentation</u></h4>
+	<p><b>SaasTraining</b> est une <i>application web</i> correspondant à un <b>moteur de QCM</b>.</p>
+	<p>Développée par <a href="http://www.d-defrance.fr/">Didier Defrance</a> en Java/JEE (Spring+JPA+JSF) , cette (modeste) application
+	   est utilisable gratuitement dans son état de fonctionnement (pouvant être sensible à la charge)</p>
+	<p><u>Principales fonctionnalités:</u></p>
+	<ul>
+	   <li>choisir et effectuer un qcm en ligne , résultats à la fin</li>
+	   <li>éditer en ligne de nouveaux (saisir questions et réponses)</li>
+	   <li>import/export de qcm au format xml (pour les auteurs)</li>
+	   <li>...</li>
+	</ul>
+	<p>Cette application est accessible au bout de l'URL suivante: 
+	    <a href="http://www.mycontrib.org/saas-training-web">http://www.mycontrib.org/saas-training-web</a>  </p>
+	<p>Conçue en mode Saas (Software as a service) , cette application peut être utilisée par plusieurs entreprises/organisations
+	   et certains QCM pourront éventuellement être partagés </p>
+	
+	<h4><u>utilisation (limitée) anonyme</u></h4>
+	<p> l'accès anonyme permet uniquement d'accéder aux QCM publics (partagés) </p>
+	
+	<h4><u>Roles et droits d'accès</u></h4>
+	<table border="1">
+	   <tr>  <th> Rôles</th> <th> fonctionnalités accessibles</th> </tr>
+	   <tr>  <th> USER_OF_ORG (*)</th> <td> choisir et effectuer un qcm , visualiser immédiatement les résultats</td></tr>
+	   <tr>  <th> AUTHOR_OF_ORG </th> <td> gérer un qcm (créer,modifier,supprimer) , saisir questions et réponses</td></tr>
+	   <tr>  <th> ADMIN_OF_ORG </th> <td> administration des groupes et utilisateurs
+	                                      pour une certaine organisation</td></tr>
+	   <tr>  <th> ADMIN_OF_SAAS </th> <td> administrer les organisations autorisées à enregistrer leurs QCMs</td></tr>
+	</table>
+	(*) <br/>
+	- en mode "utilisateur generique d'une organisation" , aucun résultat ni score ne sera enregistré . <br/>
+	- en mode "utilisateur spécifique (avec username)" , seulement le score sera enregistré <br/>
+	       (pour un suivi de la progression au niveau des connaissances acquises)<br/>
+	
+	<h4><u>organisations autorisées et comptes génériques</u></h4>
+	<p> Toute organisation autorisée à utiliser (en mode non anonyme) cette application <br/>
+	recevera par mail toutes les informations pour se connecter : <br/>
+	* nom d'organisation <br/>
+	* mot de passe pour "utilisateur_générique" (pour effectuer des QCM en entraînement libre)<br/>
+	* mot de passe pour "auteur_générique" (pour créer/enregistrer de nouveaux QCM)<br/>
+	* mot de passe pour "administrateur_générique" (pour créer des groupes/utilisateurs de façon à effectuer un suivi des scores)<br/>
+	</p>
+	<p>toute nouvelle organisation souhaitant utiliser cette application devra en faire la demande par mail
+	   à l'administrateur de ce site : <a href="mailto:didier@d-defrance.fr">didier@d-defrance.fr</a></p>
+	
+	<h4><u>Authentification (Login)</u></h4>   
+	<img src="../images/CaptureLoginSaasTraining.png"/>
+	<ol>
+	   <li>saisir le nom de l'organisation (ex: org1)</li>
+	   <li>cliquer sur le bouton "rechercher/vérifier"</li>
+	   <li>choisir le rôle dans la liste</li>
+	   <li>laisser coché "generic account" ou bien saisir un nom d'utilisateur spécifique</li>
+	   <li>saisir le mot de passe</li>
+	   <li>cliquer sur "login"</li>
+	</ol>
+	
+	<h4><u>Choix d'un sujet et d'un QCM (à effectuer)</u></h4>   
+	<img src="../images/CaptureChoixQcm.png"/>
+	<ol>
+	   <li>ajuster si besoin le filtrage (organisation seule ou public en plus)</li>
+	   <li>sélectionner un sujet</li>
+	   <li>sélectionner un QCM</li>
+	   <li>cliquer sur "effectuer le qcm choisi"</li>
+	</ol>
+	
+	<h4><u>Répondre aux questions et visualiser les résultats</u></h4>   
+	   
+	   <img src="../images/CaptureReponseQuestion.png"/>
+	<ol>
+	   <li>sélectionner la (ou les) réponse(s) qui vous semble(nt) être bonne(s)</li>
+	   <li>passer à la question suivante</li>
+	   <li>revenir éventuellement aux questions précédentes</li>
+	   <li>soumettre l'ensemble des réponses aux questions</li>
+	   <li>visualiser et analyser le score et les bonnes réponses)</li>
+	</ol>
+	  <img src="../images/CaptureResultatsQcm.png"/>
+	   
+	
+	<h4><u>Specification d'un QCM à créer ou modifier (pour auteurs)</u></h4> 
+	 <img src="../images/CaptureChoixSpecifQcmAuthor.png"/>
+	<ol>
+	   <li>sélectionner et ajuster si besoin un sujet (choix,ajout,edition,suppression)</li>
+	   <li>un sujet partagé (public) devrait idéalement être de la formation "orgXy/categorie/sous_categorie"</li>
+	   <li>sélectionner ou créer un QCM</li>
+	   <li>éditer les détails du qcm (en cliquant sur l'icône "crayon" du milieu)</li>
+	   <li>enregistrer éventuellement l'url direct du qcm pour la recopier ou diffuser</li>
+	</ol>
+	
+	<h4><u>Fixer les options d'un QCM (pour auteurs)</u></h4> 
+	   <img src="../images/CaptureOptionsQcm.png"/>
+	<ol>
+	   <li>Editer si besoin les options du qcm (titre , mots clefs , ...)</li>
+	   <li>shared (public) est une option importante : un qcm partagé sera vu (en lecture seule) par les autres organisations</li>
+	   <li>enregitrer si besoin les options (après une modification)</li>
+	   <li>revenir à la liste des autres QCMs ou bien saisir les questions/réponses du QCM actuel</li>
+	</ol>
+	
+	<h4><u>Saisir et enregistrer les questions et les réponses (pour auteurs)</u></h4> 
+	   <img src="../images/CaptureSaisieQuestion.png"/>
+	<ol>
+
+	   <li>Saisir le texte de la question</li>
+	   <li>Choisir entre "bonne réponse unique" (mode exclusif) ou "bonnes réponses potentiellement multiples"</li>
+	   <li>Saisir le texte de chacune des bonne(s) ou mauvaises réponses </li>
+	   <li>Sélectionner si besoin la ou les bonne(s) réponses </li>
+	   <li>Enregistrer via "update" ou "update and ..." puis naviguer éventuellement vers une autre question</li>
+	</ol>
+	NB:<br/> 
+	* Seule la dernière question d'un qcm peut être supprimée.<br/>
+	* en supprimant plusieurs fois la dernière question , on peut supprimer plusieurs questions.<br/>
+	* il est conseiller de se relire et d'effectuer le qcm (en partant du menu principal)<br/>
+	* Si l'on a créer une question de trop: se placer sur la dernière "last" et la supprimer.<br/>
+	
+	<h4><u>Exporter ou ré-importer un qcm au format XML (pour auteurs)</u></h4> 
+	   <img src="../images/Capture_Export_Import_Qcm.png"/>
+	<ol>
+	   <li>export via "enregistrer la cible du lien sous ..." xxx.xml</li>
+	   <li>... (le fichier xml constitue une sauvegarde en cas de problème) ...</li>
+	   <li>...</li>
+	   <li>... éventuel ré-import via upload du fichier sauvegardé ...</li>
+	</ol>
+	
+	<h4><u>Administrer des groupes et des utilisateurs (pour admin_of_org)</u></h4> 
+	 <img src="../images/CaptureAdminGroupUserOfOrg.png"/>
+	<ol>
+	   <li>créer ou sélectionner un groupe</li>
+	   <li>créer ou sélectionner un utilisateur</li>
+	   <li>enregistrer la mise à jour via "update ..."</li>
+	</ol>
+	NB:<br/>
+	* les speudo sujet "???" et "? new user" sont fictifs : ils ne servent qu'à inviter </br>
+	à effectuer une sélection ou un ajout .<br/>
+	* le lien hypertexte "display sessions" permet de visualiser les résultats <br/>
+	d'un utilisateur existant  qui a déjà effectué quelques qcm .
+	
+	<h4><u>Configurer une organisation (pour admin_of_org)</u></h4> 
+	 <img src="../images/CaptureConfigCurrentSaasOrg.png"/>
+	<ul>
+	   <li>ne pas oublier les mots de passe !!!</li>
+	</ul>
+	
+    <h4><u>Afficher les resultats des sessions de qcm effectuées un utilisateur sélectionné (pour admin_of_org)</u></h4> 
+	 <img src="../images/CaptureDisplaySessionsResults.png"/>
+	
+	
+	<h4><u>Fonctionnalités prévues dans les futures versions (fin 2014, 2015 , ...)</u></h4> 
+	<ul>
+	   <li>éventuelle illustration d'une question de qcm par une petite image (avec upload)</li>
+	   <li>...quelques services web pour récupérer certains résultats ou bien enregistrer des utilisateurs ...</li>
+	   <li>éventuel mode certification (avec date fixe et temps limité)</li>
+	   <li>...</li>
+	</ul>
+</body>
+</html>

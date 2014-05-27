@@ -2,16 +2,21 @@ package org.mycontrib.apps.training.session.itf.domain.dto;
 
 import org.mycontrib.apps.training.mcq.itf.domain.dto.Mcq;
 import org.mycontrib.apps.training.saasOrg.itf.domain.dto.SaasUser;
-
+/* session de qcm 
+ * pour calculer le résultat (et éventuellement enregistrer celui ci)
+ * sera non persisté si generic_user
+ * sera persisté si non generic user (specific user of saas_org in saas_group)
+ *   en mode "persisté" (sera eventuellement rattaché à une session_officielle)
+ */
 public  class McqUserSession  {
 	private QuestionResponseChoice choices;
 	private Mcq mcq;
-	private McqOfficialSession officialSession;
+	private McqOfficialSession officialSession;//usually null if no official 
 	private String pctGoodResponses;
 	private String submitDateTime;
-	private Integer mcqUserSessionId;
+	private Integer mcqUserSessionId;//id/pk
 	private Integer nbGoodResponses;
-	private SaasUser user;
+	private SaasUser user;//user (non generic) who performed mcq
 	
 	public McqUserSession(){
 		super(); 

@@ -2,8 +2,11 @@ package org.mycontrib.apps.training.web.mbean.common;
 
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
 import org.mycontrib.apps.training.mcq.itf.domain.dto.Mcq;
 import org.mycontrib.apps.training.mcq.itf.domain.dto.QuestionMcq;
+import org.mycontrib.apps.training.web.mbean.SaasMBean;
 
 /* McqAbstractMBean : abstract common superclass for McqBuild and McqTraining */
 
@@ -16,6 +19,13 @@ public abstract class McqAbstractMBean {
 	protected Long mcqId;
 	protected Mcq mcq; //with option to update or ...
 		
+	public SaasMBean getSaasMBean(){
+		SaasMBean bean = null;
+		bean = (SaasMBean)FacesContext.getCurrentInstance()
+				.getExternalContext().getSessionMap().get("saasMBean");
+		return bean;
+	}
+	
 
 	public List<QuestionMcq> getQuestionList() {
 		return questionList;

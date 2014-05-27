@@ -54,7 +54,7 @@ public class AdminOrgMBean {
 	
 	public void onOrgChange(ValueChangeEvent event){
 		this.orgId=(Long)event.getNewValue();
-		System.out.println("onOrgChange , new orgId="+orgId);
+		//System.out.println("onOrgChange , new orgId="+orgId);
 		if(orgId!=null){
 			if(orgId>0){
 				for(SaasOrg org : orgList){
@@ -79,7 +79,7 @@ public class AdminOrgMBean {
 	if(!FacesContext.getCurrentInstance().isPostback()){
 		if(orgList==null){
 			orgList = serviceSaasOrgManager.findAllSaasOrg();
-			System.out.println("initSaasBean: nb org=" + orgList.size());
+			//System.out.println("initSaasBean: nb org=" + orgList.size());
 		}
 	 }
 	}

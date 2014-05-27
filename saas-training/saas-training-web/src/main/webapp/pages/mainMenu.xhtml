@@ -4,6 +4,10 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="/templates/common.xhtml">
+<f:metadata>
+<f:viewParam name="anonymous" value="#{saasMBean.anonymous}"/> 
+<f:event type="preRenderView"  listener="#{saasMBean.initSaasBeanForAnonymousGuest}"/>
+</f:metadata>
 <ui:define name="pageTitle">mainMenu</ui:define>
 <ui:define name="pageHeader">Training Main Menu</ui:define>
 <ui:define name="body">     

@@ -1,7 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/templates/common.xhtml">
 <ui:define name="pageMetaData">
@@ -13,48 +14,26 @@
 <ui:define name="pageTitle">SaasUserGroup</ui:define>
 <ui:define name="pageHeader">Admin/Config of User and Group of Saas Organisation</ui:define>
 <ui:define name="body">     
-<script>
-function resetNewModeForGroup(){
-    	setHidden("userGroupForm:outputLabelNewGroupTitle");setHidden("userGroupForm:inputTextNewGroupTitle");
-    	setHidden("userGroupForm:commandButtonAddGroup"); setElementValue("userGroupForm:commandButtonNewGroup","nouveau");
-    }
-    function setCancelModeForGroup(){
-    	setVisible("userGroupForm:outputLabelNewGroupTitle");	setVisible("userGroupForm:inputTextNewGroupTitle");
-    	setVisible("userGroupForm:commandButtonAddGroup"); setElementValue("userGroupForm:commandButtonNewGroup","cancel");
-    }
-    function onNewOrCancelGroup(){
-    	if(getElementValue("userGroupForm:commandButtonNewGroup")!="cancel"){
-    		setCancelModeForGroup();
-    	}
-    	else{ resetNewModeForGroup();
-    	}
-    } 
-</script>   
+
 	<h:form id="userGroupForm" >
-	<h:panelGrid columns="3">
+	<h:panelGrid  id="mainFormPanelGrid" columns="3">
 	    <h:outputLabel for="inputTextSaasOrgName" value="organisation:"/>
 	    <h:outputText id="inputTextSaasOrgName" value="#{userGroupMBean.saasOrg.name}" />
 	    <h:outputLink  value="saasAdminCurrentOrg.jsf?orgId=#{userGroupMBean.saasOrg.idOrg}">config. organisation</h:outputLink>
 	         
 	     <h:outputLabel for="selectOneMenuGroup" value="groupe(s):"/>
-	    <h:selectOneMenu id="selectOneMenuGroup" value="#{userGroupMBean.groupId}" valueChangeListener="#{userGroupMBean.onGroupChange}" > 
-	       <f:ajax event="change" render="commandButtonAddGroup inputTextNewGroupTitle selectOneListUser firstName lastName info email username password role cmdBtnEditNewUser cmdBtnAddNewUser cmdBtnUpdateUser cmdBtnDeleteUser" />
-	       <f:selectItem itemLabel="???" itemValue="0" />
+	    <p:selectOneMenu id="selectOneMenuGroup" value="#{userGroupMBean.groupId}" valueChangeListener="#{userGroupMBean.onGroupChange}"  >
+	        <p:ajax  event="change" update="selectOneListUser firstName lastName info email username password role  cmdBtnAddNewUser cmdBtnUpdateUser cmdBtnDeleteUser cmdLinkDisplayUserSession" />	     
 	       <f:selectItems value="#{userGroupMBean.groupList}" var="g" itemLabel="#{g.name}" itemValue="#{g.idGroup}"/>
-	    </h:selectOneMenu>
-	    <input type="button" id="userGroupForm:commandButtonNewGroup" value="nouveau groupe"  onclick="onNewOrCancelGroup()"   />
-	
-	    <h:outputLabel id="outputLabelNewGroupTitle" for="inputTextNewGroupTitle" value="nouveau groupe:"  style="visibility:hidden"/>
-	    <h:inputText id="inputTextNewGroupTitle" value="#{userGroupMBean.newGroupName}" style="visibility:hidden" />
-	    <h:commandButton id="commandButtonAddGroup" value="add and select"  style="visibility:hidden" onclick="resetNewModeForGroup()"
-	        actionListener="#{userGroupMBean.onAddGroup}" >
-	           <f:ajax event="click" execute="@form" render="outputLabelNewGroupTitle selectOneMenuGroup commandButtonAddGroup inputTextNewGroupTitle cmdBtnEditNewUser cmdBtnAddNewUser cmdBtnUpdateUser cmdBtnDeleteUser"></f:ajax>
-	    </h:commandButton>
+	    </p:selectOneMenu>
+	    
+	     <p:commandButton id="commandButtonNewGroup"    value="nouveau groupe" onclick="dlgNewGroup.show();" type="button"/> 
+	   
 	    
 	    <h:outputText  value="membres"/><h:outputText  value="details"/><h:outputText value="actions"/>
 	    
 	    <h:selectOneListbox size="12" id="selectOneListUser" value="#{userGroupMBean.userId}" valueChangeListener="#{userGroupMBean.onUserChange}"> 
-	        <f:ajax event="change" render="firstName lastName info email username password role cmdBtnEditNewUser cmdBtnAddNewUser cmdBtnUpdateUser cmdBtnDeleteUser" /> 
+	        <p:ajax  event="change" update="firstName lastName info email username password role cmdBtnAddNewUser cmdBtnUpdateUser cmdBtnDeleteUser cmdLinkDisplayUserSession" /> 
 	        <f:selectItems value="#{userGroupMBean.userList}" var="u" itemLabel="#{u.firstName} #{u.lastName}" itemValue="#{u.userId}"/>
 	    </h:selectOneListbox>
 	    <h:panelGrid columns="2">
@@ -64,26 +43,59 @@ function resetNewModeForGroup(){
 	        <h:outputLabel for="email" value="email:"/><h:inputText id="email" value="#{userGroupMBean.user.saasAccount.email}"/>
 	        <h:outputLabel for="username" value="username:"/><h:inputText id="username" value="#{userGroupMBean.user.saasAccount.userName}"/>
 	        <h:outputLabel for="password" value="password:"/><h:inputText id="password" value="#{userGroupMBean.user.saasAccount.password}"/>
-	        <h:outputLabel for="role" value="role:"/><h:selectOneMenu id="role" value="#{userGroupMBean.saasRole}">
+	        <h:outputLabel for="role" value="role:"/><p:selectOneMenu id="role" value="#{userGroupMBean.saasRole}">
 	           <f:selectItems value="#{userGroupMBean.roleList}" var="r" itemLabel="#{r}" itemValue="#{r}"/>
-	        </h:selectOneMenu>
+	        </p:selectOneMenu>
 	    </h:panelGrid>
 	    <h:panelGrid columns="1">
-	         <h:commandButton id="cmdBtnEditNewUser" disabled="#{userGroupMBean.group==null}" actionListener="#{userGroupMBean.onEditNewUser}" value="1. edit new user"     >
-	               <f:ajax event="click" execute="@form" render="firstName lastName info email username password cmdBtnAddNewUser" />
-	         </h:commandButton>
-	         <h:commandButton id="cmdBtnAddNewUser" disabled="#{userGroupMBean.user==null || userGroupMBean.userId!=null}" actionListener="#{userGroupMBean.onAddNewUser}" value="2. add new user"     >
-	               <f:ajax event="click" execute="firstName lastName info email username password role" render="cmdBtnEditNewUser cmdBtnAddNewUser selectOneListUser" />
-	         </h:commandButton>
+	         
+	      
+	         <p:commandButton id="cmdBtnAddNewUser" disabled="#{userGroupMBean.groupId==0 || userGroupMBean.userId!=0}" 
+	              actionListener="#{userGroupMBean.onAddNewUser}" value="add user" 
+	              execute="firstName lastName info email username password role" 
+	               update="selectOneListUser cmdBtnAddNewUser cmdBtnUpdateUser cmdBtnDeleteUser cmdLinkDisplayUserSession" />
+	       
 	         <p> </p>
-	         <h:commandButton id="cmdBtnUpdateUser" action="#{userGroupMBean.updateUser}" disabled="#{userGroupMBean.user==null || userGroupMBean.userId==null}" value="update user"     />
+	         <p:commandButton id="cmdBtnUpdateUser" action="#{userGroupMBean.updateUser}" 
+	                disabled="#{userGroupMBean.userId==0}" value="update user"     />
 	         <p> </p>
-	         <h:selectBooleanCheckbox id="confirmDeleteCheckbox"  value="#{userGroupMBean.confirmDelete}" label="confirm delete" />
-	         <h:commandButton id="cmdBtnDeleteUser" action="#{userGroupMBean.deleteUser}" disabled="#{userGroupMBean.user==null || userGroupMBean.userId==null}" value="delete user"     />
-	         <p> (if confirmed)</p>
+	      	   
+	         
+	         <p:commandButton id="cmdBtnDeleteUser" value="delete user"  
+	                 disabled="#{userGroupMBean.userId==0}" 
+	                 actionListener="#{userGroupMBean.onDeleteUser}"
+		           update=":globalGrowl selectOneListUser firstName lastName info email username password role" >
+		           <p:confirm header="confirmation" message="êtes vous certain de vouloir supprimer cet utilateur"  icon="ui-icon-alert"  />                   
+           </p:commandButton>
+           <p> </p>
+           <h:outputLink id="cmdLinkDisplayUserSession" 
+	                disabled="#{userGroupMBean.userId==0}" 
+	                value="displayUserSessions.jsf?saasUserId=#{userGroupMBean.user.userId}" >display sessions</h:outputLink>
+	         <p> </p>
 	    </h:panelGrid>
 	        
 	   </h:panelGrid>
+	   
+	   <p:dialog id="newGroupDialog" header="new group" widgetVar="dlgNewGroup"  height="120"> 
+	         <h:panelGrid columns="2" id="newGroupDialogPanelGrid"> 
+				<h:outputLabel id="outputLabelNewGroup" for="inputTextNewGroupTitle" value="nom groupe:"  />
+	            <h:inputText id="inputTextNewGroupTitle" value="#{userGroupMBean.newGroupName}" />
+	            <h:outputLabel id="outputLabelNewInfo" for="inputTextNewGroupInfo" value="info:"  />
+	            <h:inputText id="inputTextNewGroupInfo" value="#{userGroupMBean.newGroupInfo}" />
+	            <p:commandButton id="commandButtonAddGroup" value="OK (add)" actionListener="#{userGroupMBean.onAddGroup}" 
+			           update="mainFormPanelGrid"
+			           oncomplete="dlgNewGroup.hide()">		        
+			    </p:commandButton>	
+			    <p:commandButton id="commandButtonCancelAddGroup" value="Cancel" 
+			           oncomplete="dlgNewGroup.hide()">		        
+			    </p:commandButton>
+		    </h:panelGrid>	     
+		</p:dialog>  
+	   
+	    <p:confirmDialog global="true" showEffect="fade" hideEffect="fold">  
+          <p:commandButton value="OK" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+          <p:commandButton value="Cancel" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+        </p:confirmDialog>
 	</h:form>
 	<h:messages/>
 </ui:define>

@@ -16,8 +16,10 @@ public interface SaasUserGroupManager {
 	public void deleteSaasGroup(Long groupId) throws GenericException;
 	//public void updateSaasGroup(SaasGroup g) throws GenericException;
 	
+	public SaasUser findSaasUserBySpecificRoleAccountId(Long saasRoleAccountId);//for saasRoleAccount with generic=false 
 	
 	public List<SaasUser> findSaasUsersOfGroup(Long groupId)throws GenericException;
+	public SaasUser getSaasUserById(Long userId)throws GenericException;
 	public Long addSaasUser(Long groupId,SaasUser newUser) throws GenericException;//return id/pk
 	public void deleteSaasUser(Long userId) throws GenericException;
 	public void updateSaasUser(SaasUser u) throws GenericException;//update also attached SaasRoleAccount

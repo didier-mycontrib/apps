@@ -14,8 +14,12 @@ VALUES(8,'USER_OF_ORG','alain.therieur@org1.com','alain-therieur','pwd',false);
 INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) 
 VALUES(9,'USER_OF_ORG','alex.therieur@org1.com','alex-therieur','pwd',false);
 
+INSERT INTO SaasRoleAccount(idAccount,saasRole,email,userName,password,generic) 
+VALUES(10,'USER_OF_ORG','anonymous@public','anonymous','',true);
+
 INSERT INTO SaasOrg(idOrg,name,info,ref_genericUserOfOrgAccount,ref_genericAdminOfOrgAccount,ref_genericAuthorOfOrgAccount) VALUES(1,'org1','organisation 1',3,1,5);
 INSERT INTO SaasOrg(idOrg,name,info,ref_genericUserOfOrgAccount,ref_genericAdminOfOrgAccount,ref_genericAuthorOfOrgAccount) VALUES(2,'org2','organisation 2',4,2,6);
+INSERT INTO SaasOrg(idOrg,name,info,ref_genericUserOfOrgAccount,ref_genericAdminOfOrgAccount,ref_genericAuthorOfOrgAccount) VALUES(3,'public','public domain',10,null,null);
 
 INSERT INTO SaasGroup(idGroup,name,info,ref_org) VALUES(1,'group1_of_org1',null,1);
 INSERT INTO SaasGroup(idGroup,name,info,ref_org) VALUES(2,'group2_of_org1',null,1);

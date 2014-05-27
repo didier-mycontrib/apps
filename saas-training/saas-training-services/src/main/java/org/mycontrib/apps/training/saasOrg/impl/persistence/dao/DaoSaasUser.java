@@ -7,5 +7,6 @@ import org.mycontrib.generic.persistence.GenericDao;
 public interface DaoSaasUser extends GenericDao<_SaasUser,Long> {
 	//Start of user code specific_dao_methods
 	    //public List<_SaasUser> findSaasUserByXyz(...);
+	public _SaasUser getSaasUserBySpecificRoleAccountId(Long saasRoleAccountId);
 	//End of user code
 }

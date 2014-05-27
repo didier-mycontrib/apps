@@ -15,12 +15,15 @@ import org.mycontrib.apps.training.saasOrg.itf.domain.dto.SaasOrg;
 import org.mycontrib.apps.training.saasOrg.itf.domain.dto.SaasRoleAccount;
 import org.mycontrib.apps.training.saasOrg.itf.domain.enumeration.SaasRole;
 import org.mycontrib.apps.training.saasOrg.itf.domain.service.SaasOrgManager;
+import org.mycontrib.generic.exception.GenericException;
 
 /* SaasMBean :  JSF ManagedBean for Saas login */
 
 @ManagedBean
 @SessionScoped
 public class SaasMBean {
+	
+	private boolean anonymous=false;
 	
 	private String saasOrgName; //a saisir (pour recherche SaasOrg de nom proche)
 	private List<SaasOrg> existingSaasOrgList;
@@ -59,7 +62,32 @@ public class SaasMBean {
 	@ManagedProperty(value="#{serviceSaasOrgManager}")
 		private SaasOrgManager serviceSaasOrgManager;
 	
-	
+	public void initSaasBeanForAnonymousGuest(ComponentSystemEvent event){
+		if(!FacesContext.getCurrentInstance().isPostback()){
+			initSaasBean(event);
+			if(this.anonymous == true){
+				//System.out.println("initSaasBeanForAnonymousGuest");
+				this.username="anonymous";
+				this.password="";
+				this.saasRole=SaasRole.USER_OF_ORG;
+				this.saasOrgName="public";
+				doFindOrgName(); //to initialize this.saasOrg to public special organisation;
+				try {
+					validSaasRoleAccount = 
+							serviceSaasOrgManager.findSaasRoleAccountByUsernameAndPassword(this.saasOrg.getIdOrg(),this.username, this.password);
+				} catch (GenericException e) {
+					//e.printStackTrace();
+					System.err.println("echec login for anonymous(public) in database:" + e.getMessage());
+					//si pas trouver en base , créer dynamiquement anonymous SaasRoleAccount
+					validSaasRoleAccount = new SaasRoleAccount();
+					validSaasRoleAccount.setPassword("");
+					validSaasRoleAccount.setUserName("anonymous");
+					validSaasRoleAccount.setSaasRole(saasRole.USER_OF_ORG);
+					
+				}
+			}
+		}
+	}
 	
 	public void initSaasBean(ComponentSystemEvent event){
 		//System.out.println("postBack:"+FacesContext.getCurrentInstance().isPostback());
@@ -68,7 +96,7 @@ public class SaasMBean {
 		if(!FacesContext.getCurrentInstance().isPostback()){
 			if(existingSaasOrgList==null){
 				existingSaasOrgList = serviceSaasOrgManager.findAllSaasOrg();
-				System.out.println("initSaasBean: nb org=" + existingSaasOrgList.size());
+				//System.out.println("initSaasBean: nb org=" + existingSaasOrgList.size());
 			}
 			if(roleList==null){
 				roleList= new ArrayList<SaasRole>();
@@ -122,7 +150,7 @@ public class SaasMBean {
 	
 	public String doLogin(){
 		String suite=null;
-	
+	    this.anonymous=false;
 		SaasRoleAccount validRoleAccount = null;
 		updateUsernameForGenericRoleAccount();
 		//System.out.println("doLogin() with username="+username +" and password="+password);
@@ -133,10 +161,16 @@ public class SaasMBean {
 		if(saasOrg!=null){
 			idSaasOrg=saasOrg.getIdOrg();
 		}
-		validRoleAccount = 
-				serviceSaasOrgManager.findSaasRoleAccountByUsernameAndPassword(idSaasOrg,this.username, this.password);
+		//System.out.println("doLogin , idSaasOrg:" + idSaasOrg);
+		try {
+			validRoleAccount = 
+					serviceSaasOrgManager.findSaasRoleAccountByUsernameAndPassword(idSaasOrg,this.username, this.password);
+		} catch (GenericException e) {
+			//e.printStackTrace();
+			System.err.println("echec login:" + e.getMessage());
+		}
 		if(validRoleAccount!=null){
-			System.out.println("validSaasRoleAccount:"+validSaasRoleAccount);
+			//System.out.println("validSaasRoleAccount:"+validSaasRoleAccount);
 			this.validSaasRoleAccount=validRoleAccount;
 			saasRole=validSaasRoleAccount.getSaasRole();  //???
 			suite="mainMenu"; //.xhtml
@@ -242,6 +276,14 @@ public class SaasMBean {
 
 	public void setValidSaasRoleAccount(SaasRoleAccount validSaasRoleAccount) {
 		this.validSaasRoleAccount = validSaasRoleAccount;
+	}
+
+	public boolean isAnonymous() {
+		return anonymous;
+	}
+
+	public void setAnonymous(boolean anonymous) {
+		this.anonymous = anonymous;
 	}
 
 

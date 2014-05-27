@@ -2,6 +2,7 @@ package org.mycontrib.apps.training.saasOrg.impl.domain.service.test;
 
 import javax.inject.Inject;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mycontrib.apps.training.saasOrg.itf.domain.dto.SaasGroup;
@@ -29,5 +30,12 @@ public class TestServiceSaasUserGroupManager {
 		 for(SaasUser u :service.findSaasUsersOfGroup(1L))
 			 System.out.println(u);
 		 
+	 }
+	 
+	 @Test
+	 public void testFindSaasUserBySpecificRoleAccountId(){
+		 SaasUser saasUser= service.findSaasUserBySpecificRoleAccountId(8L);
+		 Assert.assertTrue(saasUser!=null);
+		 System.out.println("saasUser with RoleAccountId=8:"+saasUser);//alex_therieur de initialDataSet.xml ?
 	 }
 }
