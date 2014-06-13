@@ -1,149 +1,419 @@
-2014-05-27 17:08:27,994 DEBUG main org.dbunit.dataset.DefaultTable - addRow(values=prenom) - start
-2014-05-27 17:08:27,994 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - endElement(uri=, localName=, qName=SaasUser) - start
-2014-05-27 17:08:27,994 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - endElement(uri=, localName=, qName=dataset) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.CachedDataSet - endTable() - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.CachedDataSet - endDataSet() - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.CachedDataSet - endDataSet() - the final tableMap is: org.dbunit.dataset.OrderedTableNameMap[_tableNames=[SaasUser], _tableMap={SAASUSER=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]}, _caseSensitiveTableNames=false]
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractDataSet - getTable(tableName=SaasUser) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractDataSet - initialize() - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.CachedDataSet - createIterator(reversed=false) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - orderedValues() - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.DefaultTableIterator - getTable() - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=info) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=info) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=info) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=lastName) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=lastName) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=lastName) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=firstName) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=firstName) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=firstName) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=userId) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=userId) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=userId) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=saasAccount) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=saasAccount) - start
-2014-05-27 17:08:27,995 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=saasAccount) - start
-2014-05-27 17:08:27,995 INFO main org.mycontrib.generic.test.GenericDaoTest - 	 nouvelle valeur de l'entite (modifiee): SaasUser(info=info def,lastName=Nom,firstName=prenom,userId=4)
-2014-05-27 17:08:27,996 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
-2014-05-27 17:08:27,996 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.deleteEntity]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
-2014-05-27 17:08:27,996 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 14012033079
-2014-05-27 17:08:27,996 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@3cf739] for JPA transaction
-2014-05-27 17:08:27,996 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
-2014-05-27 17:08:27,996 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
-2014-05-27 17:08:27,996 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
-2014-05-27 17:08:27,998 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
-2014-05-27 17:08:27,998 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
-2014-05-27 17:08:27,998 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@3cf739] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@a90e78] does not support JDBC Connection retrieval
-2014-05-27 17:08:27,998 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
-2014-05-27 17:08:27,998 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
-2014-05-27 17:08:27,998 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_1_, saasuser0_.firstName as firstName6_1_, saasuser0_.info as info6_1_, saasuser0_.lastName as lastName6_1_, saasuser0_.ref_saasAccount as ref5_6_1_, saasrolea1_.idAccount as idAccount5_0_, saasrolea1_.email as email5_0_, saasrolea1_.generic as generic5_0_, saasrolea1_.password as password5_0_, saasrolea1_.saasRole as saasRole5_0_, saasrolea1_.userName as userName5_0_ from SaasUser saasuser0_ left outer join SaasRoleAccount saasrolea1_ on saasuser0_.ref_saasAccount=saasrolea1_.idAccount where saasuser0_.userId=?
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.loader.Loader - result row: null, EntityKey[org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.engine.TwoPhaseLoad - resolving associations for [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.engine.TwoPhaseLoad - done materializing entity [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.loader.Loader - done entity load
-2014-05-27 17:08:27,999 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
-2014-05-27 17:08:27,999 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@3cf739]
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - processing flush-time cascades
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - dirty checking collections
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 1 deletions to 1 objects
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.pretty.Printer - listing entities:
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.pretty.Printer - org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser{lastName=Nom, saasAccount=null, userId=4, firstName=prenom, info=info def}
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.SQL - delete from SaasUser where userId=?
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.jdbc.AbstractBatcher - Executing batch size: 1
-2014-05-27 17:08:27,999 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
-2014-05-27 17:08:28,001 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
-2014-05-27 17:08:28,001 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
-2014-05-27 17:08:28,001 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
-2014-05-27 17:08:28,001 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
-2014-05-27 17:08:28,001 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@3cf739] after transaction
-2014-05-27 17:08:28,001 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
-2014-05-27 17:08:28,001 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
-2014-05-27 17:08:28,001 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.getEntityById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
-2014-05-27 17:08:28,001 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 14012033080
-2014-05-27 17:08:28,001 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@b8aba6] for JPA transaction
-2014-05-27 17:08:28,001 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
-2014-05-27 17:08:28,001 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
-2014-05-27 17:08:28,001 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
-2014-05-27 17:08:28,004 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
-2014-05-27 17:08:28,004 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
-2014-05-27 17:08:28,004 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@b8aba6] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@a90e78] does not support JDBC Connection retrieval
-2014-05-27 17:08:28,004 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
-2014-05-27 17:08:28,004 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
-2014-05-27 17:08:28,004 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_1_, saasuser0_.firstName as firstName6_1_, saasuser0_.info as info6_1_, saasuser0_.lastName as lastName6_1_, saasuser0_.ref_saasAccount as ref5_6_1_, saasrolea1_.idAccount as idAccount5_0_, saasrolea1_.email as email5_0_, saasrolea1_.generic as generic5_0_, saasrolea1_.password as password5_0_, saasrolea1_.saasRole as saasRole5_0_, saasrolea1_.userName as userName5_0_ from SaasUser saasuser0_ left outer join SaasRoleAccount saasrolea1_ on saasuser0_.ref_saasAccount=saasrolea1_.idAccount where saasuser0_.userId=?
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.loader.Loader - done entity load
-2014-05-27 17:08:28,005 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
-2014-05-27 17:08:28,005 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@b8aba6]
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
-2014-05-27 17:08:28,005 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
-2014-05-27 17:08:28,006 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@b8aba6] after transaction
-2014-05-27 17:08:28,006 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
-2014-05-27 17:08:28,006 INFO main org.mycontrib.generic.test.GenericDaoTest - 	 entite bien supprimee
-2014-05-27 17:08:28,006 INFO main org.mycontrib.generic.test.GenericDaoTest - ****** end of CRUD test avec plusieurs petites transactions *****
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - orderedValues() - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.DefaultTableIterator - getTable() - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=info) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=info) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=info) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=lastName) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=lastName) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=lastName) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=firstName) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=firstName) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=firstName) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=userId) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=userId) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=userId) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=saasAccount) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=saasAccount) - start
+2014-06-13 18:04:42,355 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=saasAccount) - start
+2014-06-13 18:04:42,355 INFO main org.mycontrib.generic.test.GenericDaoTest - 	 valeurs initiales de l'entite (creee): SaasUser(info=info abc,lastName=nom,firstName=prenom,userId=4)
+2014-06-13 18:04:42,356 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
+2014-06-13 18:04:42,356 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.getEntityById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2014-06-13 18:04:42,356 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 14026754823
+2014-06-13 18:04:42,356 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@25883b] for JPA transaction
+2014-06-13 18:04:42,356 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
+2014-06-13 18:04:42,356 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
+2014-06-13 18:04:42,356 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
+2014-06-13 18:04:42,358 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
+2014-06-13 18:04:42,358 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
+2014-06-13 18:04:42,359 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@25883b] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@1322c02] does not support JDBC Connection retrieval
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_1_, saasuser0_.firstName as firstName6_1_, saasuser0_.info as info6_1_, saasuser0_.lastName as lastName6_1_, saasuser0_.ref_saasAccount as ref5_6_1_, saasrolea1_.idAccount as idAccount5_0_, saasrolea1_.email as email5_0_, saasrolea1_.generic as generic5_0_, saasrolea1_.password as password5_0_, saasrolea1_.saasRole as saasRole5_0_, saasrolea1_.userName as userName5_0_ from SaasUser saasuser0_ left outer join SaasRoleAccount saasrolea1_ on saasuser0_.ref_saasAccount=saasrolea1_.idAccount where saasuser0_.userId=?
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.loader.Loader - result row: null, EntityKey[org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.engine.TwoPhaseLoad - resolving associations for [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.engine.TwoPhaseLoad - done materializing entity [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.loader.Loader - done entity load
+2014-06-13 18:04:42,359 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2014-06-13 18:04:42,359 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@25883b]
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - processing flush-time cascades
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - dirty checking collections
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.pretty.Printer - listing entities:
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.pretty.Printer - org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser{lastName=nom, saasAccount=null, userId=4, firstName=prenom, info=info abc}
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
+2014-06-13 18:04:42,359 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
+2014-06-13 18:04:42,360 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@25883b] after transaction
+2014-06-13 18:04:42,360 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2014-06-13 18:04:42,360 DEBUG main org.dbunit.dataset.xml.FlatXmlDataSetBuilder - Creating FlatXmlDataSet with builder parameters: org.dbunit.dataset.xml.FlatXmlDataSetBuilder[dtdMetadata=true, columnSensing=false, caseSensitiveTableNames=false, metaDataSet=null]
+2014-06-13 18:04:42,360 DEBUG main org.dbunit.dataset.xml.FlatXmlDataSetBuilder - Creating FlatXmlProducer using the properties of this builder: org.dbunit.dataset.xml.FlatXmlDataSetBuilder[dtdMetadata=true, columnSensing=false, caseSensitiveTableNames=false, metaDataSet=null]
+2014-06-13 18:04:42,360 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - setConsumer(consumer) - start
+2014-06-13 18:04:42,360 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - produce() - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.xml.FlatDtdProducer - setLexicalHandler(xmlReader=com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser@1fde9bd, handler=org.dbunit.dataset.xml.FlatXmlProducer$FlatDtdHandler@fc8ee1) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.xml.FlatDtdProducer - setDeclHandler(xmlReader=com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser@1fde9bd, handler=org.dbunit.dataset.xml.FlatXmlProducer$FlatDtdHandler@fc8ee1) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - startElement(uri=, localName=, qName=dataset, attributes=com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy@10893d5) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.CachedDataSet - startDataSet() - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - startElement(uri=, localName=, qName=SaasUser, attributes=com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy@10893d5) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - isLastTable(tableName=SaasUser) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - createTableMetaData(tableName=SaasUser, attributes=com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy@10893d5) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.Columns - getColumns(columnNames=[], columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)]) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[]) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.CachedDataSet - startTable(metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[]) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=firstName) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=lastName) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=info) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=ref_saasAccount) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=ref_group) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.CachedDataSet - row(values=prenom) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.DefaultTable - addRow(values=prenom) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - endElement(uri=, localName=, qName=SaasUser) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - endElement(uri=, localName=, qName=dataset) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.CachedDataSet - endTable() - start
+2014-06-13 18:04:42,361 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.CachedDataSet - endDataSet() - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.CachedDataSet - endDataSet() - the final tableMap is: org.dbunit.dataset.OrderedTableNameMap[_tableNames=[SaasUser], _tableMap={SAASUSER=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]}, _caseSensitiveTableNames=false]
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.AbstractDataSet - getTable(tableName=SaasUser) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.AbstractDataSet - initialize() - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.CachedDataSet - createIterator(reversed=false) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - orderedValues() - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.DefaultTableIterator - getTable() - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,362 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=info) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=info) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=info) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=lastName) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=lastName) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=lastName) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=firstName) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=firstName) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=firstName) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=userId) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=userId) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=userId) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=saasAccount) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=saasAccount) - start
+2014-06-13 18:04:42,363 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=saasAccount) - start
+2014-06-13 18:04:42,363 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
+2014-06-13 18:04:42,363 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.updateEntity]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2014-06-13 18:04:42,363 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 14026754823
+2014-06-13 18:04:42,363 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@b48e49] for JPA transaction
+2014-06-13 18:04:42,363 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
+2014-06-13 18:04:42,363 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
+2014-06-13 18:04:42,363 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
+2014-06-13 18:04:42,366 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
+2014-06-13 18:04:42,366 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
+2014-06-13 18:04:42,366 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@b48e49] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@1322c02] does not support JDBC Connection retrieval
+2014-06-13 18:04:42,366 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,366 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-06-13 18:04:42,366 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_0_, saasuser0_.firstName as firstName6_0_, saasuser0_.info as info6_0_, saasuser0_.lastName as lastName6_0_, saasuser0_.ref_saasAccount as ref5_6_0_ from SaasUser saasuser0_ where saasuser0_.userId=?
+2014-06-13 18:04:42,367 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
+2014-06-13 18:04:42,367 DEBUG main org.hibernate.loader.Loader - result row: EntityKey[org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,367 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
+2014-06-13 18:04:42,367 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-06-13 18:04:42,367 DEBUG main org.hibernate.engine.TwoPhaseLoad - resolving associations for [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,367 DEBUG main org.hibernate.engine.TwoPhaseLoad - done materializing entity [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,367 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.loader.Loader - done entity load
+2014-06-13 18:04:42,368 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2014-06-13 18:04:42,368 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@b48e49]
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - processing flush-time cascades
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - dirty checking collections
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 insertions, 1 updates, 0 deletions to 1 objects
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.pretty.Printer - listing entities:
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.pretty.Printer - org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser{lastName=Nom, saasAccount=null, userId=4, firstName=prenom, info=info def}
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.SQL - update SaasUser set firstName=?, info=?, lastName=?, ref_saasAccount=? where userId=?
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.jdbc.AbstractBatcher - Executing batch size: 1
+2014-06-13 18:04:42,368 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-06-13 18:04:42,370 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
+2014-06-13 18:04:42,370 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
+2014-06-13 18:04:42,370 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
+2014-06-13 18:04:42,370 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
+2014-06-13 18:04:42,370 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@b48e49] after transaction
+2014-06-13 18:04:42,370 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2014-06-13 18:04:42,370 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
+2014-06-13 18:04:42,370 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.getEntityById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2014-06-13 18:04:42,370 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 14026754823
+2014-06-13 18:04:42,370 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@701466] for JPA transaction
+2014-06-13 18:04:42,370 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
+2014-06-13 18:04:42,370 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
+2014-06-13 18:04:42,370 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
+2014-06-13 18:04:42,373 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
+2014-06-13 18:04:42,373 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
+2014-06-13 18:04:42,373 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@701466] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@1322c02] does not support JDBC Connection retrieval
+2014-06-13 18:04:42,373 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,373 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-06-13 18:04:42,373 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_1_, saasuser0_.firstName as firstName6_1_, saasuser0_.info as info6_1_, saasuser0_.lastName as lastName6_1_, saasuser0_.ref_saasAccount as ref5_6_1_, saasrolea1_.idAccount as idAccount5_0_, saasrolea1_.email as email5_0_, saasrolea1_.generic as generic5_0_, saasrolea1_.password as password5_0_, saasrolea1_.saasRole as saasRole5_0_, saasrolea1_.userName as userName5_0_ from SaasUser saasuser0_ left outer join SaasRoleAccount saasrolea1_ on saasuser0_.ref_saasAccount=saasrolea1_.idAccount where saasuser0_.userId=?
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.loader.Loader - result row: null, EntityKey[org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.engine.TwoPhaseLoad - resolving associations for [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.engine.TwoPhaseLoad - done materializing entity [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.loader.Loader - done entity load
+2014-06-13 18:04:42,374 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2014-06-13 18:04:42,374 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@701466]
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - processing flush-time cascades
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - dirty checking collections
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.pretty.Printer - listing entities:
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.pretty.Printer - org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser{lastName=Nom, saasAccount=null, userId=4, firstName=prenom, info=info def}
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
+2014-06-13 18:04:42,374 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
+2014-06-13 18:04:42,374 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@701466] after transaction
+2014-06-13 18:04:42,375 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.xml.FlatXmlDataSetBuilder - Creating FlatXmlDataSet with builder parameters: org.dbunit.dataset.xml.FlatXmlDataSetBuilder[dtdMetadata=true, columnSensing=false, caseSensitiveTableNames=false, metaDataSet=null]
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.xml.FlatXmlDataSetBuilder - Creating FlatXmlProducer using the properties of this builder: org.dbunit.dataset.xml.FlatXmlDataSetBuilder[dtdMetadata=true, columnSensing=false, caseSensitiveTableNames=false, metaDataSet=null]
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - setConsumer(consumer) - start
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - produce() - start
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.xml.FlatDtdProducer - setLexicalHandler(xmlReader=com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser@815140, handler=org.dbunit.dataset.xml.FlatXmlProducer$FlatDtdHandler@1fd451c) - start
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.xml.FlatDtdProducer - setDeclHandler(xmlReader=com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser@815140, handler=org.dbunit.dataset.xml.FlatXmlProducer$FlatDtdHandler@1fd451c) - start
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - startElement(uri=, localName=, qName=dataset, attributes=com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy@c46386) - start
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.CachedDataSet - startDataSet() - start
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - startElement(uri=, localName=, qName=SaasUser, attributes=com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy@c46386) - start
+2014-06-13 18:04:42,375 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - isLastTable(tableName=SaasUser) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - createTableMetaData(tableName=SaasUser, attributes=com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser$AttributesProxy@c46386) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.Columns - getColumns(columnNames=[], columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)]) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[]) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.CachedDataSet - startTable(metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[]) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=firstName) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=lastName) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=info) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=ref_saasAccount) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=ref_group) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,376 DEBUG main org.dbunit.dataset.CachedDataSet - row(values=prenom) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.DefaultTable - addRow(values=prenom) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - endElement(uri=, localName=, qName=SaasUser) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.xml.FlatXmlProducer - endElement(uri=, localName=, qName=dataset) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getLastTableName() - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.CachedDataSet - endTable() - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.CachedDataSet - endDataSet() - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.CachedDataSet - endDataSet() - the final tableMap is: org.dbunit.dataset.OrderedTableNameMap[_tableNames=[SaasUser], _tableMap={SAASUSER=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]}, _caseSensitiveTableNames=false]
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractDataSet - getTable(tableName=SaasUser) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractDataSet - initialize() - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.CachedDataSet - createIterator(reversed=false) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - orderedValues() - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.DefaultTableIterator - getTable() - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - add(tableName=SaasUser, object=org.dbunit.dataset.DefaultTable[_metaData=tableName=SaasUser, columns=[(firstName, UNKNOWN, nullableUnknown), (lastName, UNKNOWN, nullableUnknown), (info, UNKNOWN, nullableUnknown), (ref_saasAccount, UNKNOWN, nullableUnknown), (ref_group, UNKNOWN, nullableUnknown)], keys=[], _rowList.size()=1]) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SAASUSER) - end - result=SAASUSER
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.OrderedTableNameMap - getTableName(tableName=SaasUser) - end - result=SAASUSER
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=info) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=info) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=info) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=lastName) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=lastName) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=lastName) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=firstName) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=firstName) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=firstName) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=userId) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=userId) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=userId) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.DefaultTable - getValue(row=0, column=saasAccount) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - assertValidRowIndex(row=0, rowCount=1) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTable - getColumnIndex(columnName=saasAccount) - start
+2014-06-13 18:04:42,377 DEBUG main org.dbunit.dataset.AbstractTableMetaData - getColumnIndex(columnName=saasAccount) - start
+2014-06-13 18:04:42,377 INFO main org.mycontrib.generic.test.GenericDaoTest - 	 nouvelle valeur de l'entite (modifiee): SaasUser(info=info def,lastName=Nom,firstName=prenom,userId=4)
+2014-06-13 18:04:42,378 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
+2014-06-13 18:04:42,378 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.deleteEntity]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2014-06-13 18:04:42,378 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 14026754823
+2014-06-13 18:04:42,378 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@88035c] for JPA transaction
+2014-06-13 18:04:42,378 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
+2014-06-13 18:04:42,378 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
+2014-06-13 18:04:42,378 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
+2014-06-13 18:04:42,381 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
+2014-06-13 18:04:42,381 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
+2014-06-13 18:04:42,381 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@88035c] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@1322c02] does not support JDBC Connection retrieval
+2014-06-13 18:04:42,381 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,381 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-06-13 18:04:42,381 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_1_, saasuser0_.firstName as firstName6_1_, saasuser0_.info as info6_1_, saasuser0_.lastName as lastName6_1_, saasuser0_.ref_saasAccount as ref5_6_1_, saasrolea1_.idAccount as idAccount5_0_, saasrolea1_.email as email5_0_, saasrolea1_.generic as generic5_0_, saasrolea1_.password as password5_0_, saasrolea1_.saasRole as saasRole5_0_, saasrolea1_.userName as userName5_0_ from SaasUser saasuser0_ left outer join SaasRoleAccount saasrolea1_ on saasuser0_.ref_saasAccount=saasrolea1_.idAccount where saasuser0_.userId=?
+2014-06-13 18:04:42,381 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.loader.Loader - result row: null, EntityKey[org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.engine.TwoPhaseLoad - resolving associations for [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.engine.TwoPhaseLoad - done materializing entity [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.loader.Loader - done entity load
+2014-06-13 18:04:42,382 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2014-06-13 18:04:42,382 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@88035c]
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - processing flush-time cascades
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - dirty checking collections
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 1 deletions to 1 objects
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.event.def.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.pretty.Printer - listing entities:
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.pretty.Printer - org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser{lastName=Nom, saasAccount=null, userId=4, firstName=prenom, info=info def}
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.SQL - delete from SaasUser where userId=?
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.jdbc.AbstractBatcher - Executing batch size: 1
+2014-06-13 18:04:42,382 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-06-13 18:04:42,384 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
+2014-06-13 18:04:42,384 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
+2014-06-13 18:04:42,384 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
+2014-06-13 18:04:42,384 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
+2014-06-13 18:04:42,385 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@88035c] after transaction
+2014-06-13 18:04:42,385 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2014-06-13 18:04:42,385 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'txManager'
+2014-06-13 18:04:42,385 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.mycontrib.generic.persistence.spring.GenericDaoJpaSpring.getEntityById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+2014-06-13 18:04:42,385 DEBUG main org.hibernate.impl.SessionImpl - opened session at timestamp: 14026754823
+2014-06-13 18:04:42,385 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [org.hibernate.ejb.EntityManagerImpl@1c03579] for JPA transaction
+2014-06-13 18:04:42,385 DEBUG main org.hibernate.transaction.JDBCTransaction - begin
+2014-06-13 18:04:42,385 DEBUG main org.hibernate.jdbc.ConnectionManager - opening JDBC connection
+2014-06-13 18:04:42,385 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost/training_db]
+2014-06-13 18:04:42,388 DEBUG main org.hibernate.transaction.JDBCTransaction - current autocommit status: true
+2014-06-13 18:04:42,388 DEBUG main org.hibernate.transaction.JDBCTransaction - disabling autocommit
+2014-06-13 18:04:42,388 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Not exposing JPA transaction [org.hibernate.ejb.EntityManagerImpl@1c03579] as JDBC transaction because JpaDialect [org.springframework.orm.jpa.DefaultJpaDialect@1322c02] does not support JDBC Connection retrieval
+2014-06-13 18:04:42,388 DEBUG main org.hibernate.loader.Loader - loading entity: [org.mycontrib.apps.training.saasOrg.impl.persistence.entity._SaasUser#4]
+2014-06-13 18:04:42,388 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open PreparedStatement (open PreparedStatements: 0, globally: 0)
+2014-06-13 18:04:42,388 DEBUG main org.hibernate.SQL - select saasuser0_.userId as userId6_1_, saasuser0_.firstName as firstName6_1_, saasuser0_.info as info6_1_, saasuser0_.lastName as lastName6_1_, saasuser0_.ref_saasAccount as ref5_6_1_, saasrolea1_.idAccount as idAccount5_0_, saasrolea1_.email as email5_0_, saasrolea1_.generic as generic5_0_, saasrolea1_.password as password5_0_, saasrolea1_.saasRole as saasRole5_0_, saasrolea1_.userName as userName5_0_ from SaasUser saasuser0_ left outer join SaasRoleAccount saasrolea1_ on saasuser0_.ref_saasAccount=saasrolea1_.idAccount where saasuser0_.userId=?
+2014-06-13 18:04:42,391 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to open ResultSet (open ResultSets: 0, globally: 0)
+2014-06-13 18:04:42,391 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close ResultSet (open ResultSets: 1, globally: 1)
+2014-06-13 18:04:42,391 DEBUG main org.hibernate.jdbc.AbstractBatcher - about to close PreparedStatement (open PreparedStatements: 1, globally: 1)
+2014-06-13 18:04:42,392 DEBUG main org.hibernate.engine.StatefulPersistenceContext - initializing non-lazy collections
+2014-06-13 18:04:42,392 DEBUG main org.hibernate.loader.Loader - done entity load
+2014-06-13 18:04:42,392 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2014-06-13 18:04:42,392 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [org.hibernate.ejb.EntityManagerImpl@1c03579]
+2014-06-13 18:04:42,392 DEBUG main org.hibernate.transaction.JDBCTransaction - commit
+2014-06-13 18:04:42,392 DEBUG main org.hibernate.transaction.JDBCTransaction - re-enabling autocommit
+2014-06-13 18:04:42,392 DEBUG main org.hibernate.transaction.JDBCTransaction - committed JDBC Connection
+2014-06-13 18:04:42,392 DEBUG main org.hibernate.jdbc.ConnectionManager - aggressively releasing JDBC connection
+2014-06-13 18:04:42,392 DEBUG main org.hibernate.jdbc.ConnectionManager - releasing JDBC connection [ (open PreparedStatements: 0, globally: 0) (open ResultSets: 0, globally: 0)]
+2014-06-13 18:04:42,392 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [org.hibernate.ejb.EntityManagerImpl@1c03579] after transaction
+2014-06-13 18:04:42,392 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2014-06-13 18:04:42,392 INFO main org.mycontrib.generic.test.GenericDaoTest - 	 entite bien supprimee
+2014-06-13 18:04:42,392 INFO main org.mycontrib.generic.test.GenericDaoTest - ****** end of CRUD test avec plusieurs petites transactions *****
 
-2014-05-27 17:08:28,007 DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test method: context [[TestContext@19c3c08 testClass = TestDaoSaasUserWithGenericAndDbUnit, testInstance = org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasUserWithGenericAndDbUnit@c81bbd, testMethod = testGenericDao_CRUD@GenericDaoTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@178921b testClass = TestDaoSaasUserWithGenericAndDbUnit, locations = '{classpath:/serviceSpringConf.xml, classpath:/dataSourceForTestSpringConf.xml}', classes = '{}', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader']]], class dirties context [false], class mode [null], method dirties context [false].
-2014-05-27 17:08:28,007 DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test class: context [[TestContext@19c3c08 testClass = TestDaoSaasUserWithGenericAndDbUnit, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@178921b testClass = TestDaoSaasUserWithGenericAndDbUnit, locations = '{classpath:/serviceSpringConf.xml, classpath:/dataSourceForTestSpringConf.xml}', classes = '{}', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader']]], dirtiesContext [false].
-2014-05-27 17:08:28,008 INFO Thread-2 org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@f38b42: startup date [Tue May 27 17:08:19 CEST 2014]; root of context hierarchy
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'lifecycleProcessor'
-2014-05-27 17:08:28,016 INFO Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@8bdd6b: defining beans [org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor#0,myEmf,txManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,beanConverter,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,mcqUserSessionManagerImpl,daoMcqOfficialSessionJpa,daoMcqUserSessionJpa,mcqChooserImpl,questionMcqManagerImpl,mcqManagerImpl,daoMcqSubjectJpa,daoQuestionMcqJpa,daoMcqJpa,saasUserGroupManagerImpl,saasOrgManagerImpl,daoSaasUserJpa,daoSaasRoleAccountJpa,daoSaasOrgJpa,daoSaasGroupJpa,myDataSource,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'saasOrgManagerImpl': [org.mycontrib.apps.training.saasOrg.impl.domain.service.test.TestServiceSaasOrgManager]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'saasUserGroupManagerImpl': [org.mycontrib.apps.training.saasOrg.impl.domain.service.test.TestServiceSaasUserGroupManager]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasRoleAccountJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasRoleAccountWithGenericAndDbUnit]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasGroupJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasGroupWithGenericAndDbUnit]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasOrgJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasOrgWithGenericAndDbUnit]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqManagerImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceMcqManager]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'questionMcqManagerImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceQuestionMcqManager]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoQuestionMcqJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoQuestionMcqWithGenericAndDbUnit]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqChooserImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceMcqChooser]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqSubjectJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoMcqSubjectWithGenericAndDbUnit]
-2014-05-27 17:08:28,016 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqOfficialSessionJpa': [org.mycontrib.apps.training.session.impl.persistence.dao.test.TestDaoMcqOfficialSessionWithGenericAndDbUnit]
-2014-05-27 17:08:28,017 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqUserSessionManagerImpl': [org.mycontrib.apps.training.session.impl.domain.service.test.TestServiceMcqUserSessionManager]
-2014-05-27 17:08:28,017 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoMcqWithGenericAndDbUnit]
-2014-05-27 17:08:28,017 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasUserJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasUserWithGenericAndDbUnit]
-2014-05-27 17:08:28,017 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqUserSessionJpa': [org.mycontrib.apps.training.session.impl.persistence.dao.test.TestDaoMcqUserSessionWithGenericAndDbUnit]
-2014-05-27 17:08:28,017 DEBUG Thread-2 org.springframework.beans.factory.support.DisposableBeanAdapter - Invoking destroy() on bean with name 'myEmf'
-2014-05-27 17:08:28,017 INFO Thread-2 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'myPersistenceUnit'
-2014-05-27 17:08:28,017 INFO Thread-2 org.hibernate.impl.SessionFactoryImpl - closing
+2014-06-13 18:04:42,393 DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test method: context [[TestContext@e8ae25 testClass = TestDaoSaasUserWithGenericAndDbUnit, testInstance = org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasUserWithGenericAndDbUnit@b22326, testMethod = testGenericDao_CRUD@GenericDaoTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@139fdf testClass = TestDaoSaasUserWithGenericAndDbUnit, locations = '{classpath:/serviceSpringConf.xml, classpath:/dataSourceForTestSpringConf.xml}', classes = '{}', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader']]], class dirties context [false], class mode [null], method dirties context [false].
+2014-06-13 18:04:42,393 DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test class: context [[TestContext@e8ae25 testClass = TestDaoSaasUserWithGenericAndDbUnit, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@139fdf testClass = TestDaoSaasUserWithGenericAndDbUnit, locations = '{classpath:/serviceSpringConf.xml, classpath:/dataSourceForTestSpringConf.xml}', classes = '{}', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader']]], dirtiesContext [false].
+2014-06-13 18:04:42,394 INFO Thread-2 org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@181efb9: startup date [Fri Jun 13 18:04:33 CEST 2014]; root of context hierarchy
+2014-06-13 18:04:42,395 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'lifecycleProcessor'
+2014-06-13 18:04:42,395 INFO Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@b6dcf9: defining beans [org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor#0,myEmf,txManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,beanConverter,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,mcqUserSessionManagerImpl,daoMcqOfficialSessionJpa,daoMcqUserSessionJpa,mcqChooserImpl,questionMcqManagerImpl,mcqManagerImpl,daoMcqSubjectJpa,daoQuestionMcqJpa,daoMcqJpa,saasUserGroupManagerImpl,saasOrgManagerImpl,daoSaasUserJpa,daoSaasRoleAccountJpa,daoSaasOrgJpa,daoSaasGroupJpa,myDataSource,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+2014-06-13 18:04:42,395 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'saasOrgManagerImpl': [org.mycontrib.apps.training.saasOrg.impl.domain.service.test.TestServiceSaasOrgManager]
+2014-06-13 18:04:42,395 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'saasUserGroupManagerImpl': [org.mycontrib.apps.training.saasOrg.impl.domain.service.test.TestServiceSaasUserGroupManager]
+2014-06-13 18:04:42,395 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasRoleAccountJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasRoleAccountWithGenericAndDbUnit]
+2014-06-13 18:04:42,395 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasGroupJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasGroupWithGenericAndDbUnit]
+2014-06-13 18:04:42,395 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasOrgJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasOrgWithGenericAndDbUnit]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqManagerImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceMcqManager]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'questionMcqManagerImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceQuestionMcqManager]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoQuestionMcqJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoQuestionMcqWithGenericAndDbUnit]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqChooserImpl': [org.mycontrib.apps.training.mcq.impl.domain.service.test.TestServiceMcqChooser]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqSubjectJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoMcqSubjectWithGenericAndDbUnit]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqOfficialSessionJpa': [org.mycontrib.apps.training.session.impl.persistence.dao.test.TestDaoMcqOfficialSessionWithGenericAndDbUnit]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'mcqUserSessionManagerImpl': [org.mycontrib.apps.training.session.impl.domain.service.test.TestServiceMcqUserSessionManager]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqJpa': [org.mycontrib.apps.training.mcq.impl.persistence.dao.test.TestDaoMcqWithGenericAndDbUnit]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoSaasUserJpa': [org.mycontrib.apps.training.saasOrg.impl.persistence.dao.test.TestDaoSaasUserWithGenericAndDbUnit]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'daoMcqUserSessionJpa': [org.mycontrib.apps.training.session.impl.persistence.dao.test.TestDaoMcqUserSessionWithGenericAndDbUnit]
+2014-06-13 18:04:42,396 DEBUG Thread-2 org.springframework.beans.factory.support.DisposableBeanAdapter - Invoking destroy() on bean with name 'myEmf'
+2014-06-13 18:04:42,396 INFO Thread-2 org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'myPersistenceUnit'
+2014-06-13 18:04:42,396 INFO Thread-2 org.hibernate.impl.SessionFactoryImpl - closing

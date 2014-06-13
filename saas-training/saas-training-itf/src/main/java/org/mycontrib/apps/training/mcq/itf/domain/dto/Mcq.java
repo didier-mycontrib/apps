@@ -22,7 +22,7 @@ public  class Mcq  {
 	@XmlAttribute
 	private Long id;
 	@XmlAttribute
-	private McqType type;//FREE,VALID,CERTIFICATION
+	private McqType mcqType;//FREE,VALID,CERTIFICATION
 	@XmlAttribute
 	private Integer nbQuestions;
 	@XmlAttribute
@@ -37,6 +37,7 @@ public  class Mcq  {
 
 	public Mcq(){
 		super(); 
+		this.mcqType = McqType.FREE; //by default
 	}      
 	public String toString(){
 		return "Mcq("+ "keyWords=" + keyWords+","+ "title=" + title+","+ "id=" + id+","+ "nbQuestions=" + nbQuestions + ",questionRandomSubListSize:"+questionRandomSubListSize 
@@ -94,11 +95,11 @@ public  class Mcq  {
 	public void setOwnerOrgId(Long ownerOrgId) {
 		this.ownerOrgId = ownerOrgId;
 	}
-	public McqType getType() {
-		return type;
+	public McqType getMcqType() {
+		return mcqType;
 	}
-	public void setType(McqType type) {
-		this.type = type;
+	public void setMcqType(McqType type) {
+		this.mcqType = type;
 	}
 	
     

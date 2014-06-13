@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +37,8 @@ public  class _Mcq  {
 	private String title;
 	
 	@Column(name="mcqType")
-	private McqType type;//FREE,VALID,CERTIFICATION
+	@Enumerated(EnumType.STRING)
+	private McqType mcqType;//FREE,VALID,CERTIFICATION
 
     //Start of user code relationship_mCQ_questionList
      @OneToMany(mappedBy="mcq",cascade=CascadeType.REMOVE) //1-n bidirectionnel
@@ -47,11 +50,11 @@ public  class _Mcq  {
     private Long ownerOrgId;
 
 	public _Mcq(){
-		super(); 
+		super(); this.mcqType= McqType.FREE; //by default
 	}      
 	public String toString(){
 		return "Mcq("+ "id=" + id+","+ "keyWords=" + keyWords+","+ "nbQuestions=" + nbQuestions+","+ "title=" + title + ",questionRandomSubListSize:"+questionRandomSubListSize 
-				+ ",shared=" + shared + ",ownerOrgId=" + ownerOrgId+ ")";
+				+ ",shared=" + shared + ",ownerOrgId=" + ownerOrgId+  ",mcqType=" + mcqType+ ")";
 	}
  
 	public java.io.Serializable getPk(){
@@ -107,11 +110,11 @@ public  class _Mcq  {
 	public void setOwnerOrgId(Long ownerOrgId) {
 		this.ownerOrgId = ownerOrgId;
 	}
-	public McqType getType() {
-		return type;
+	public McqType getMcqType() {
+		return mcqType;
 	}
-	public void setType(McqType type) {
-		this.type = type;
+	public void setMcqType(McqType type) {
+		this.mcqType = type;
 	}
     
         

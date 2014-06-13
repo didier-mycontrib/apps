@@ -64,7 +64,7 @@ CREATE TABLE Mcq(
 	shared boolean,
 	ownerOrgId integer,
 	PRIMARY KEY(id));	 
-
+#McqSubject.title modify from 64 to 128 in alter table at the end of this script
 CREATE TABLE McqSubject(
     subjectId integer auto_increment,
 	title VARCHAR(64),
@@ -77,6 +77,7 @@ CREATE TABLE McqSubjectMcq(
 	ref_mcq integer,
 	PRIMARY KEY(ref_subject,ref_mcq));
 
+#QuestionMcq.text modify from 128 to 255 in alter table at the end of this script
 CREATE TABLE QuestionMcq(
 	idQuestion integer auto_increment,
 	text VARCHAR(128),
@@ -85,7 +86,7 @@ CREATE TABLE QuestionMcq(
 	questionNumber integer,
 	ref_mcq integer,
 	PRIMARY KEY(idQuestion));	
-	
+#ResponseMcq.text modify from 128 to 255 in alter table at the end of this script	
 CREATE TABLE ResponseMcq(
 	idQuestion integer,
 	responseNum VARCHAR(1),
@@ -179,6 +180,9 @@ FOREIGN KEY (mcqUserSessionId) REFERENCES McqUserSession(mcqUserSessionId);
 #### delta V2, V3, ...
 
 ALTER TABLE Mcq ADD COLUMN mcqType VARCHAR(24) default 'FREE'; # delta v2
+ALTER TABLE QuestionMcq modify text VARCHAR(255) ; # delta v2 (from 128 to 255)
+ALTER TABLE ResponseMcq modify text VARCHAR(255) ; # delta v2 (from 128 to 255)
+ALTER TABLE McqSubject modify title VARCHAR(128) ; # delta v2 (from 64 to 128)
 
 ##############
 show tables;

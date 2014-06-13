@@ -30,8 +30,8 @@
      
      
 <McqSubject subjectId="1" title='sujet_1' shared="false" ownerOrgId="1" />
-<Mcq id="1" title="qcm1" nbQuestions="2" shared="true" ownerOrgId="1" keyWords="java;jee" />
-<Mcq id="2" title="qcm2" nbQuestions="1" shared="false" ownerOrgId="1"  keyWords="xml" />
+<Mcq id="1" title="qcm1" nbQuestions="2" shared="true" ownerOrgId="1" keyWords="java;jee" mcqType="FREE" />
+<Mcq id="2" title="qcm2" nbQuestions="1" shared="false" ownerOrgId="1"  keyWords="xml" mcqType="FREE" />
 <McqSubjectMcq ref_subject="1"   ref_mcq="1"/>
 <McqSubjectMcq ref_subject="1"   ref_mcq="2"/>
 

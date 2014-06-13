@@ -32,7 +32,7 @@ Question <h:outputText value="#{mcqBuild.currentQuestionIndex + 1}" /> / <h:outp
     </script>   
 	<h:form id="mcq" >
 	    <h:inputHidden id="inputHiddenQuestionUpdated" value="#{mcqBuild.questionUpdated}" />
-	    <b>Question: </b>  <h:inputText value="#{mcqBuild.currentQuestion.text}" size="64"  onkeypress="setUpdated()" />
+	    <b>Question: </b>  <h:inputTextarea value="#{mcqBuild.currentQuestion.text}" cols="68" rows="1"  onkeypress="setUpdated()" />
 	    <hr/>
 	    <u>Réponses:</u>  (en mode : exclusif <h:selectBooleanCheckbox value="#{mcqBuild.currentQuestion.exclusiveResponse}"
 	    id="checkboxEclusiveMode" onchange="setUpdated();switchExclusiveMode()">
@@ -43,26 +43,29 @@ Question <h:outputText value="#{mcqBuild.currentQuestionIndex + 1}" /> / <h:outp
 	    value="#{mcqBuild.oneLineSpeudoList}" var="l"  >
 		    <h:column >
 			    <h:selectOneRadio id="selectOneRadioExclusive" styleClass="#{mcqBuild.exclusiveCssClass}" layout="pageDirection"
-			            value="#{mcqBuild.exclusiseResponseNum}"  onchange="setUpdated()" >	               
+			            value="#{mcqBuild.exclusiseResponseNum}"  onchange="setUpdated()"   >	               
 			         <f:selectItems value="#{mcqBuild.exclusiveResponseNumList}" 
-			         var="rn" itemLabel="#{rn}" itemValue="#{rn}"/>
+			         var="rn" itemLabel=" #{rn} " itemValue="#{rn}"/>
 			    </h:selectOneRadio>
+			   
 			    <!-- or if non exlusive -->
 			    <h:dataTable  id="dataTableNonEclusive" styleClass="#{mcqBuild.nonExclusiveCssClass}" 
-	    						value="#{mcqBuild.currentQuestion.responseList}" var="r" >
+	    						value="#{mcqBuild.currentQuestion.responseList}" var="r" 
+	    						rowClasses="rowWithFixedHeight">
 			         <h:column>
-			              <h:outputText value="#{r.responseNum}" />
+			              <h:outputText value="#{r.responseNum}" style="font-size:18pt;" />
 			         </h:column> 
 			         <h:column>
 			              <h:selectBooleanCheckbox id="selectOK" value="#{r.ok}" onchange="setUpdated()"  />
 			         </h:column>	         
-	    		</h:dataTable> 
+	    		</h:dataTable>
+	    	
 		   </h:column>
 		    <h:column>
-			    <h:dataTable id="dataTableResponsesExclusive"  
+			    <h:dataTable id="dataTableResponsesExclusive"  rowClasses="rowWithFixedHeight"
 			    value="#{mcqBuild.currentQuestion.responseList}" var="r" >
 			          <h:column>
-			              <h:inputText value="#{r.text}" size="72" onkeypress="setUpdated()"/>
+			              <h:inputTextarea value="#{r.text}" cols="72" rows="1" onkeypress="setUpdated()"/>
 			         </h:column>	         
 			    </h:dataTable>
 		    </h:column>

@@ -1,6 +1,6 @@
    <dataset>  
 
-    <Mcq  title="nouveau qcm" nbQuestions="0"  shared="false" ownerOrgId="1" keyWords="key1;key2" />
+    <Mcq  title="nouveau qcm" nbQuestions="0"  shared="false" ownerOrgId="1" keyWords="key1;key2" mcqType="FREE" />
     
     
    </dataset>  
