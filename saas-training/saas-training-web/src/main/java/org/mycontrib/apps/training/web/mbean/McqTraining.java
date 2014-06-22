@@ -156,15 +156,19 @@ public class McqTraining extends McqAbstractMBean {
 	public String completeMcq(){
 		String suite=null;
 		//System.out.println("completeMcq");
-		this.mcqUserSession = serviceMcqUserSessionManager.computeMcqScore(mcqId, mapNumQuestionChoice);//version non persitante
-		if(this.getSaasMBean()!=null){
-			//no direct anonymous access to mcq , currentSaasRoleAccount exist
-			SaasRoleAccount currentSaasRoleAccount  = getSaasMBean().getValidSaasRoleAccount();
-			if(currentSaasRoleAccount!=null && !currentSaasRoleAccount.isGeneric()){	
-				//rendre persistant si user connecté avec un compte specific (non générique)
-				Long userId=serviceSaasUserGroupManager.findSaasUserBySpecificRoleAccountId(currentSaasRoleAccount.getIdAccount()).getUserId();
-				serviceMcqUserSessionManager.storeNewComputedMcqUserSession(mcqUserSession,mcqId,userId);
+		this.mcqUserSession = serviceMcqUserSessionManager.computeMcqScore(mcqId, mapNumQuestionChoice);//version non persitante		
+		try {
+			if(this.getSaasMBean()!=null){	
+				SaasRoleAccount currentSaasRoleAccount  = getSaasMBean().getValidSaasRoleAccount();
+				if(currentSaasRoleAccount!=null && !currentSaasRoleAccount.isGeneric()){	
+					//rendre persistant si user connecté avec un compte specific (non générique)
+					Long userId=serviceSaasUserGroupManager.findSaasUserBySpecificRoleAccountId(currentSaasRoleAccount.getIdAccount()).getUserId();
+					serviceMcqUserSessionManager.storeNewComputedMcqUserSession(mcqUserSession,mcqId,userId);
+				}
 			}
+		} catch (Exception e) {
+			//si exception , celle ci doit être non bloquante ---> afficher tout de même les résultats
+			System.err.println("echec persistance score qcm: " +e.getMessage());
 		}
 		initListOfResponseDetails();
 		return suite;

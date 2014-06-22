@@ -18,7 +18,7 @@ public  class SaasRoleAccount  {
 	
 
 	public SaasRoleAccount(){
-		super(); 
+		super(); this.generic = Boolean.TRUE; //by default (not null by default)
 	}      
 	public String toString(){
 		return "SaasRoleAccount("+ "email=" + email+","+ "saasRole=" + saasRole+","+ "password=" + password+","+ "userName=" + userName+","+ "idAccount=" + idAccount + ",generic=" + generic+ ")";
