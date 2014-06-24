@@ -79,7 +79,10 @@ public class SaasUserGroupManagerImpl implements SaasUserGroupManager {
 			SaasGroup g = new SaasGroup();
 			g.setName(name);g.setInfo(info);
 			groupId= genericInternalServiceGroup.persistIdNewEntityFromDto(g);
-			//a faire : ajouter/attacher dans liste de groupes de SaasOrg
+			//ajouter/attacher le nouveau groupe dans liste de groupes de SaasOrg:
+			_SaasGroup persistentGroup = saasGroupDao.getEntityById(groupId);
+			_SaasOrg persistentOrg = saasOrgDao.getEntityById(orgId);
+			persistentOrg.getOrgGroupList().add(persistentGroup);
 		} catch (Exception e) {
 			throw new GenericException("echec addSaasGroup",e);
 		}
@@ -112,7 +115,8 @@ public class SaasUserGroupManagerImpl implements SaasUserGroupManager {
 	public Long addSaasUser(Long groupId, SaasUser newUser)
 			throws GenericException {
 		Long userId= null;
-		try {
+		try {			
+			//System.out.println("newUser.getSaasAccount().isGeneric() in addSaasUser :" + newUser.getSaasAccount().getGeneric());
 			userId= genericInternalServiceUser.persistIdNewEntityFromDto(newUser);
 			//ajouter/attacher dans liste de users de SaasGroup:
 			_SaasGroup saasGroup = saasGroupDao.getEntityById(groupId);

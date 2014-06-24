@@ -61,7 +61,7 @@ public  class SaasRoleAccount  {
 	public void setSaasOrg(SaasOrg saasOrg){
 		this.saasOrg=saasOrg;
 	}
-	public Boolean isGeneric() {
+	public Boolean getGeneric() {
 		return generic;
 	}
 	public void setGeneric(Boolean generic) {

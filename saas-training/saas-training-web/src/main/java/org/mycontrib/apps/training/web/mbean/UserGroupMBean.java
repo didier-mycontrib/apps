@@ -173,7 +173,7 @@ public class UserGroupMBean {
 	}
 	
 	public void onAddGroup(ActionEvent event){
-		System.out.println("adding newGroup , newGroupName=" + newGroupName);
+		System.out.println("adding newGroup , newGroupName=" + newGroupName + ",orgId="+orgId);
 	
 		if(newGroupName!=null && newGroupName.length()>0){
 			//+ ajout en base
@@ -224,7 +224,7 @@ public class UserGroupMBean {
 	
 	
 	public void onAddNewUser(ActionEvent event){
-		System.out.println("onAddNewUser with user=" + user);
+		//System.out.println("onAddNewUser with user=" + user);
 		try {
 			if(this.user!=null  && this.user.getUserId() == 0L){
 			   //adding of new user:
@@ -236,12 +236,13 @@ public class UserGroupMBean {
 				BeanUtils.copyProperties(this.user, newUser);
 				BeanUtils.copyProperties(this.user.getSaasAccount(), newUser.getSaasAccount());*/
 				newUser.setUserId(null);//for new insertion / auto_incrementation
+				newUser.getSaasAccount().setGeneric(false);
 				newUser.getSaasAccount().setSaasRole(this.saasRole);
 				
 				this.userId=serviceSaasUserGroupManager.addSaasUser(groupId, newUser);
 				this.user=serviceSaasUserGroupManager.getSaasUserById(userId);
 				
-				System.out.println("in onAddNewUser : newUserId="+this.userId);
+				//System.out.println("in onAddNewUser : newUserId="+this.userId);
 				initSpeudoUser();//reinit for next add
 				//reactualisation valeurs au sein de la liste:
 				if(this.groupId!=null){

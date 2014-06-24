@@ -160,7 +160,7 @@ public class McqTraining extends McqAbstractMBean {
 		try {
 			if(this.getSaasMBean()!=null){	
 				SaasRoleAccount currentSaasRoleAccount  = getSaasMBean().getValidSaasRoleAccount();
-				if(currentSaasRoleAccount!=null && !currentSaasRoleAccount.isGeneric()){	
+				if(currentSaasRoleAccount!=null && !currentSaasRoleAccount.getGeneric()){	
 					//rendre persistant si user connecté avec un compte specific (non générique)
 					Long userId=serviceSaasUserGroupManager.findSaasUserBySpecificRoleAccountId(currentSaasRoleAccount.getIdAccount()).getUserId();
 					serviceMcqUserSessionManager.storeNewComputedMcqUserSession(mcqUserSession,mcqId,userId);

@@ -78,6 +78,7 @@ public  class _SaasRoleAccount  {
 	public void setGeneric(Boolean generic) {
 		this.generic = generic;
 	}
+	
 
         
 } 
